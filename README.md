@@ -33,7 +33,12 @@ Fetch dependencies:
 
     ./resolve-dependencies.sh
 
-Build HTML5-app:
+Build/run HTML5-app:
   
-    cd jamodegwt
+    cd gwt
     ant devmode
+
+Build/run applet-application
+
+    cd applet
+    mvn compile exec:java
