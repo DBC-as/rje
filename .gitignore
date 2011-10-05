@@ -1,8 +1,8 @@
 depend
-jamodegwt/Jamode.war
-jamodegwt/gwt-unitCache/
-jamodegwt/war/WEB-INF/classes/
-jamodegwt/war/WEB-INF/deploy/
-jamodegwt/war/WEB-INF/lib/
-jamodegwt/war/webapp/
+gwt/Jamode.war
+gwt/gwt-unitCache/
+gwt/war/WEB-INF/classes/
+gwt/war/WEB-INF/deploy/
+gwt/war/WEB-INF/lib/
+gwt/war/webapp/
 
