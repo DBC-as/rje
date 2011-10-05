@@ -2,7 +2,7 @@ package dk.dbc.jamodeapplet;
 import java.applet.Applet;  
 import java.awt.Graphics;
 import java.awt.Frame;
-//import dk.dbc.jamode.*;
+import dk.dbc.jamode.*;
 
 public class JamodeApplet extends Applet {
   public JamodeApplet() {
@@ -16,7 +16,7 @@ public class JamodeApplet extends Applet {
     ja.init();
   }
   public void paint(Graphics g) {
- //   g.drawString(JamodeFactory.hello(), 10, 10);
+    g.drawString(JamodeFactory.hello(), 10, 10);
     System.out.println(g.getClipBounds());
   }
 } 
