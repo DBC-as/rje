@@ -1,1 +1,8 @@
-gwt-2.4.0/
+depend
+jamodegwt/Jamode.war
+jamodegwt/gwt-unitCache/
+jamodegwt/war/WEB-INF/classes/
+jamodegwt/war/WEB-INF/deploy/
+jamodegwt/war/WEB-INF/lib/
+jamodegwt/war/webapp/
+
