@@ -1,0 +1,8 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dk.dbc</groupId>
+  <artifactId>jamodeapplet</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Jamode Applet/application</name>
+  <packaging>jar</packaging>
+</project>
