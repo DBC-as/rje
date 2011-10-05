@@ -7,16 +7,31 @@ Experimental prototype for mobile develpment infrastructure for DBC
 Portable layer on top of Java to target different mobile devices:
 
 - HTML5 compliant devices (recent android, iphone, palm, ...) via GWT
+- Non-HTML5-browsers via applet(+application)
 - Android abstracted API
+- Low end phones applets via MIDP
 - iOS via xmlvm (relatively slow)
-- Low end phones + browser applets via MIDP & microemu
 
+API abstraction:
+
+- Fullscreen canvas, with text and graphics
+- Touch and keys as input methods. Capability querying.
+- resize/rotate-event
+- HTTP networking
+- Basic JSON 
+- (Basic JavaScript-like scripting)
+- (Basic XML+HTML)
+
+## Task list
+
+- Get build-environment up and running for all platforms
+- implement basic version of each of the API abstractions on all platforms.
 
 ## Building:
 
 Fetch dependencies:
 
-    ./resolve-depencenies.sh
+    ./resolve-dependencies.sh
 
 Build HTML5-app:
   
