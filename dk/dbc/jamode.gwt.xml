@@ -1,0 +1,6 @@
+<module rename-to="webapp">
+	<inherits name="com.google.gwt.user.User"/>
+    <source path="jamodegwt" />
+    <source path="jamode" />
+	<entry-point class="dk.dbc.jamodegwt.JamodeGWT"/>
+</module>

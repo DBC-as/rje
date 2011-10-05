@@ -48,7 +48,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-      <arg value="dk.dbc.jamode.jamode"/>
+      <arg value="dk.dbc.jamode"/>
     </java>
   </target>
 
@@ -67,7 +67,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-      <arg value="dk.dbc.jamode.jamode"/>
+      <arg value="dk.dbc.jamode"/>
     </java>
   </target>
 
@@ -78,7 +78,7 @@
       </classpath>
       <arg value="-XonlyEclipse"/>
       <arg value="-ignore"/>
-      <arg value="dk.dbc.jamode.jamode"/>
+      <arg value="dk.dbc.jamode"/>
     </java>
   </target>
 
