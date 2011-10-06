@@ -1,5 +1,6 @@
 Classes and functions available on all platforms
 ================================================
+This list is intersection between GWT and MIDP2, which is the lowest common denominator.
 
 - `java.lang.ArithmeticException`: ArithmeticException(String), ArithmeticException()
 - `java.lang.ArrayIndexOutOfBoundsException`: ArrayIndexOutOfBoundsException(), ArrayIndexOutOfBoundsException(int), ArrayIndexOutOfBoundsException(String)
