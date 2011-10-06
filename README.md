@@ -9,8 +9,8 @@ Portable layer on top of Java to target different mobile devices:
 - HTML5 compliant devices (recent android, iphone, palm, ...) via GWT
 - Non-HTML5-browsers via applet(+application)
 - Android abstracted API
-- Low end phones applets via MIDP
-- (iOS via xmlvm (first version === android))
+- Low end phones midlet via MIDP (only microemu in beginning)
+- (iOS via xmlvm (can be generated from android source, native api perhaps later))
 
 API abstraction:
 
@@ -19,6 +19,7 @@ API abstraction:
 - resize/rotate-event
 - HTTP(S) networking
 - Basic JSON(+jsonp)
+- simple storage
 - (Basic (JavaScript-like) scripting)
 - (Basic XML+HTML)
 
@@ -33,20 +34,26 @@ API abstraction:
 
     ./resolve-dependencies.sh
 
-then download and install WTK
-
 ### Build/run HTML5-app
   
     cd gwt
     ant devmode
 
-### Build/run applet-application
+### Build/run application/applet
 
     cd applet
     mvn compile exec:java
 
 ### Build/run android-application
+
 First start emulator / connect device with adb, and then
 
-    cd 
+    cd android
     mvn compile exec:java
+
+### Build/run microemu-version
+
+    cd midlet
+    ./run.sh
+
+just runs emulator, needs other compilation for actual device
