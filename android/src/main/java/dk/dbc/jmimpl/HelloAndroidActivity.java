@@ -1,4 +1,4 @@
-package dk.dbc;
+package dk.dbc.jmimpl;
 
 import android.app.Activity;
 import android.os.Bundle;

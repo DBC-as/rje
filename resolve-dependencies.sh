@@ -1,3 +1,13 @@
-[-d depend] || mkdir depend || exit
-cd depend || exit
-[-d gwt-2.4.0] || wget http://google-web-toolkit.googlecode.com/files/gwt-2.4.0.zip && unzip gwt-2.4.0.zip && rm -f gwt-2.4.0.zip || exit
+mkdir depend &&
+cd depend &&
+wget http://google-web-toolkit.googlecode.com/files/gwt-2.4.0.zip &&
+unzip gwt-2.4.0.zip && 
+rm -f gwt-2.4.0.zip &&
+wget http://dl.google.com/android/android-sdk_r13-linux_x86.tgz &&
+tar xzvf android-sdk_r13-linux_x86.tgz &&
+rm android-sdk_r13-linux_x86.tgz &&
+svn co https://xmlvm.svn.sourceforge.net/svnroot/xmlvm/trunk/xmlvm &&
+cd xmlvm &&
+ant &&
+cd .. &&
+exit
