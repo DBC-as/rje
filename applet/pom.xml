@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.dbc</groupId>
-  <artifactId>jamodeapplet</artifactId>
+  <artifactId>JmApplet</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Jamode Applet/application</name>
   <packaging>jar</packaging>
@@ -19,7 +19,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>dk.dbc.jamodeapplet.JamodeApplet</mainClass>
+          <mainClass>dk.dbc.jmimpl.JmImpl</mainClass>
         </configuration>
       </plugin>
     </plugins>
