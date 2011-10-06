@@ -48,7 +48,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-      <arg value="dk.dbc.jamode"/>
+      <arg value="dk.dbc.jm"/>
     </java>
   </target>
 
@@ -67,7 +67,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-      <arg value="dk.dbc.jamode"/>
+      <arg value="dk.dbc.jm"/>
     </java>
   </target>
 
@@ -78,14 +78,14 @@
       </classpath>
       <arg value="-XonlyEclipse"/>
       <arg value="-ignore"/>
-      <arg value="dk.dbc.jamode"/>
+      <arg value="dk.dbc.jm"/>
     </java>
   </target>
 
   <target name="build" depends="gwtc" description="Build this project" />
 
   <target name="war" depends="build" description="Create a war file">
-    <zip destfile="Jamode.war" basedir="war"/>
+    <zip destfile="WebApp.war" basedir="war"/>
   </target>
 
   <target name="clean" description="Cleans this project">
