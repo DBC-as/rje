@@ -6,10 +6,11 @@ rm -f gwt-2.4.0.zip &&
 wget http://dl.google.com/android/android-sdk_r13-linux_x86.tgz &&
 tar xzvf android-sdk_r13-linux_x86.tgz &&
 rm android-sdk_r13-linux_x86.tgz &&
-./android-sdk-linux_x86/tools/android update sdk &&
+wget http://microemu.googlecode.com/files/microemulator-2.0.4.zip &&
+unzip microemulator-2.0.4.zip
 svn co https://xmlvm.svn.sourceforge.net/svnroot/xmlvm/trunk/xmlvm &&
 cd xmlvm &&
 ant &&
 cd .. &&
-echo dependency resolution done &&
+./android-sdk-linux_x86/tools/android update sdk &&
 exit

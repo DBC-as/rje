@@ -10,16 +10,16 @@ Portable layer on top of Java to target different mobile devices:
 - Non-HTML5-browsers via applet(+application)
 - Android abstracted API
 - Low end phones applets via MIDP
-- iOS via xmlvm (relatively slow)
+- (iOS via xmlvm (first version === android))
 
 API abstraction:
 
 - Fullscreen canvas, with text and graphics
 - Touch and keys as input methods. Capability querying.
 - resize/rotate-event
-- HTTP networking
-- Basic JSON 
-- (Basic JavaScript-like scripting)
+- HTTP(S) networking
+- Basic JSON(+jsonp)
+- (Basic (JavaScript-like) scripting)
 - (Basic XML+HTML)
 
 ## Task list
@@ -29,16 +29,24 @@ API abstraction:
 
 ## Building:
 
-Fetch dependencies:
+### Fetch dependencies
 
     ./resolve-dependencies.sh
 
-Build/run HTML5-app:
+then download and install WTK
+
+### Build/run HTML5-app
   
     cd gwt
     ant devmode
 
-Build/run applet-application
+### Build/run applet-application
 
     cd applet
+    mvn compile exec:java
+
+### Build/run android-application
+First start emulator / connect device with adb, and then
+
+    cd 
     mvn compile exec:java
