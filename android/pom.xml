@@ -29,6 +29,7 @@
           <resourceDirectory>${project.basedir}/res</resourceDirectory>
           <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
           <sdk>
+            <path>../depend/android-sdk-linux_x86</path>
             <platform>7</platform>
           </sdk>
           <deleteConflictingFiles>true</deleteConflictingFiles>
