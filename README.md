@@ -1,6 +1,6 @@
-# Java Mobile Development Platform abstraction
+# Java Mobile Development Platform Abstraction
 
-Experimental prototype for mobile develpment infrastructure for DBC
+Experimental prototype for mobile development infrastructure for DBC
 
 ## Goal: 
 
