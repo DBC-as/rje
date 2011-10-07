@@ -1,0 +1,9 @@
+cd android
+mvn clean
+cd ../gwt
+ant clean
+cd ../java
+mvn clean
+cd ../midlet
+mvn clean
+cd ..
