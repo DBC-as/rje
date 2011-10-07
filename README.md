@@ -42,7 +42,7 @@ API abstraction:
 
 ### Build/run application/applet
 
-    cd applet
+    cd java
     mvn compile exec:java
 
 ### Build/run android-application

@@ -1,8 +1,10 @@
 package dk.dbc.jmimpl;
 import java.applet.Applet;  
 import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.Frame;
 import dk.dbc.jm.*;
+
 
 /**
  * Pure-java version of platform specific parts of the Jm mobile platform abstraction.
@@ -26,6 +28,7 @@ public class JmImpl extends Applet {
    * Not available on all platforms, part of pure-java implementation, please ignore.
    */
   private Jm jm;
+
   public void init() {
     jm = new Jm(this);
     jm.init();
@@ -44,9 +47,10 @@ public class JmImpl extends Applet {
     ji.init();
     ji.start();
   }
+
   public void paint(Graphics g) {
-    g.drawString("Hello", 10, 10);
-    System.out.println(g.getClipBounds());
+    g.setColor(new Color(0xff0000));
+    g.fillRect(0,0,getWidth(), getHeight());
   }
 } 
 
