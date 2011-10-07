@@ -20,6 +20,7 @@ API abstraction:
 - HTTP(S) networking
 - Basic JSON(+jsonp)
 - simple storage
+- read/load resource
 - (Basic (JavaScript-like) scripting)
 - (Basic XML+HTML)
 
@@ -46,14 +47,12 @@ API abstraction:
 
 ### Build/run android-application
 
-First start emulator / connect device with adb, and then
-
+    ./depend/android-sdk-linux_x86/tools/android
+    xterm -e ./depend/android-sdk-linux_x86/platform-tools/adb logcat
     cd android
-    mvn compile exec:java
+    mvn install android:deploy
 
 ### Build/run microemu-version
 
     cd midlet
     ./run.sh
-
-just runs emulator, needs other compilation for actual device
