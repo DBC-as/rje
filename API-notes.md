@@ -1,7 +1,7 @@
 # Next to implement
 
     JmGraphics {
-        setColor(int r, int g, int b);
+        setColor(int rgb);
         fillRect(int x, int y, int width, int height);
         fillText(String text, int x, int y);
         int textWidth(String s);
