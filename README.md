@@ -47,8 +47,8 @@ API abstraction:
 
 ### Build/run android-application
 
-    ./depend/android-sdk-linux_x86/tools/android
-    xterm -e ./depend/android-sdk-linux_x86/platform-tools/adb logcat
+    ./depend/android-sdk-linux_x86/tools/android &
+    xterm -e ./depend/android-sdk-linux_x86/platform-tools/adb logcat &
     cd android
     mvn install android:deploy
 

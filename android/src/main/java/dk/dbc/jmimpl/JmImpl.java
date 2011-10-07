@@ -4,10 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
-import android.view.View;
-import android.content.Context;
-import android.graphics.Canvas;
-
 
 public class JmImpl extends Activity {
   /**
@@ -26,29 +22,16 @@ public class JmImpl extends Activity {
    */
   private Jm jm;
 
-  class JmView extends View {
-        public JmView(Context context) {
-            super(context);
-            setFocusableInTouchMode(true);
-        }
-        @Override
-        protected void onDraw (Canvas canvas) {
-            log(canvas.toString());
-            log("" + canvas.getWidth());
-            log("" + canvas.getHeight());
-            canvas.drawARGB(255,255,0,0);
-        }
-  }
-  JmView view;
+  JmScreen screen;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     requestWindowFeature(Window.FEATURE_NO_TITLE);
-    view = new JmView(this);
-    setContentView(view);
-    view.requestFocus();
+    screen = new JmScreen(this);
+    setContentView(screen);
+    screen.requestFocus();
 
     jm = new Jm(this);
     jm.init();
