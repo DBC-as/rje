@@ -33,7 +33,9 @@ API abstraction:
 
 ### Fetch dependencies
 
-    ./resolve-dependencies.sh
+    ./fetch-dependencies.sh
+
+Takes a while...
 
 ### Build/run HTML5-app
   
