@@ -14,7 +14,7 @@ class JmScreenGraphics extends JmGraphics{
         $wnd.Jm2d = JmCanvas.getContext("2d");
         JmCanvas.width = $wnd.innerWidth;
         JmCanvas.height = $wnd.innerHeight;
-        $wnd.Jm2d.font = "14px Helvetica";
+        $wnd.Jm2d.font = "14px Droid Sans";
 
     }-*/;
 

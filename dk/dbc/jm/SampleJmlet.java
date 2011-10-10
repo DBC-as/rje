@@ -16,9 +16,9 @@ public class SampleJmlet implements Jmlet {
     public void paint(JmGraphics g) {
         String txt = "Hello world";
         Jm.log("paint...");
-        g.setColor(0x00ff00);
+        g.setColor(0xddffdd);
         g.fillRect(0,0,g.getWidth(),g.getHeight());
-        g.setColor(0x0000ff);
+        g.setColor(0xddddff);
         g.fillRect(100,100,g.textWidth(txt),g.textHeight());
         g.setColor(0x000000);
         g.drawString("Hello world", 100, 100);
