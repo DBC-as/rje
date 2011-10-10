@@ -28,12 +28,13 @@ public class JmImpl extends Activity {
     super.onCreate(savedInstanceState);
 
     requestWindowFeature(Window.FEATURE_NO_TITLE);
-    screen = new JmScreen(this);
-    setContentView(screen);
-    screen.requestFocus();
 
     jmlet = Jm.getJmlet(this);
+    screen = new JmScreen(this, jmlet);
     jmlet.init();
+
+    setContentView(screen);
+    screen.requestFocus();
   }
 
   @Override
