@@ -17,7 +17,7 @@
         key(int keyEvent);
     }
 
-    JmImpl {
+    Jm {
         static setJmlet(Jmlet);
         static log(String);
     }

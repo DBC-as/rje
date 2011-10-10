@@ -15,14 +15,13 @@ public class JmImpl extends Activity {
   /**
    * Not available on all platforms, part of pure-java implementation, please ignore.
    */
-  public JmImpl() {
-  }
+  /*public JmImpl() {
+  }*/
   /**
    * Not available on all platforms, part of pure-java implementation, please ignore.
    */
-  private Jm jm;
-
   JmScreen screen;
+  Jmlet jmlet;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -33,20 +32,20 @@ public class JmImpl extends Activity {
     setContentView(screen);
     screen.requestFocus();
 
-    jm = new Jm(this);
-    jm.init();
+    jmlet = Jm.getJmlet(this);
+    jmlet.init();
   }
 
   @Override
   public void onResume() {
     super.onResume();
-    jm.start();
+    jmlet.start();
   }  
 
   @Override
   public void onPause() {
     super.onPause();
-    jm.stop();
+    jmlet.stop();
   }
 }
 

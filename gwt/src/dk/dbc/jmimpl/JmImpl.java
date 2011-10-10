@@ -3,13 +3,13 @@ import dk.dbc.jm.*;
 import com.google.gwt.core.client.EntryPoint;
 
 public class JmImpl implements EntryPoint {
-  Jm jm;
   JmScreen screen;
+  Jmlet jmlet;
   public void onModuleLoad() {
-    jm = new Jm(this);
     screen = new JmScreen();
     screen.paint();
-    jm.init(); jm.start();
+    jmlet = Jm.getJmlet(this);
+    jmlet.init(); jmlet.start();
   }
   public native void log(String s) /*-{
     console.log(s);

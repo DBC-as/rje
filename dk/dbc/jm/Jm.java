@@ -1,17 +1,17 @@
 package dk.dbc.jm;
 import dk.dbc.jmimpl.JmImpl;
 public class Jm {
-    JmImpl impl;
-    public Jm(JmImpl impl) {
-        this.impl = impl;
+    static Jmlet jmlet;
+    static JmImpl impl;
+
+    public static Jmlet getJmlet(JmImpl impl) {
+        Jm.impl = impl;
+        jmlet = new SampleJmlet();
+        return jmlet;
     }
-    public void init() {
-        impl.log("init...");
-    }
-    public void start() {
-        impl.log("start...");
-    }
-    public void stop() {
-        impl.log("stop...");
+    public static void log(String s) {
+        if(impl != null) {
+            impl.log(s);
+        }
     }
 }

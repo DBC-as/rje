@@ -17,27 +17,27 @@ class JmScreen extends Canvas {
 }
 
 public class JmImpl extends MIDlet {
-    private Jm jm;
     boolean initialised = false;
     JmScreen screen;
 
     public void log(String s) {
         System.out.println(s);
     }
+    Jmlet jmlet;
 
     public void startApp() throws MIDletStateChangeException {
         if(!initialised) {
-            jm = new Jm(this);
+            jmlet = Jm.getJmlet(this);
             screen = new JmScreen();
-            jm.init();
+            jmlet.init();
         }
         Display.getDisplay(this).setCurrent(screen);
         screen.setFullScreenMode(true);
-        jm.start();
+        jmlet.start();
     }
 
     public void pauseApp() {
-        jm.stop();
+        jmlet.stop();
     }
 
     public void destroyApp(boolean unconditional) throws MIDletStateChangeException {

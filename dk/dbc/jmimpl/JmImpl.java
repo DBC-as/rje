@@ -22,22 +22,22 @@ public class JmImpl extends Applet {
   /**
    * Not available on all platforms, part of pure-java implementation, please ignore.
    */
-  public JmImpl() {
-  }
+  /*public JmImpl() {
+    Jm.setImpl(this);
+  }*/
   /**
    * Not available on all platforms, part of pure-java implementation, please ignore.
    */
-  private Jm jm;
-
+  Jmlet jmlet;
   public void init() {
-    jm = new Jm(this);
-    jm.init();
+    jmlet = Jm.getJmlet(this);
+    jmlet.init();
   }
   public void start() {
-    jm.start();
+    jmlet.start();
   }
   public void stop() {
-    jm.stop();
+    jmlet.stop();
   }
 
   public static void main(String args[]) {
