@@ -12,17 +12,14 @@ class JmScreenGraphics extends JmGraphics {
     void setGraphics(Graphics g) {
         this.g = g;
     }
-    public JmGraphics setColor(int rgb) {
+    public void setColor(int rgb) {
         g.setColor(new Color(rgb));
-        return this;
     }
-    public JmGraphics fillRect(int x, int y, int width, int height) {
+    public void fillRect(int x, int y, int width, int height) {
         g.fillRect(x,y,width,height);
-        return this;
     }
-    public JmGraphics drawString(String text, int x, int y) {
+    public void drawString(String text, int x, int y) {
         g.drawString(text,x,y);
-        return this;
     }
     public int textWidth(String s) {
         return g.getFontMetrics().stringWidth(s);

@@ -14,11 +14,14 @@ public class SampleJmlet implements Jmlet {
         Jm.log("stop...");
     }
     public void paint(JmGraphics g) {
+        String txt = "Hello world";
         Jm.log("paint...");
-        g.setColor(0x00ff00)
-         .fillRect(0,0,g.getWidth(),g.getHeight())
-         .setColor(0x000000)
-         .drawString("Hello world", 100, 100);
+        g.setColor(0x00ff00);
+        g.fillRect(0,0,g.getWidth(),g.getHeight());
+        g.setColor(0x0000ff);
+        g.fillRect(100,100,g.textWidth(txt),g.textHeight());
+        g.setColor(0x000000);
+        g.drawString("Hello world", 100, 100);
     }
     public void touch(int x, int y, int eventType) {
         Jm.log("touch...");
