@@ -1,26 +1,37 @@
 # Next to implement
 
-    JmGraphics {
-        setColor(int rgb);
-        fillRect(int x, int y, int width, int height);
-        fillText(String text, int x, int y);
-        int textWidth(String s);
-        int textHeight();
-    }
+    JmImage {
+        // Canvas on html
+        // int[] on midp
+        // Bitmap on android
+        // BufferedImage on Java
 
+        static JmImage createRGBImage(int width, int height, boolean processAlpha) 
+        int[] getARGB();
+        void flush();
+        void flush(x0, y0, width, height);
+        int getWidth();
+        int getHeight();
+        boolean hasAlpha();
+    }
+    JmCanvas {
+        JmCanvas(width, height);
+        JmGraphics getGraphics();
+        JmImage toImage();
+    }
+    JmGraphics {
+        drawImage(JmImage, x, y);
+        drawImage(JmImage, x, y, width, height);
+    }
     Jmlet {
-        init();
-        start();
-        stop();
-        draw(JmGraphics g);
         touch(int x, int y, int eventType);
         key(int keyEvent);
     }
-
     Jm {
-        static setJmlet(Jmlet);
-        static log(String);
     }
+    [... http/input streams etc. notes:
+    http://code.google.com/p/google-web-toolkit/source/browse/trunk/user/super/com/google/gwt/emul/Emulation.gwt.xml]
+
 
 # Notes
 
