@@ -13,8 +13,12 @@ public class SampleJmlet implements Jmlet {
     public void stop() {
         Jm.log("stop...");
     }
-    public void draw(JmGraphics g) {
-        Jm.log("draw...");
+    public void paint(JmGraphics g) {
+        Jm.log("paint...");
+        g.setColor(0x00ff00)
+         .fillRect(0,0,g.getWidth(),g.getHeight())
+         .setColor(0x000000)
+         .drawString("Hello world", 100, 100);
     }
     public void touch(int x, int y, int eventType) {
         Jm.log("touch...");

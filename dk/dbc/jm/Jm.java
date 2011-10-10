@@ -3,10 +3,11 @@ import dk.dbc.jmimpl.JmImpl;
 public class Jm {
     static Jmlet jmlet;
     static JmImpl impl;
-
     public static Jmlet getJmlet(JmImpl impl) {
         Jm.impl = impl;
-        jmlet = new SampleJmlet();
+        if(jmlet == null) {
+            jmlet = new SampleJmlet();
+        }
         return jmlet;
     }
     public static void log(String s) {

@@ -4,7 +4,7 @@ public interface Jmlet {
     public void init();
     public void start();
     public void stop();
-    public void draw(JmGraphics g);
+    public void paint(JmGraphics g);
     public void touch(int x, int y, int eventType);
     public void key(int keyEvent);
 }

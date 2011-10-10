@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Frame;
 import dk.dbc.jm.*;
 
-
 /**
  * Pure-java version of platform specific parts of the Jm mobile platform abstraction.
  * This is implemented on each of the platforms, and is responsible for
@@ -13,22 +12,16 @@ import dk.dbc.jm.*;
  * It must create a new Jm(JmImpl);
  */
 public class JmImpl extends Applet {
-  /**
-   * Add a string to the system log.
-   */
+  Jmlet jmlet;
+  JmScreenGraphics g;
+
   public void log(String s) {
     System.out.println(s);
   }
-  /**
-   * Not available on all platforms, part of pure-java implementation, please ignore.
-   */
-  /*public JmImpl() {
-    Jm.setImpl(this);
-  }*/
-  /**
-   * Not available on all platforms, part of pure-java implementation, please ignore.
-   */
-  Jmlet jmlet;
+  public JmImpl() {
+    g = new JmScreenGraphics(this);
+  }
+
   public void init() {
     jmlet = Jm.getJmlet(this);
     jmlet.init();
@@ -43,14 +36,14 @@ public class JmImpl extends Applet {
   public static void main(String args[]) {
     Frame f = new Frame();
     JmImpl ji = new JmImpl();
-    f.add(ji); f.setSize (320,480); f.show();
     ji.init();
+    f.add(ji); f.setSize (320,480); f.setVisible(true);
     ji.start();
   }
 
   public void paint(Graphics g) {
-    g.setColor(new Color(0xff0000));
-    g.fillRect(0,0,getWidth(), getHeight());
+    this.g.setGraphics(g);
+    jmlet.paint(this.g);
   }
 } 
 
