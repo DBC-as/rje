@@ -1,4 +1,4 @@
-# Java Mobile Development Platform Abstraction
+# Java Mobile Development Platform Abstraction for making library applications
 
 Experimental prototype for mobile development infrastructure for DBC
 
