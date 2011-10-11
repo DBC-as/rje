@@ -2,6 +2,8 @@
 
 Experimental prototype for mobile development infrastructure for DBC
 
+Status: on-hold, better approach would probably be just to use microemu, and add support for GWT on that one.
+
 ## Goal: 
 
 Portable layer on top of Java to target different mobile devices:
