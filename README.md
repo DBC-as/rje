@@ -10,12 +10,15 @@ Portable layer on top of Java to target different mobile devices:
 - Non-HTML5-browsers via applet(+application)
 - Android abstracted API
 - Low end phones midlet via MIDP (only microemu in beginning)
-- (iOS via xmlvm (can be generated from android source, native api perhaps later))
 
 API abstraction:
 
 - Fullscreen canvas, with text and graphics
+
+## TODO:
+
 - Touch and keys as input methods. Capability querying.
+- inputstream etc. on gwt
 - resize/rotate-event
 - HTTP(S) networking
 - Basic JSON(+jsonp)
@@ -23,11 +26,7 @@ API abstraction:
 - read/load resource
 - (Basic (JavaScript-like) scripting)
 - (Basic XML+HTML)
-
-## Task list
-
-- Get build-environment up and running for all platforms
-- implement basic version of each of the API abstractions on all platforms.
+- (iOS via xmlvm (can be generated from android source, native api perhaps later))
 
 ## Building:
 
