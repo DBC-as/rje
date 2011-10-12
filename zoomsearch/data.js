@@ -94,7 +94,6 @@
     //classes = ["a.a", "a.b.a", "a.b.b", "b.a", "c.a", "c.b"];
     //classes = ["a.a.a", "a.a.b"];
     classes = classes.map(function(s) { return s.split('.') });
-    console.log("initial:", classes);
 
     function buildTree(arr) {
         var prefix = arr[0][0];
@@ -116,14 +115,18 @@
                 t.unshift(elem[0]);
                 elem = t;
             }
-            if(elem.length === 2 && elem[1].length === 0) {
-                elem = elem[0];
-            }
             return elem;
         });
         return result;
     }
 
+    function addWeight(arr) {
+        if(Array.isArray(arr) && Array.length > 0) {
+            //arr.reduce(function(a, b) { return a + b; } , -
+        } else {
+        }
+        return arr;
+    }
     data = buildTree(classes);
-    console.log("result:", JSON.stringify(data, null, 4));
+    data = addWeight(classes);
 })();
