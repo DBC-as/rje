@@ -25,10 +25,72 @@ var width = canvas.width = window.innerWidth;
 var height = canvas.height = window.innerHeight;
 
 ctx = canvas.getContext("2d");
-ctx.fillStyle = "#ff0000";
-ctx.strokeRect(0,0,200,200);
+ctx.fillStyle = "#000000";
 
 
+
+function drawData(x,y,w,h, data) {
+    ctx.fillStyle = "#" + (0xe0e0e0 | (Math.random() * 0xffffff)).toString(16);
+    ctx.fillRect(x,y,w,h);
+    ctx.fillStyle = "#000000";
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h));
+    ctx.font = "12px helvetica";
+    ctx.textAlign = "center";
+    var margin = 6;
+    ctx.fillText(data.title, x + w/2, y+12+margin, w - margin*2);
+
+    function subdivide(x, y, w, h, arr, arr0, arrn, n) {
+        x+= margin/2;
+        y+= margin/2;
+        w-= margin;
+        h-= margin;
+        if(n<0) {
+            return;
+        }
+        if(arr0 == arrn) {
+            return;
+        }
+        if(arr0+1 >= arrn) {
+            drawData(x,y,w,h,arr[arr0]);
+            return;
+        } 
+        var splitpoint;
+        splitpoint = Math.floor(arr0 + (arrn - arr0) / 2)// TODO: calculate splitpoint;
+        var weight = 0;
+        var i;
+        for(i=arr0; i < arrn; ++i) {
+            weight += arr[i].weight;
+        }
+        var sum = 0;
+        var splitpoint = 0;
+        var splitsum = 10000000;
+        var ratio;
+        for(i=arr0; i < arrn; ++i) {
+            sum += arr[i].weight;
+            if(Math.abs(sum - weight/2) < splitsum) {
+                splitpoint = i+1;
+                splitsum = Math.abs(sum - weight/2);
+                ratio = sum/weight;
+            }
+        }
+
+        if(w > 1.5*h) {
+            subdivide(x,y,w *ratio, h, arr, arr0, splitpoint, n-1);
+            subdivide(x + w*ratio,y,w *(1-ratio), h, arr, splitpoint, arrn, n-1);
+        } else {
+            subdivide(x,y,w, h *ratio, arr, arr0, splitpoint, n-1);
+            subdivide(x, y + h * ratio ,w , h * (1-ratio), arr, splitpoint, arrn, n-1);
+        }
+    }
+
+
+    if(data.children) {
+        subdivide(x+margin, y+12+margin*2, w-margin*2, h-12-margin*3, data.children, 0, data.children.length, 8);
+    }
+}
+
+drawData(0,0,width,height, data);
 
 console.log(data);
 </script>
