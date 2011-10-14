@@ -80,7 +80,7 @@ function drawData(x,y,w,h, data) {
             }
         }
 
-        if(w > 1.5*h) {
+        if(w > 2*h) {
             subdivide(x,y,w *ratio, h, arr, arr0, splitpoint, n-1);
             subdivide(x + w*ratio,y,w *(1-ratio), h, arr, splitpoint, arrn, n-1);
         } else {

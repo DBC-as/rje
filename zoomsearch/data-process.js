@@ -37,7 +37,7 @@
     function addWeight(elem) {
         if(!elem.weight) {
             elem.children.map(addWeight);
-            elem.weight = elem.children.reduce(function(acc, elem) { return acc + elem.weight; }, 5);
+            elem.weight = elem.children.reduce(function(acc, elem) { return acc + elem.weight; }, 2);
         } 
     }
     data = buildTree(data);
