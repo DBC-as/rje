@@ -18,7 +18,9 @@
 </head>
 <body>
 <canvas style="position:fixed;top:0px;left:0px;" id="canvas"></canvas>
-<script src="data.js"></script>
+<script src="ls-data.js"></script>
+<script src="opensearch-data.js"></script>
+<script src="data-process.js"></script>
 <script>
 canvas = document.getElementById("canvas");
 var width = canvas.width = window.innerWidth;
@@ -30,6 +32,9 @@ ctx.fillStyle = "#000000";
 
 
 function drawData(x,y,w,h, data) {
+    if(w<0 || h < 0) {
+        return;
+    }
     ctx.fillStyle = "#" + (0xe0e0e0 | (Math.random() * 0xffffff)).toString(16);
     ctx.fillRect(x,y,w,h);
     ctx.fillStyle = "#000000";
