@@ -1,4 +1,4 @@
-package dk.dbc.jm;
+package dk.dbc.gwt2me;
 
 public interface Jmlet {
     public void init();

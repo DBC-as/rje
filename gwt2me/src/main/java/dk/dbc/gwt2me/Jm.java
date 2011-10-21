@@ -1,9 +1,8 @@
-package dk.dbc.jm;
-import dk.dbc.jmimpl.JmImpl;
+package dk.dbc.gwt2me;
 public class Jm {
     static Jmlet jmlet;
-    static JmImpl impl;
-    public static Jmlet getJmlet(JmImpl impl) {
+    static GwtEntryPoint impl;
+    public static Jmlet getJmlet(GwtEntryPoint impl) {
         Jm.impl = impl;
         if(jmlet == null) {
             jmlet = new SampleJmlet();

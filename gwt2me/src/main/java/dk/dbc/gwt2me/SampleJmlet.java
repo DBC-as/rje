@@ -1,5 +1,5 @@
-package dk.dbc.jm;
-import dk.dbc.jmimpl.JmImpl;
+package dk.dbc.gwt2me;
+import dk.dbc.gwt2me.JmImpl;
 public class SampleJmlet implements Jmlet {
     public SampleJmlet() {
         Jm.log("creating jmlet");

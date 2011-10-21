@@ -1,8 +1,8 @@
-package dk.dbc.jmimpl;
-import dk.dbc.jm.*;
+package dk.dbc.gwt2me;
+import dk.dbc.gwt2me.*;
 import com.google.gwt.core.client.EntryPoint;
 
-public class JmImpl implements EntryPoint {
+public class GwtEntryPoint implements EntryPoint {
   JmScreenGraphics screen;
   Jmlet jmlet;
   public void onModuleLoad() {

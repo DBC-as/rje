@@ -1,5 +1,5 @@
-package dk.dbc.jmimpl;
-import dk.dbc.jm.*;
+package dk.dbc.gwt2me;
+import dk.dbc.gwt2me.*;
 
 class JmScreenGraphics extends JmGraphics{
     public JmScreenGraphics() { this.init(); }

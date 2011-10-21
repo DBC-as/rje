@@ -1,4 +1,4 @@
-package dk.dbc.jm;
+package dk.dbc.gwt2me;
 
 public abstract class JmGraphics {
     public abstract void setColor(int rgb);
