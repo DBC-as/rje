@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="dk.dbc.appname" version="0.0.1">
+<name><!-- app title --></name>
+
+<description><!-- app desc --></description>
+
+<author href="http://www.dbc.dk/">DBC</author>
+<icon src="icon.png" />
+<gap:splach src="splash.png" gap:role="default" />
+
+<preference name="permissions" value="none"/>
+<preference name="orientation" value="default" />
+
+</widget>
