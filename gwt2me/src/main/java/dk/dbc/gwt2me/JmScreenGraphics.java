@@ -1,7 +1,6 @@
 package dk.dbc.gwt2me;
-import dk.dbc.gwt2me.*;
 
-class JmScreenGraphics extends JmGraphics{
+class JmScreenGraphics {
     public JmScreenGraphics() { this.init(); }
     private native void init() /*-{
         var JmCanvas = $doc.createElement("canvas");
@@ -21,7 +20,7 @@ class JmScreenGraphics extends JmGraphics{
     public native void paint() /*-{
         var Jm2d = $wnd.Jm2d;
         var JmCanvas = $wnd.JmCanvas;
-        Jm2d.fillStyle = "rgb(255,0,0)";  
+        Jm2d.fillStyle = "rgb(0,0,255)";  
         Jm2d.fillRect(0, 0, JmCanvas.width, JmCanvas.height); 
     }-*/;
     public native void setColor(int rgb) /*-{
