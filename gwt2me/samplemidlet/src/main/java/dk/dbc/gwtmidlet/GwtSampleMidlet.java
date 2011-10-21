@@ -3,7 +3,6 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Display;
 import javax.microedition.midlet.MIDlet;
-import javax.microedition.midlet.MIDletStateChangeException;
 
 class Screen extends Canvas {
     public Screen() {
@@ -16,7 +15,7 @@ class Screen extends Canvas {
 
 public class GwtSampleMidlet extends MIDlet {
 
-    public void startApp() throws MIDletStateChangeException {
+    public void startApp() {
         Screen screen = new Screen();
         Display.getDisplay(this).setCurrent(screen);
         screen.setFullScreenMode(true);
@@ -25,6 +24,6 @@ public class GwtSampleMidlet extends MIDlet {
     public void pauseApp() {
     }
 
-    public void destroyApp(boolean unconditional) throws MIDletStateChangeException {
+    public void destroyApp(boolean unconditional) {
     }
 }
