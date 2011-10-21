@@ -1,6 +1,6 @@
 <module rename-to="webapp">
 	<inherits name="com.google.gwt.user.User"/>
     <source path="gwt2me" />
-    <super-source path='compat' />
+    <super-source path='midpcompat' />
 	<entry-point class="dk.dbc.gwt2me.GwtEntryPoint"/>
 </module>
