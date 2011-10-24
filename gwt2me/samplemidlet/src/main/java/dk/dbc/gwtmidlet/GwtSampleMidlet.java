@@ -10,6 +10,8 @@ class Screen extends Canvas {
     public void paint(Graphics g) {
         g.setColor(0xff0000);
         g.fillRect(0,0,getWidth(), getHeight());
+        g.setColor(0x000000);
+        g.drawString("Hello from midlet", 0, 0, Graphics.TOP | Graphics.LEFT);
     }
 }
 
