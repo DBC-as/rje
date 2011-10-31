@@ -60,6 +60,9 @@
     </div>
     <div data-role="content" id="hits">  
         <h2>Søgeresultater for <span id="searchresultquery"></span></h2>
+        <div id="numhits"></div>
+        <div id="searchresults"></div>
+        <div>loading...</div>
     </div>
 </div>
 
@@ -112,15 +115,16 @@ $(function(){
                 for(var i=0;i<stepValue;++i) {
                     hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
                 }
-                callback(hits);
+                callback(hits, result.searchResponse.result.hitCount.$);
             }});
     }
 
     function search(material, query) {
         $.mobile.changePage("#searchresultpage");
         $("#searchresultquery").text(query);
-        fetchHits(query, 1, 10, [[]], function(result) {
-            $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+        fetchHits(query, 1, 10, [[]], function(result, numhits) {
+            $('#numhits').text("Fundet " + numhits + " poster");
+            $('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
         });
     }
 
