@@ -19,8 +19,6 @@
 <body>
 <noscript>Requires JavaScript enabled :(</noscript>
 
-
-    
 <div data-role="page" id="frontpage">
     <div data-role="header">
         <h1>bibliotek.dk</h1>
@@ -28,7 +26,6 @@
     <div data-role="content">  
         <div class="content-primary"><form>
             <h2>Søg i bibliotek.dk</h2>
-            <input type="search" name="query" id="query" value="" />
             <fieldset data-role="controlgroup" data-type="horizontal">
                     <input type="radio" name="material" id="material-any" value="any" checked="checked" />
                     <label for="material-any">Alle</label>
@@ -42,29 +39,89 @@
                     <input type="radio" name="material" id="material-movie" value="movie"  />
                     <label for="material-movie">Film</label>
             </fieldset>
-            <button>Søg</button>
+            <input type="search" name="query" id="query" value="" />
+            <a data-role="button" href="#searchresults" data-inline='true'>Søg</a>
         </form></div>
         <div class="content-secondary"><form>
             <h2>Log ind</h2>
-            <div data-role="fieldcontain">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value=""  />
-            </div>  
-            <div data-role="fieldcontain">
-                <label for="name">Kodeord:</label>
-                <input type="text" name="name" id="name" value=""  />
-            </div>  
-            <button>Log ind</button>
+                <input type="email" placeholder="email" name="email" value=""  />
+                <input type="password" placeholder="kodeord" name="name" value=""  />
+                <button data-inline='true'>Log ind</button>
         </form></div>
+    </div>
+</div>
+
+<div data-role="page" id="searchresults">
+    <div data-role="header">
+        <a href="#frontpage" data-icon="home" data-iconpos="notext" class="ui-btn-left">Forside</a>
+        <h1>bibliotek.dk</h1>
+    </div>
+    <div data-role="content" id="hits">  
     </div>
 </div>
 
 <script type="text/javascript" language="javascript" src="lib/es5-shim.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/jquery.mobile-1.0rc1.min.js"></script>
-<script type="text/javascript" language="javascript" src="lib/phonegap-1.1.0.min.js"></script>
+<!--script type="text/javascript" language="javascript" src="lib/phonegap-1.1.0.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/underscore-min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/backbone-min.js"></script>
-<script type="text/javascript" language="javascript" src="main.js"></script>
+<script type="text/javascript" language="javascript" src="main.js"></script-->
+<script>
+(function(){
+    function processDKABM(xml) {
+        var results = [];
+        for(var i = 0; i  < xml.length; ++i) {
+            var result = {};
+            var dkabm = xml[i].record;
+            console.log(dkabm);
+            Object.keys(dkabm).forEach(function(key){
+                if(key.charAt(0) !== "@") 
+                dkabm[key].forEach(function(value){
+                    var newkey = key;
+                    if(value["@type"]) {
+                        newkey += " " + value["@type"].$;
+                    }
+                    if(!result[newkey]) {
+                        result[newkey] = [];
+                    }
+                    result[newkey].push(value.$);
+                });
+            });
+            results.push(result);
+        }
+        return result;
+    };
+    function fetchHits(query, start, stepValue, hits, callback) {
+        $.ajax({
+            url: 'http://opensearch.addi.dk/2.0/',
+            data: {
+                action: 'search',
+                query: query,
+                start: start,
+                stepValue: stepValue,
+                outputType: 'json'},
+            dataType: 'jsonp',
+            success: function (result) {
+                console.log("got result");
+                console.log(result);
+                window.XXX = result.searchResponse.result;
+                // just take the first entry in the collection (the collection/værk may contain different version of the same thing)
+                for(var i=0;i<stepValue;++i) {
+                    hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
+                        //$('<div class="searchresult">').text(JSON.stringify(result.searchResponse.result.searchResult[i].collection.object))
+                    //);
+                    //$('#hits').append( $('<pre>').text(JSON.stringify(hits[i+start], null, "   ")));
+                }
+                console.log(hits);
+                callback(hits);
+            }});
+    }
+    fetchHits("jensen", 1, 10, [[]], function(result) {
+        $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+    });
+})();
+    
+</script>
 </body>
 </html>
