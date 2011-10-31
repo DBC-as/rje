@@ -53,12 +53,13 @@
     </div>
 </div>
 
-<div data-role="page" id="searchresults">
+<div data-role="page" id="searchresultpage">
     <div data-role="header">
-        <a href="#frontpage" data-icon="home" data-iconpos="notext" class="ui-btn-left">Forside</a>
+        <a href="#frontpage" data-icon="home" data-iconpos="notext" class="ui-btn-left" data-direction="reverse">Forside</a>
         <h1>bibliotek.dk</h1>
     </div>
     <div data-role="content" id="hits">  
+        <h2>Søgeresultater for <span id="searchresultquery"></span></h2>
     </div>
 </div>
 
@@ -115,15 +116,19 @@ $(function(){
             }});
     }
 
+    function search(material, query) {
+        $.mobile.changePage("#searchresultpage");
+        $("#searchresultquery").text(query);
+        fetchHits(query, 1, 10, [[]], function(result) {
+            $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+        });
+    }
 
     $("#frontpageSearch").submit(function() {
         var material = $('#frontpageSearch input:radio[name=material]:checked').val();
         var query = $('#frontpageSearch input[name=query]').val();
         console.log("search",material, query);
-        $.mobile.changePage("#searchresults");
-        fetchHits(query, 1, 10, [[]], function(result) {
-            $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
-        });
+        search(material, query);
         return false;
     });
 });
