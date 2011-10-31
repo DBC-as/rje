@@ -24,8 +24,9 @@
         <h1>bibliotek.dk</h1>
     </div>
     <div data-role="content">  
-        <div class="content-primary"><form>
+        <div class="content-primary query">
             <h2>Søg i bibliotek.dk</h2>
+            <form id="frontpageSearch">
             <fieldset data-role="controlgroup" data-type="horizontal">
                     <input type="radio" name="material" id="material-any" value="any" checked="checked" />
                     <label for="material-any">Alle</label>
@@ -40,8 +41,9 @@
                     <label for="material-movie">Film</label>
             </fieldset>
             <input type="search" name="query" id="query" value="" />
-            <a data-role="button" href="#searchresults" data-inline='true'>Søg</a>
-        </form></div>
+            <button data-inline='true'>Søg</button>
+            </form>
+        </div>
         <div class="content-secondary"><form>
             <h2>Log ind</h2>
                 <input type="email" placeholder="email" name="email" value=""  />
@@ -68,7 +70,7 @@
 <script type="text/javascript" language="javascript" src="lib/backbone-min.js"></script>
 <script type="text/javascript" language="javascript" src="main.js"></script-->
 <script>
-(function(){
+$(function(){
     function processDKABM(xml) {
         var results = [];
         for(var i = 0; i  < xml.length; ++i) {
@@ -92,6 +94,7 @@
         }
         return result;
     };
+
     function fetchHits(query, start, stepValue, hits, callback) {
         $.ajax({
             url: 'http://opensearch.addi.dk/2.0/',
@@ -105,22 +108,25 @@
             success: function (result) {
                 console.log("got result");
                 console.log(result);
-                window.XXX = result.searchResponse.result;
-                // just take the first entry in the collection (the collection/værk may contain different version of the same thing)
                 for(var i=0;i<stepValue;++i) {
                     hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
-                        //$('<div class="searchresult">').text(JSON.stringify(result.searchResponse.result.searchResult[i].collection.object))
-                    //);
-                    //$('#hits').append( $('<pre>').text(JSON.stringify(hits[i+start], null, "   ")));
                 }
-                console.log(hits);
                 callback(hits);
             }});
     }
-    fetchHits("jensen", 1, 10, [[]], function(result) {
-        $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+
+
+    $("#frontpageSearch").submit(function() {
+        var material = $('#frontpageSearch input:radio[name=material]:checked').val();
+        var query = $('#frontpageSearch input[name=query]').val();
+        console.log("search",material, query);
+        $.mobile.changePage("#searchresults");
+        fetchHits(query, 1, 10, [[]], function(result) {
+            $('#hits').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+        });
+        return false;
     });
-})();
+});
     
 </script>
 </body>
