@@ -109,12 +109,12 @@
 <script type="text/javascript" language="javascript" src="main.js"></script-->
 <script>
 $(function(){
+    // # Transform JSON-encoded DKABM-xml to straight JSON
     function processDKABM(xml) {
         var results = [];
         for(var i = 0; i  < xml.length; ++i) {
             var result = {};
             var dkabm = xml[i].record;
-            console.log(dkabm);
             Object.keys(dkabm).forEach(function(key){
                 if(key.charAt(0) !== "@") 
                 dkabm[key].forEach(function(value){
@@ -133,6 +133,7 @@ $(function(){
         return result;
     };
 
+    // # Call the webservice
     function fetchHits(query, start, stepValue, hits, callback) {
         $.ajax({
             url: 'http://opensearch.addi.dk/2.0/',
@@ -144,8 +145,6 @@ $(function(){
                 outputType: 'json'},
             dataType: 'jsonp',
             success: function (result) {
-                console.log("got result");
-                console.log(result);
                 for(var i=0;i<+result.searchResponse.result.collectionCount.$;++i) {
                     if(result.searchResponse.result.searchResult[i]) {
                         hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
@@ -199,6 +198,9 @@ $(function(){
                                     var newheight = $prop.height();
                                     $prop.css('height', newheight+'px');
                                 } else {
+                                    if ($(this).offset().top < window.pageYOffset) {
+                                        window.scrollTo(0, $(this).offset().top); 
+                                    }
                                     $prop.css('height', '0px');
                                 }
                             })
@@ -230,7 +232,6 @@ $(function(){
     $("#frontpageSearch").submit(function() {
         var material = $('#frontpageSearch input:radio[name=material]:checked').val();
         var query = $('#frontpageSearch input[name=query]').val();
-        console.log("search",material, query);
         searchResults(material, query);
         return false;
     });
