@@ -18,7 +18,7 @@
   <style>
     .searchresult {
         margin: 1ex;
-        padding: .5ex;
+        padding: 1ex;
         border: solid;
         border-width: 1px;
         border-radius: .5ex;
@@ -28,6 +28,23 @@
     }
     .searchresult .author {
         font-size: 70%;
+    }
+    .searchresult .properties {
+        height: 0px;
+        overflow: hidden;
+        transition: height 400ms;
+        -webkit-transition: height 400ms;
+        -mox-transition: height 400ms;
+    }
+    .searchresult .properties th {
+        font-size: 70%;
+        font-weight: normal;
+        font-weight: 200;
+        text-align: right;
+        width: 20%;
+    }
+    .searchresult .properties td {
+        width: 80%;
     }
   </style>
 </head>
@@ -75,6 +92,8 @@
     </div>
     <div data-role="content" id="hits">  
         <h2>Søgeresultater for <span id="searchresultquery"></span></h2>
+        <input type="search" name="query" id="query" value="" />
+        <button data-inline='true'>Søg</button>
         <div id="numhits"></div>
         <div id="searchresults"></div>
         <div id="searchResultsLoading">Flere resultater...</div>
@@ -101,7 +120,7 @@ $(function(){
                 dkabm[key].forEach(function(value){
                     var newkey = key;
                     if(value["@type"]) {
-                        newkey += " " + value["@type"].$;
+                        newkey = value["@type"].$ + " " + newkey;
                     }
                     if(!result[newkey]) {
                         result[newkey] = [];
@@ -136,7 +155,6 @@ $(function(){
             }});
     }
 
-
     function searchResults(material, query) {
         $.mobile.changePage("#searchresultpage");
         $("#searchresultquery").text(query);
@@ -145,12 +163,13 @@ $(function(){
         $(document).unbind("scroll");
 
         var pos = 1;
+
         function update() {
             $(document).unbind("scroll", onScreen);
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
-            fetchHits(query, pos, 5, [[]], function(result, numhits) {
+            fetchHits(query, pos, 6, [[]], function(result, numhits) {
                 $('#numhits').text("Fundet " + numhits + " poster:");
                 //$('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
                 for(var i=pos;i<result.length;++i) {
@@ -158,6 +177,31 @@ $(function(){
                         $('<div class="searchresult">')
                             .append($('<div class="title">').text(result[i].title && result[i].title[0]))
                             .append($('<div class="author">').text(result[i].creator && result[i].creator.join(" & ")))
+                            .append(function() { 
+                                var acc = ['<div class="properties"><table>'];
+
+                                Object.keys(result[i]).forEach(function(key) {
+                                    result[i][key].forEach(function(value) {
+                                        acc.push('<tr><th>');
+                                        acc.push(key);
+                                        acc.push('</th><td>');
+                                        acc.push(value);
+                                        acc.push('</td></tr>');
+                                    });
+                                });
+                                acc.push('</table></div>');
+                                return acc.join('');
+                            })
+                            .bind('click', function() {
+                                var $prop = $(this).find(".properties");
+                                if($prop.css('height') === "0px") {
+                                    $prop.css('height', 'auto');
+                                    var newheight = $prop.height();
+                                    $prop.css('height', newheight+'px');
+                                } else {
+                                    $prop.css('height', '0px');
+                                }
+                            })
                     );
                 }
                 pos = result.length;
@@ -181,25 +225,6 @@ $(function(){
         $(document).bind("scroll", onScreen);
         $("#searchResultsLoading").bind("click", update);
         onScreen();
-    }
-
-
-    function search(material, query) {
-        $.mobile.changePage("#searchresultpage");
-        $("#searchresultquery").text(query);
-        $('#numhits').text("Søger...");
-        $("#searchresults").html("");
-        fetchHits(query, 1, 5, [[]], function(result, numhits) {
-            $('#numhits').text("Fundet " + numhits + " poster");
-            //$('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
-            for(var i=1;i<=5;++i) {
-                $('#searchresults').append( 
-                    $('<div class="searchresult">')
-                        .append($('<div class="title">').text(result[i].title[0]))
-                        .append($('<div class="author">').text(result[i].creator.join(" & ")))
-                );
-            }
-        });
     }
 
     $("#frontpageSearch").submit(function() {
