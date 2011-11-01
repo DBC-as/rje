@@ -124,8 +124,10 @@ $(function(){
             success: function (result) {
                 console.log("got result");
                 console.log(result);
-                for(var i=0;i<stepValue;++i) {
-                    hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
+                for(var i=0;i<+result.searchResponse.result.collectionCount.$;++i) {
+                    if(result.searchResponse.result.searchResult[i]) {
+                        hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
+                    }
                 }
                 callback(hits, result.searchResponse.result.hitCount.$);
             }});
@@ -134,25 +136,35 @@ $(function(){
 
     function searchResults(material, query) {
         $.mobile.changePage("#searchresultpage");
+        $('#numhits').text("Søger...");
+        $("#searchresults").html("");
 
+        var pos = 1;
         function update() {
             $(document).unbind("scroll", onScreen);
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
-            setTimeout(function() {
-                $('#searchresults').append( 
-                    $('<div class="searchresult">')
-                        .append($('<div class="title">').text("foo"))
-                        .append($('<div class="author">').text("bar"))
-                );
-                
-                if(moreHits) {
+            fetchHits(query, pos, 5, [[]], function(result, numhits) {
+                $('#numhits').text("Fundet " + numhits + " poster");
+                //$('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
+                for(var i=pos;i<result.length;++i) {
+                    $('#searchresults').append( 
+                        $('<div class="searchresult">')
+                            .append($('<div class="title">').text(result[i].title && result[i].title[0]))
+                            .append($('<div class="author">').text(result[i].creator && result[i].creator.join(" & ")))
+                    );
+                }
+                pos = result.length;
+                if(result.length <= numhits) {
+                    $("#searchResultsLoading").html("Klik her for flere resultater.");
                     $(document).bind("scroll", onScreen);
                     $("#searchResultsLoading").bind("click", update);
                     onScreen();
+                } else {
+                    $("#searchResultsLoading").html("");
                 }
-            }, 100);
+            });
         }
 
         function onScreen() {
