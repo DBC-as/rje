@@ -18,7 +18,10 @@
   <style>
     .searchresult {
         margin: 1ex;
+        padding: .5ex;
+        border: solid;
         border-width: 1px;
+        border-radius: .5ex;
     }
     .searchresult .title {
         font-weight: bold;
@@ -136,8 +139,10 @@ $(function(){
 
     function searchResults(material, query) {
         $.mobile.changePage("#searchresultpage");
-        $('#numhits').text("Søger...");
+        $("#searchresultquery").text(query);
+        $('#numhits').text("");
         $("#searchresults").html("");
+        $(document).unbind("scroll");
 
         var pos = 1;
         function update() {
@@ -146,7 +151,7 @@ $(function(){
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
             fetchHits(query, pos, 5, [[]], function(result, numhits) {
-                $('#numhits').text("Fundet " + numhits + " poster");
+                $('#numhits').text("Fundet " + numhits + " poster:");
                 //$('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
                 for(var i=pos;i<result.length;++i) {
                     $('#searchresults').append( 
@@ -169,7 +174,7 @@ $(function(){
 
         function onScreen() {
             if ($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
-                    window.innerHeight*1.5 + window.pageYOffset) {
+                    window.innerHeight*2 + window.pageYOffset) {
                 update();
             }
         };
