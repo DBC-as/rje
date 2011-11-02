@@ -7,15 +7,17 @@ body {
     background: url("bg.png");
 }
 #topmenu {
-    font-size: 24px;
-    height: 42px;
+    font-size: 20px;
+    height: 34px;
     position: fixed;
-    padding-top: 10px;
+    padding: 0px;
+    padding-top: 8px;
+    margin: 0px;
     left: 0px;
     top: 0px;
     width:100%;
     color: #fee;
-    background-color: rgba(0, 30, 30, .9);
+    background-color: rgba(0, 30, 30, .85);
     border-bottom: 1px ridge;
     box-shadow: 4px 4px 12px rgba(0,0,0,.5);
     /*
@@ -25,16 +27,16 @@ body {
 #topmenu .menuitem {
     border: solid #666;
     border-width: 1px;
-    border-radius: .5ex;
+    border-radius: 7px;
 
-    margin-left: .5ex;
-    margin-right: .5ex;
-    padding: .4ex;
+    margin-left: 0px;
+    margin-right: 0px;
+    /*padding: 4px 8px 4px 8px;*/
 }
 #topmenu :first-child {
-    border-color: #333;
+    border: none;
     font-weight: bold;
-    margin-right: 2ex;
+    margin-right: 20px;
 }
 
 .searchresult {
@@ -52,7 +54,9 @@ input {
     border: solid;
     border-width: 1px;
     border-radius: .5ex;
-    background-color: rgba(255,255,255,0.1);
+    /*background-color: rgba(255,255,255,0.1);*/
+    background: url("bg.png");
+    /* box-shadow: 2px 2px 6px rgba(255,255,255,.5) inset; */
     box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 .searchresult .title {
