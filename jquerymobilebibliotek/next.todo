@@ -1,3 +1,7 @@
 - refactor ws-use and result processing to bibdk-js-lib
 - move from jqm to plain jquery-based page
 - more input from mobile boilerplate
+- unit testing, - jasmine/qunit and selenium
+- build-script
+- separate mobile-js-utility and app-logic
+- merge ../mobbib and this
