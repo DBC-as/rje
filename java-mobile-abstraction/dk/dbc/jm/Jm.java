@@ -13,6 +13,6 @@ public class Jm {
     public static void log(String s) {
         if(impl != null) {
             impl.log(s);
-        }
-    }
-}
+        } 
+    } 
+} 
