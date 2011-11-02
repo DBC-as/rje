@@ -1,5 +1,7 @@
+// local httpd for development purposes
+//
 // npm install express
-// node app.js
+// node httpserver.js
 var app = require('express').createServer();
 
 app.configure(function(){
