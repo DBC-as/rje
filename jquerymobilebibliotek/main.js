@@ -1,5 +1,31 @@
 $(function(){
-    window.scrollTo(0,1);
+    function topmenu(args) {
+        window.scrollTo(0,1);
+        var $topmenu = $('<div id="topmenu">');
+        var menuKeys = Object.keys(args.items);
+
+
+        Object.keys(args.items).forEach(function(item) {
+            $topmenu.append($('<span class="menuitem">').text(item));
+        });
+        $('body')
+            .prepend($topmenu);
+
+    }
+
+    topmenu({items: {
+        "bibliotek.dk": function() { alert("bib.dk"); },
+        "søg": function() { alert("søg"); },
+        "lånerstatus": function() { alert("lånerstatus"); },
+        /*
+        "lånerstatu2": function() { alert("lånerstatus"); },
+        "lånerstatu3": function() { alert("lånerstatus"); },
+        "lånerstatu4": function() { alert("lånerstatus"); },
+        "lånerstatu5": function() { alert("lånerstatus"); },
+        "lånerstatu6": function() { alert("lånerstatus"); },
+        "lånerstatu7": function() { alert("lånerstatus"); },
+        */
+    }});
 
     function searchResults(material, query) {
         //$.mobile.changePage("#searchresultpage");

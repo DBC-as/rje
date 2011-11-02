@@ -13,61 +13,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <style>
-    body {
-        font-family: Helvetica, sans-serif;
-        background-color: #fff;
-    }
-    .searchresult {
-        margin: 1ex;
-        padding: 1ex;
-        border: solid;
-        border-width: 1px;
-        border-radius: .5ex;
-    }
-    input {
-        font-size: 14pt;
-        margin: 1ex;
-        padding: 1ex;
-        border: solid;
-        border-width: 1px;
-        border-radius: .5ex;
-        background-color: rgba(255,255,255,0.1);
-    }
-    .searchresult .title {
-        font-weight: bold;
-    }
-    .searchresult .author {
-        font-size: 70%;
-    }
-    .searchresult .bibentries {
-        height: 0px;
-        overflow: hidden;
-        transition: height 400ms;
-        -webkit-transition: height 400ms;
-        -mox-transition: height 400ms;
-    }
-    .searchresult .bibentries th {
-        font-size: 70%;
-        font-weight: normal;
-        font-weight: 200;
-        text-align: right;
-        width: 20%;
-    }
-    .searchresult .bibentries td {
-        width: 80%;
-    }
-    .blah {
-        visibility: visible;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 <noscript>Requires JavaScript enabled :(</noscript>
 <div data-role="page" id="frontpage">
-    <div data-role="header">
-        <h1>bibliotek.dk</h1>
-    </div>
     <div data-role="content">  
         <div class="content-primary query">
             <h2>Søg i bibliotek.dk</h2>
@@ -87,10 +37,6 @@
 </div>
 
 <div data-role="page" id="searchresultpage">
-    <div data-role="header">
-        <a href="#frontpage" data-icon="home" data-iconpos="notext" class="ui-btn-left" data-direction="reverse">Forside</a>
-        <h1>bibliotek.dk</h1>
-    </div>
     <div data-role="content" id="hits">  
         <h2>Søgeresultater for <span id="searchresultquery"></span></h2>
         <div id="numhits"></div>

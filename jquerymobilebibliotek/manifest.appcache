@@ -1,11 +1,10 @@
 CACHE MANIFEST
 
+NETWORK:
+
 config.xml
 icon.png
-manifest.appcache
 splash.png
-WebApp.html
-
-NETWORK:
+index.html
 
 FALLBACK:

@@ -1,0 +1,83 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, sans-serif;
+    background-color: #fcc;
+    margin-top: 62px;
+    background: url("bg.png");
+}
+#topmenu {
+    font-size: 24px;
+    height: 42px;
+    position: fixed;
+    padding-top: 10px;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    color: #fee;
+    background-color: rgba(0, 30, 30, .9);
+    border-bottom: 1px ridge;
+    box-shadow: 4px 4px 12px rgba(0,0,0,.5);
+    /*
+    box-shadow: 0px 10px 10px #000;
+    */
+}
+#topmenu .menuitem {
+    border: solid #666;
+    border-width: 1px;
+    border-radius: .5ex;
+
+    margin-left: .5ex;
+    margin-right: .5ex;
+    padding: .4ex;
+}
+#topmenu :first-child {
+    border-color: #333;
+    font-weight: bold;
+    margin-right: 2ex;
+}
+
+.searchresult {
+    margin: 1ex;
+    padding: 1ex;
+    border: solid;
+    border-width: 1px;
+    border-radius: .5ex;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+}
+input {
+    font-size: 14pt;
+    margin: 1ex;
+    padding: 1ex;
+    border: solid;
+    border-width: 1px;
+    border-radius: .5ex;
+    background-color: rgba(255,255,255,0.1);
+    box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+}
+.searchresult .title {
+    font-weight: bold;
+}
+.searchresult .author {
+    font-size: 70%;
+}
+.searchresult .bibentries {
+    height: 0px;
+    overflow: hidden;
+    transition: height 400ms;
+    -webkit-transition: height 400ms;
+    -mox-transition: height 400ms;
+}
+.searchresult .bibentries th {
+    font-size: 70%;
+    font-weight: normal;
+    font-weight: 200;
+    text-align: right;
+    width: 20%;
+}
+.searchresult .bibentries td {
+    width: 80%;
+}
+.blah {
+    visibility: visible;
+}
