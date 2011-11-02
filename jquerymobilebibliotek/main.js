@@ -32,12 +32,12 @@ $(function(){
         $("#searchresultquery").text(query);
         $('#numhits').text("");
         $("#searchresults").html("");
-        $(document).unbind("scroll");
+        $(window).unbind("scroll");
 
         var pos = 0;
 
         function update() {
-            $(document).unbind("scroll", onScreen);
+            $(window).unbind("scroll", onScreen);
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
@@ -82,7 +82,7 @@ $(function(){
                 pos += 6;
                 if(pos < result.hitCount) {
                     $("#searchResultsLoading").html("Klik her for flere resultater.");
-                    $(document).bind("scroll", onScreen);
+                    $(window).bind("scroll", onScreen);
                     $("#searchResultsLoading").bind("click", update);
                     onScreen();
                 } else {
@@ -97,7 +97,7 @@ $(function(){
                 update();
             }
         }
-        $(document).bind("scroll", onScreen);
+        $(window).bind("scroll", onScreen);
         $("#searchResultsLoading").bind("click", update);
         onScreen();
     }
