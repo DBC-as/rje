@@ -54,7 +54,7 @@
                 callback({
                     hitCount: result.searchResponse.result.hitCount.$,
                     start: start-1, // workaround that the webservice uses 1-based indexing
-                    results: result.searchResponse.result.searchResult.map(function(elem) { return processDKABM(elem.collection.object); })
+                    collections: result.searchResponse.result.searchResult.map(function(elem) { return processDKABM(elem.collection.object); })
                 });
             }});
     }

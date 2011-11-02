@@ -29,21 +29,21 @@
     .searchresult .author {
         font-size: 70%;
     }
-    .searchresult .properties {
+    .searchresult .bibentries {
         height: 0px;
         overflow: hidden;
         transition: height 400ms;
         -webkit-transition: height 400ms;
         -mox-transition: height 400ms;
     }
-    .searchresult .properties th {
+    .searchresult .bibentries th {
         font-size: 70%;
         font-weight: normal;
         font-weight: 200;
         text-align: right;
         width: 20%;
     }
-    .searchresult .properties td {
+    .searchresult .bibentries td {
         width: 80%;
     }
   </style>
@@ -103,6 +103,9 @@
 <script type="text/javascript" language="javascript" src="lib/es5-shim.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/jquery.mobile-1.0rc1.min.js"></script>
+<script type="text/javascript" language="javascript" src="bibdk.js"></script>
+<script>
+</script>
 <!--script type="text/javascript" language="javascript" src="lib/phonegap-1.1.0.min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/underscore-min.js"></script>
 <script type="text/javascript" language="javascript" src="lib/backbone-min.js"></script>
@@ -161,38 +164,37 @@ $(function(){
         $("#searchresults").html("");
         $(document).unbind("scroll");
 
-        var pos = 1;
+        var pos = 0;
 
         function update() {
             $(document).unbind("scroll", onScreen);
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
-            fetchHits(query, pos, 6, [[]], function(result, numhits) {
-                $('#numhits').text("Fundet " + numhits + " poster:");
-                //$('#searchresults').append( $('<pre>').text(JSON.stringify(result, null, "   ")));
-                for(var i=pos;i<result.length;++i) {
+            bibdk.search({cql: query, start: pos, count: 6, callback: function(result) {
+                $('#numhits').text("Fundet " + result.hitCount + " poster:");
+                result.collections.map(function(entries) { 
                     $('#searchresults').append( 
                         $('<div class="searchresult">')
-                            .append($('<div class="title">').text(result[i].title && result[i].title[0]))
-                            .append($('<div class="author">').text(result[i].creator && result[i].creator.join(" & ")))
-                            .append(function() { 
-                                var acc = ['<div class="properties"><table>'];
-
-                                Object.keys(result[i]).forEach(function(key) {
-                                    result[i][key].forEach(function(value) {
-                                        acc.push('<tr><th>');
-                                        acc.push(key);
-                                        acc.push('</th><td>');
-                                        acc.push(value);
-                                        acc.push('</td></tr>');
+                            .append($('<div class="title">').text(entries[0].title && entries[0].title[0]))
+                            .append($('<div class="author">').text((entries[0].creator || entries[0]["oss:aut creator"] || entries[0]["dkdcplus:aut creator"] || [""]).join(" & ")))
+                            .append(XXX = '<div class="bibentries">' + entries.map(function(entry) { 
+                                    var acc = [];
+                                    acc.push('<div class="bibentry"><table>');
+                                    Object.keys(entry).forEach(function(key) {
+                                        entry[key].forEach(function(value) {
+                                            acc.push('<tr><th>');
+                                            acc.push(key);
+                                            acc.push('</th><td>');
+                                            acc.push(value);
+                                            acc.push('</td></tr>');
+                                        });
                                     });
-                                });
-                                acc.push('</table></div>');
-                                return acc.join('');
-                            })
+                                    acc.push('</table></div>');
+                                    return acc.join('');
+                                }).join('') + '</div>')
                             .bind('click', function() {
-                                var $prop = $(this).find(".properties");
+                                var $prop = $(this).find(".bibentries");
                                 if($prop.css('height') === "0px") {
                                     $prop.css('height', 'auto');
                                     var newheight = $prop.height();
@@ -205,9 +207,10 @@ $(function(){
                                 }
                             })
                     );
-                }
-                pos = result.length;
-                if(result.length <= numhits) {
+                });
+
+                pos += 6;
+                if(pos < result.hitCount) {
                     $("#searchResultsLoading").html("Klik her for flere resultater.");
                     $(document).bind("scroll", onScreen);
                     $("#searchResultsLoading").bind("click", update);
@@ -215,7 +218,7 @@ $(function(){
                 } else {
                     $("#searchResultsLoading").html("");
                 }
-            });
+            }});
         }
 
         function onScreen() {
