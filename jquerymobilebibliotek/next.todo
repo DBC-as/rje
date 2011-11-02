@@ -1,4 +1,5 @@
 - refactor ws-use and result processing to bibdk-js-lib
+- jsdoc og docco-venlig dokumentation
 - move from jqm to plain jquery-based page
 - more input from mobile boilerplate
 - unit testing, - jasmine/qunit and selenium
