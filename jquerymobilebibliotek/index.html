@@ -112,51 +112,6 @@
 <script type="text/javascript" language="javascript" src="main.js"></script-->
 <script>
 $(function(){
-    // # Transform JSON-encoded DKABM-xml to straight JSON
-    function processDKABM(xml) {
-        var results = [];
-        for(var i = 0; i  < xml.length; ++i) {
-            var result = {};
-            var dkabm = xml[i].record;
-            Object.keys(dkabm).forEach(function(key){
-                if(key.charAt(0) !== "@") 
-                dkabm[key].forEach(function(value){
-                    var newkey = key;
-                    if(value["@type"]) {
-                        newkey = value["@type"].$ + " " + newkey;
-                    }
-                    if(!result[newkey]) {
-                        result[newkey] = [];
-                    }
-                    result[newkey].push(value.$);
-                });
-            });
-            results.push(result);
-        }
-        return result;
-    };
-
-    // # Call the webservice
-    function fetchHits(query, start, stepValue, hits, callback) {
-        $.ajax({
-            url: 'http://opensearch.addi.dk/2.0/',
-            data: {
-                action: 'search',
-                query: query,
-                start: start,
-                stepValue: stepValue,
-                outputType: 'json'},
-            dataType: 'jsonp',
-            success: function (result) {
-                for(var i=0;i<+result.searchResponse.result.collectionCount.$;++i) {
-                    if(result.searchResponse.result.searchResult[i]) {
-                        hits[i+start] = processDKABM(result.searchResponse.result.searchResult[i].collection.object);
-                    }
-                }
-                callback(hits, result.searchResponse.result.hitCount.$);
-            }});
-    }
-
     function searchResults(material, query) {
         $.mobile.changePage("#searchresultpage");
         $("#searchresultquery").text(query);
