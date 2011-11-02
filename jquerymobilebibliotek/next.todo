@@ -1,0 +1,3 @@
+- refactor ws-use and result processing to bibdk-js-lib
+- move from jqm to plain jquery-based page
+- more input from mobile boilerplate
