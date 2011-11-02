@@ -2,9 +2,9 @@
     // # Transform JSON-encoded DKABM-xml to straight JSON
     function processDKABM(xml) {
         var results = [];
-        for(var i = 0; i  < xml.length; ++i) {
+        xml.forEach(function(dkabm) {
+            dkabm = dkabm.record;
             var result = {};
-            var dkabm = xml[i].record;
             Object.keys(dkabm).forEach(function(key){
                 if(key.charAt(0) !== "@") 
                 dkabm[key].forEach(function(value){
@@ -19,9 +19,9 @@
                 });
             });
             results.push(result);
-        }
+        });
         return results;
-    };
+    }
 
     // # Call the webservice
     function search(args) {
