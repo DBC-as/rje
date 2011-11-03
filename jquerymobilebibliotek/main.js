@@ -1,4 +1,61 @@
+(function() {
+    var util = window.util = {};
+
+    util.initTransitions = function() {
+        //$('body').children().css('visibility', 'hidden')
+        $('body').append('<div class="currentVisible">');
+    }
+
+    function noanimate(elem) {
+    }
+    function animate(elem) {
+        elem.css('-webkit-transition', '400ms');
+        elem.css('-moz-transition', '400ms');
+        elem.css('transition', '400ms');
+    }
+
+    util.transitionTo = function(elem) {
+        var $prev = $('.currentVisible');
+        var $current = $(elem);
+        [$('.prevVisible'),$prev,$current].forEach(noanimate);
+
+        $('.prevVisible')
+            .css('visibility', 'hidden')
+            .removeClass('prevVisible');
+
+        $prev
+            .removeClass('currentVisible')
+            .addClass('prevVisible')
+            //.css('visibility', 'hidden')
+            //.css('background', 'red')
+            ;
+
+        $current.addClass('currentVisible')
+            .css('position', 'relative')
+            .css('top', (-$prev.height()/*+$prev.offset()*/) + 'px')
+            .css('left', $(window).width())
+            //.css('background', 'green')
+            .css('visibility', 'visible')
+            ;
+
+        $('body')
+            .prepend($current)
+            .prepend($prev);
+
+        [$prev,$current].forEach(animate);
+        $prev.css('left', -$(window).width());
+        $current.css('left', 0);
+
+        console.log($prev.height());
+        $current
+
+    }
+})();
+
 $(function(){
+    util.initTransitions();
+    util.transitionTo("#frontpage");
+    
     $('body').append($('<pre id="console">'));
     function print(x) {
         $('#console').append(x+'\n');
@@ -38,6 +95,7 @@ $(function(){
 
     function searchResults(material, query) {
         //$.mobile.changePage("#searchresultpage");
+        util.transitionTo("#searchresultpage");
         $("#searchresultquery").text(query);
         $('#numhits').text("");
         $("#searchresults").html("");
@@ -59,7 +117,7 @@ $(function(){
                         $('<div class="searchresult">')
                             .append($('<div class="title">').text(entries[0].title && entries[0].title[0]))
                             .append($('<div class="author">').text((entries[0].creator || entries[0]["oss:aut creator"] || entries[0]["dkdcplus:aut creator"] || [""]).join(" & ")))
-                            .append(XXX = '<div class="bibentries">' + entries.map(function(entry) { 
+                            .append('<div class="bibentries">' + entries.map(function(entry) { 
                                     var acc = [];
                                     acc.push('<div class="bibentry"><table>');
                                     Object.keys(entry).forEach(function(key) {
@@ -81,7 +139,7 @@ $(function(){
                                     var newheight = $prop.height();
                                     $prop.css('height', newheight+'px');
                                 } else {
-                                    if ($(this).offset().top < window.pageYOffset) {
+                                    if ($(this).offset().top < $(window).scrollTop()) {
                                         window.scrollTo(0, $(this).offset().top); 
                                     }
                                     $prop.css('height', '0px');

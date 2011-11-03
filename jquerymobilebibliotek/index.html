@@ -18,37 +18,25 @@
 </head>
 <body>
 <noscript>Requires JavaScript enabled :(</noscript>
-<div data-role="page" id="frontpage">
-    <!--
-    <div style="background:red;width:240px;">240px</div>
-    <div style="background:red;width:320px;">320px</div>
-    <div style="background:red;width:480px;">480px</div>
-    -->
-    <div data-role="content">  
-        <div class="content-primary query">
+<div id="frontpage">
             <h1>Søg i bibliotek.dk</h1>
             <form id="frontpageSearch">
                 <input type="text" placeholder="søgning" name="query" value="" />
                 <input type="submit" value="Søg"/>
             </form>
-        </div>
         <hr />
-        <div class="content-secondary"><form>
+        <form>
             <h1>Log ind</h1>
                 <input type="email" placeholder="email" name="email" value=""  />
                 <input type="password" placeholder="kodeord" name="name" value=""  />
                 <input type="submit" value="Log ind"/>
-        </form></div>
-    </div>
+        </form>
 </div>
-
-<div data-role="page" id="searchresultpage">
-    <div data-role="content" id="hits">  
+<div id="searchresultpage">
         <h1>Søgeresultater for <span id="searchresultquery"></span></h1>
         <div id="numhits"></div>
         <div id="searchresults"></div>
         <div id="searchResultsLoading">Flere resultater...</div>
-    </div>
 </div>
 
 <script type="text/javascript" language="javascript" src="lib/es5-shim.min.js"></script>

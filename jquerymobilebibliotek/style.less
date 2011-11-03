@@ -3,13 +3,17 @@ body {
     padding: 0px;
     font-family: Helvetica, sans-serif;
     background-color: #fcc;
-    margin-top: 54px;
+    margin-top: 44px; 
+    background: url("bg.png");
+}
+body div {
+    margin: 0px; padding:0px;
     background: url("bg.png");
 }
 #topmenu {
     font-size: 20px;
     height: 34px;
-    position: absolute;
+    position: fixed;
     padding: 0px;
     padding-top: 8px;
     margin: 0px;
@@ -17,6 +21,7 @@ body {
     top: 0px;
     width:100%;
     color: #ffeeee;
+    background: none;
     background-color: #000000;
     background-color: rgba(0, 30, 30, .85);
     border-bottom: 1px ridge;
@@ -44,6 +49,7 @@ h1 {
     border: 0px 1px 0px 1px;
     color: #033;
     text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+    margin: 0px;
 }
 
 .searchresult {
@@ -61,9 +67,7 @@ input {
     border: solid;
     border-width: 1px;
     border-radius: .5ex;
-    /*background-color: rgba(255,255,255,0.1);*/
     background: url("bg.png");
-    /* box-shadow: 2px 2px 6px rgba(255,255,255,.5) inset; */
     box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 .searchresult .title {
@@ -84,10 +88,8 @@ input {
     font-weight: normal;
     font-weight: 200;
     text-align: right;
-    /* width: 20%;*/
 }
 .searchresult .bibentries td {
-    /* width: 80%;*/
 }
 .blah {
     visibility: visible;
