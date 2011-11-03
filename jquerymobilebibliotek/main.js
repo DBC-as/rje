@@ -42,42 +42,25 @@
             .prepend($current)
             .prepend($prev);
 
-        //$current.css(transitions[transitionType].next);
-
-
         transitionType= transitionType|| 'slidein';
         var transitions = {
             slidein: {
                 time: 400,
-                next: {
-                    left: $(window).width()
-                },
-                current: {
-                    left: 0
-                },
-                prev: {
-                    left: -$(window).width()
-                }
+                next: { left: $(window).width() },
+                current: { left: 0 },
+                prev: { left: -$(window).width() }
             },
             fadein: {
                 time: 1000,
-                next: {
-                    opacity: 0
-                },
-                current: {
-                    opacity: 1
-                },
-                prev: {
-                    opacity: 0
-                }
+                next: { opacity: 0 },
+                current: { opacity: 1 },
+                prev: { opacity: 0 }
             },
             template: {
-                next: {
-                },
-                current: {
-                },
-                prev: {
-                }
+                time: 1000,
+                next: { },
+                current: { },
+                prev: { }
             }
         };
 
@@ -101,7 +84,67 @@
 $(function(){
     util.initTransitions();
     util.transitionTo("#frontpage", 'fadein');
+
+    //yepnope({load: 'lib/jquery.history.js', complete: function() {
+        /*$(window).bind('anchorchange', function() {
+            console.log('anchorchange', window.location.hash, History.getState().title);
+            if(History.getState().title === 'prev') {
+                History.pushState('currenb', 'currenb', '#current');
+                History.pushState('next', 'next', '#next');
+                alert('prev');
+            }
+            if(History.getState().title === "next") {
+                History.back();
+                alert('next');
+            }
+        });
+        History.pushState('prev', 'prev', '#prev');
+        //setTimeout(function() { History.back();}, 1000);
+    //}});
+    setTimeout(function() { History.pushState('b', 'b', '#b'); }, 200);
+    setTimeout(function() { History.pushState('next', 'next', '#c'); }, 300);
+    setTimeout(function() { History.back(); }, 400);
+    */
+
+    /*$(window).bind('anchorchange', function() {
+        console.log(window.location.hash);
+        var ignoreNext = false;
+        if(window.location.hash === "#c") {
+            setTimeout(function() { History.back(); }, 10);
+            History.back();
+        } else if(window.location.hash === "#a") {
+            console.log('a');
+            setTimeout(function() {
+                console.log('b');
+                History.pushState('b', 'b', '#b');
+                setTimeout(function() {
+                    console.log('c');
+                    History.pushState('next', 'next', '#c');
+                }, 10)
+            }, 10);
+        }
+    });*/
+    //setTimeout(function() { }, 100);
     
+
+    History.pushState('prev', 'prev', '?prev'); 
+    History.pushState('current', 'current', '?current'); 
+    History.pushState('next', 'next', '?next'); 
+    History.back();
+
+    $(window).bind('hashchange anchorchange statechange', function() {
+        console.log(History.getState().title);
+        if(History.getState().title === "prev") {
+            History.forward();
+            // prev-event
+        }
+        if(History.getState().title === "next") {
+            History.back();
+            // next-event
+        }
+    });
+
+
     $('body').append($('<pre id="console">'));
     function print(x) {
         $('#console').append(x+'\n');

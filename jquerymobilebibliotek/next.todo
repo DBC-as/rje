@@ -1,4 +1,4 @@
-- move from jqm to plain jquery-based page
+- try to remove dependency on history.js by using a combo of window.location.hash and history depending on what is available
 - jsdoc og docco-venlig dokumentation
 - more input from mobile boilerplate
 - unit testing, - jasmine/qunit and selenium
