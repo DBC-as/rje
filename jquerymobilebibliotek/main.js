@@ -8,16 +8,21 @@
 
     function noanimate(elem) {
     }
-    function animate(elem) {
-        elem.css('-webkit-transition', '400ms');
+    function animate(elem, time) {
+        /*elem.css('-webkit-transition', '400ms');
         elem.css('-moz-transition', '400ms');
         elem.css('transition', '400ms');
+        */
+        elem.css('-webkit-transition', time + 'ms');
+        elem.css('-moz-transition', time + 'ms');
+        elem.css('transition', time + 'ms');
     }
 
-    util.transitionTo = function(elem) {
+    util.transitionTo = function(elem, transitionType) {
         var $prev = $('.currentVisible');
         var $current = $(elem);
         [$('.prevVisible'),$prev,$current].forEach(noanimate);
+
 
         $('.prevVisible')
             .css('visibility', 'hidden')
@@ -33,7 +38,6 @@
         $current.addClass('currentVisible')
             .css('position', 'relative')
             .css('top', (-$prev.height()/*+$prev.offset()*/) + 'px')
-            .css('left', $(window).width())
             //.css('background', 'green')
             .css('visibility', 'visible')
             ;
@@ -42,19 +46,58 @@
             .prepend($current)
             .prepend($prev);
 
-        [$prev,$current].forEach(animate);
-        $prev.css('left', -$(window).width());
-        $current.css('left', 0);
+        //$current.css(transitions[transitionType].next);
 
-        console.log($prev.height());
-        $current
 
+        transitionType= transitionType|| 'slidein';
+        var transitions = {
+            slidein: {
+                time: 400,
+                next: {
+                    left: $(window).width()
+                },
+                current: {
+                    left: 0
+                },
+                prev: {
+                    left: -$(window).width()
+                }
+            },
+            fadein: {
+                time: 1000,
+                next: {
+                    opacity: 0
+                },
+                current: {
+                    opacity: 1
+                },
+                prev: {
+                    opacity: 0
+                }
+            },
+            template: {
+                next: {
+                },
+                current: {
+                },
+                prev: {
+                }
+            }
+        };
+
+        $current.css(transitions[transitionType].next);
+        setTimeout(function() {
+        animate($prev, transitions[transitionType].time);
+        animate($current, transitions[transitionType].time);
+        $current.css(transitions[transitionType].current);
+        $prev.css(transitions[transitionType].prev);
+        }, 0);
     }
 })();
 
 $(function(){
     util.initTransitions();
-    util.transitionTo("#frontpage");
+    util.transitionTo("#frontpage", 'fadein');
     
     $('body').append($('<pre id="console">'));
     function print(x) {
@@ -94,7 +137,6 @@ $(function(){
     }
 
     function searchResults(material, query) {
-        //$.mobile.changePage("#searchresultpage");
         util.transitionTo("#searchresultpage");
         $("#searchresultquery").text(query);
         $('#numhits').text("");
