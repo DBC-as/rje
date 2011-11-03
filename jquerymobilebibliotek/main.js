@@ -83,10 +83,17 @@
 
         $current.css(transitions[transitionType].next);
         setTimeout(function() {
-        animate($prev, transitions[transitionType].time);
-        animate($current, transitions[transitionType].time);
-        $current.css(transitions[transitionType].current);
-        $prev.css(transitions[transitionType].prev);
+            animate($prev, transitions[transitionType].time);
+            animate($current, transitions[transitionType].time);
+            $current.css(transitions[transitionType].current);
+            $prev.css(transitions[transitionType].prev);
+            setTimeout(function() {
+                noanimate($prev);
+                noanimate($current);
+                $('body').append($prev);
+                $prev.css('visible', 'hidden');
+                $current.css('top', '0px');
+            }, transitions[transitionType].time);
         }, 0);
     }
 })();
