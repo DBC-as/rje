@@ -28,6 +28,13 @@ $(function(){
         "lånerstatu7": function() { alert("lånerstatus"); },
         */
     }});
+    
+    function bindScroll(fn) {
+        $(window).bind("scroll", fn);
+    }
+    function unbindScroll() {
+        $(window).unbind("scroll");
+    }
 
     function searchResults(material, query) {
         //$.mobile.changePage("#searchresultpage");
@@ -36,10 +43,12 @@ $(function(){
         $("#searchresults").html("");
         $(window).unbind("scroll");
 
+
         var pos = 0;
 
         function update() {
-            $(window).unbind("scroll", onScreen);
+            $(window).unbind("scroll");
+
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
@@ -94,8 +103,8 @@ $(function(){
         }
 
         function onScreen() {
-            if ($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
-                    window.innerHeight*2 + window.pageYOffset) {
+            if($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
+                    $(window).height()*2 +$(window).scrollTop()) {
                 update();
             }
         }
