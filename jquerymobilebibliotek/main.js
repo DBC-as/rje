@@ -7,12 +7,11 @@
     }
 
     function noanimate(elem) {
+        elem.css('-webkit-transition', 'none');
+        elem.css('-moz-transition', 'none');
+        elem.css('transition', 'none');
     }
     function animate(elem, time) {
-        /*elem.css('-webkit-transition', '400ms');
-        elem.css('-moz-transition', '400ms');
-        elem.css('transition', '400ms');
-        */
         elem.css('-webkit-transition', time + 'ms');
         elem.css('-moz-transition', time + 'ms');
         elem.css('transition', time + 'ms');
