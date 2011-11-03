@@ -51,7 +51,7 @@
                 prev: { left: -$(window).width() }
             },
             fadein: {
-                time: 1000,
+                time: 2000,
                 next: { opacity: 0 },
                 current: { opacity: 1 },
                 prev: { opacity: 0 }
