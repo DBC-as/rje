@@ -2,7 +2,7 @@
     var util = window.util = {};
 
     util.initTransitions = function() {
-        //$('body').children().css('visibility', 'hidden')
+        $('body').children().css('visibility', 'hidden')
         $('body').append('<div class="currentVisible">');
     }
 
