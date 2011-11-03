@@ -79,89 +79,60 @@
             }, transitions[transitionType].time);
         }, 0);
     }
+
+    util.topmenu = function(args) {
+        window.scrollTo(0,1);
+        var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
+        var menuKeys = Object.keys(args.items);
+
+        Object.keys(args.items).forEach(function(item) {
+            $topmenu.append($('<span class="menuitem"></span>').text(item));
+        });
+        noanimate($topmenu);
+        $('body').append($topmenu);
+        $topmenu.css('top', -($topmenu).height() + 'px');
+        animate($topmenu, 1500);
+        $topmenu.css('top', 0);
+
+    }
+
+    util.stealForwardBackButton = function() {
+        if(history.pushState) {
+            history.pushState('prev', 'prev', '#prev'); 
+            history.pushState('current', 'current', '#current'); 
+            history.pushState('next', 'next', '#next'); 
+        } else {
+            window.location.hash = "#prev";
+            window.location.hash = "#current";
+            window.location.hash = "#next";
+        }
+        history.back();
+    
+        $(window).bind('hashchange', function() {
+            if(window.location.hash === '#prev') {
+                history.forward();
+                setTimeout(function() {
+                    $(window).trigger('backbutton');
+                },100);
+                // prev-event
+            };
+            if(window.location.hash === '#next') {
+                history.back();
+                setTimeout(function() {
+                    $(window).trigger('forwardbutton');
+                },100);
+                // next-event
+            };
+        });
+    }
 })();
 
 $(function(){
     util.initTransitions();
     util.transitionTo("#frontpage", 'fadein');
 
-    //yepnope({load: 'lib/jquery.history.js', complete: function() {
-        /*$(window).bind('anchorchange', function() {
-            console.log('anchorchange', window.location.hash, History.getState().title);
-            if(History.getState().title === 'prev') {
-                History.pushState('currenb', 'currenb', '#current');
-                History.pushState('next', 'next', '#next');
-                alert('prev');
-            }
-            if(History.getState().title === "next") {
-                History.back();
-                alert('next');
-            }
-        });
-        History.pushState('prev', 'prev', '#prev');
-        //setTimeout(function() { History.back();}, 1000);
-    //}});
-    setTimeout(function() { History.pushState('b', 'b', '#b'); }, 200);
-    setTimeout(function() { History.pushState('next', 'next', '#c'); }, 300);
-    setTimeout(function() { History.back(); }, 400);
-    */
-
-    /*$(window).bind('anchorchange', function() {
-        console.log(window.location.hash);
-        var ignoreNext = false;
-        if(window.location.hash === "#c") {
-            setTimeout(function() { History.back(); }, 10);
-            History.back();
-        } else if(window.location.hash === "#a") {
-            console.log('a');
-            setTimeout(function() {
-                console.log('b');
-                History.pushState('b', 'b', '#b');
-                setTimeout(function() {
-                    console.log('c');
-                    History.pushState('next', 'next', '#c');
-                }, 10)
-            }, 10);
-        }
-    });*/
-    //setTimeout(function() { }, 100);
-    
-
-    History.pushState('prev', 'prev', '?prev'); 
-    History.pushState('current', 'current', '?current'); 
-    History.pushState('next', 'next', '?next'); 
-    History.back();
-
-    $(window).bind('hashchange anchorchange statechange', function() {
-        console.log(History.getState().title);
-        if(History.getState().title === "prev") {
-            History.forward();
-            // prev-event
-        }
-        if(History.getState().title === "next") {
-            History.back();
-            // next-event
-        }
-    });
-
-
-    $('body').append($('<pre id="console">'));
-    function print(x) {
-        $('#console').append(x+'\n');
-    }
-    function topmenu(args) {
-        window.scrollTo(0,1);
-        var $topmenu = $('<div id="topmenu">');
-        var menuKeys = Object.keys(args.items);
-
-        Object.keys(args.items).forEach(function(item) {
-            $topmenu.append($('<span class="menuitem"></span>').text(item));
-        });
-        $('body').append($topmenu);
-
-    }
-
-    topmenu({items: {
+    //util.stealForwardBackButton();
+    util.topmenu({items: {
         "bibliotek.dk": function() { alert("bib.dk"); },
         "søg": function() { alert("søg"); },
         "lånerstatus": function() { alert("lånerstatus"); }
