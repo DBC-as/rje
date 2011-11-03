@@ -2,6 +2,7 @@
 - links in topbar
 - back/forward-history
 - refactor
+- grid based layout
 - jsdoc og docco-venlig dokumentation
 - more input from mobile boilerplate
 - unit testing, - jasmine/qunit and selenium
