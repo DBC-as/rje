@@ -31,14 +31,11 @@
         $prev
             .removeClass('currentVisible')
             .addClass('prevVisible')
-            //.css('visibility', 'hidden')
-            //.css('background', 'red')
             ;
 
         $current.addClass('currentVisible')
             .css('position', 'relative')
             .css('top', (-$prev.height()/*+$prev.offset()*/) + 'px')
-            //.css('background', 'green')
             .css('visibility', 'visible')
             ;
 
