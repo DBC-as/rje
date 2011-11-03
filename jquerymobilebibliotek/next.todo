@@ -1,7 +1,9 @@
-- try to remove dependency on history.js by using a combo of window.location.hash and history depending on what is available
+- body-height
+- links in topbar
+- back/forward-history
+- refactor
 - jsdoc og docco-venlig dokumentation
 - more input from mobile boilerplate
 - unit testing, - jasmine/qunit and selenium
 - build-script
-- separate mobile-js-utility and app-logic
 - merge ../mobbib and this
