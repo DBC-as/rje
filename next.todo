@@ -1,0 +1,9 @@
+- body-height
+- back/forward-history
+- refactor
+- grid based layout
+- jsdoc og docco-venlig dokumentation
+- more input from mobile boilerplate
+- unit testing, - jasmine/qunit and selenium
+- build-script
+- merge ../mobbib and this
