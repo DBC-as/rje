@@ -20,6 +20,10 @@
     util.transitionTo = function(elem, transitionType) {
         var $prev = $('.currentVisible');
         var $current = $(elem);
+        if($prev[0] === $current[0]) {
+            return;
+        }
+
         [$('.prevVisible'),$prev,$current].forEach(noanimate);
 
 
@@ -49,6 +53,12 @@
                 next: { left: $(window).width() },
                 current: { left: 0 },
                 prev: { left: -$(window).width() }
+            },
+            slideout: {
+                time: 400,
+                next: { left: -$(window).width() },
+                current: { left: 0 },
+                prev: { left: $(window).width() }
             },
             fadein: {
                 time: 2000,
@@ -86,7 +96,12 @@
         var menuKeys = Object.keys(args.items);
 
         Object.keys(args.items).forEach(function(item) {
-            $topmenu.append($('<span class="menuitem"></span>').text(item));
+            $topmenu.append(
+                $('<span class="menuitem"></span>')
+                    .text(item)
+                    .bind('click', args.items[item])
+                );
+
         });
         noanimate($topmenu);
         $('body').append($topmenu);
@@ -133,7 +148,7 @@ $(function(){
 
     //util.stealForwardBackButton();
     util.topmenu({items: {
-        "bibliotek.dk": function() { alert("bib.dk"); },
+        "bibliotek.dk": function() { util.transitionTo("#frontpage", 'slideout'); },
         "søg": function() { alert("søg"); },
         "lånerstatus": function() { alert("lånerstatus"); }
         /*
