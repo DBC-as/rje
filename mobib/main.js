@@ -18,11 +18,17 @@
     }
 
     util.transitionTo = function(elem, transitionType) {
+        window.scrollTo(0,1);
         var $prev = $('.currentVisible');
         var $current = $(elem);
         if($prev[0] === $current[0]) {
             return;
         }
+
+        $bottomfiller = $($('#bottomfiller')[0] || $('<div id="bottomfiller">'));
+        var bottomheight = Math.max(0, $(window).height() + 61 - $current.height());
+        $bottomfiller.css('height', bottomheight);
+        $current.append($bottomfiller);
 
         [$('.prevVisible'),$prev,$current].forEach(noanimate);
 
@@ -91,7 +97,6 @@
     }
 
     util.topmenu = function(args) {
-        window.scrollTo(0,1);
         var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
         var menuKeys = Object.keys(args.items);
 
