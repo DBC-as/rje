@@ -1,5 +1,5 @@
 <module rename-to="webapp">
 	<inherits name="com.google.gwt.user.User"/>
-    <source path="mobib" />
+	<source path="mobib" />
 	<entry-point class="dk.dbc.mobib.GwtMain"/>
 </module>
