@@ -7,15 +7,13 @@
   <!-- POM file generated with GWT webAppCreator -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.dbc</groupId>
-  <artifactId>jm</artifactId>
+  <artifactId>mobib</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>GWT Maven Archetype</name>
+  <name>Experimental mobile bibliotek.dk prototype</name>
 
   <properties>
-    <!-- Convenience property to set the GWT version -->
     <gwtVersion>2.4.0</gwtVersion>
-    <!-- GWT needs at least java 1.5 -->
     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
