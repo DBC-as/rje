@@ -115,8 +115,44 @@
         $topmenu.css('top', 0);
 
     }
+})();
 
-    util.stealForwardBackButton = function() {
+(function() {
+    var router;
+    if (typeof exports !== 'undefined') {
+        router = exports;
+    } else {
+        router = {};
+    }
+    if(typeof window !== 'undefined') {
+        window.router = router;
+    }
+    
+    function browserBack() {
+        history.back();
+        history.back();
+    }
+
+    router.history = [];
+
+    function back() {
+        router.history.pop();
+        var prev = router.history.pop();
+        open(prev.name, prev.parameter);
+    }
+    function forward() {
+    }
+
+    function open(name, parameter) {
+        router.history.push({
+            name: name,
+            parameter: parameter
+        }); 
+    }
+
+
+
+    function init() {
         if(history.pushState) {
             history.pushState('prev', 'prev', '#prev'); 
             history.pushState('current', 'current', '#current'); 
@@ -134,24 +170,32 @@
                 setTimeout(function() {
                     $(window).trigger('backbutton');
                 },100);
-                // prev-event
+                router.back();
             };
             if(window.location.hash === '#next') {
                 history.back();
                 setTimeout(function() {
                     $(window).trigger('forwardbutton');
                 },100);
-                // next-event
+                router.forward();
             };
         });
     }
+
+
+    router.init = init;
+    router.open = open;
+    router.back = back;
+    router.forward = forward;
+    router.browserBack = browserBack;
+    router.dispatch = {};
 })();
 
 $(function(){
     util.initTransitions();
     util.transitionTo("#frontpage", 'fadein');
 
-    //util.stealForwardBackButton();
+    router.init();
     util.topmenu({items: {
         "bibliotek.dk": function() { util.transitionTo("#frontpage", 'slideout'); },
         "søg": function() { alert("søg"); },
