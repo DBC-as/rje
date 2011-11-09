@@ -99,6 +99,9 @@
     util.topmenu = function(args) {
         var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
         var menuKeys = Object.keys(args.items);
+        $(window).bind('scroll', function() {
+            $topmenu.css('top', $(window).scrollTop());
+        });
 
         Object.keys(args.items).forEach(function(item) {
             $topmenu.append(
@@ -113,6 +116,7 @@
         $topmenu.css('top', -($topmenu).height() + 'px');
         animate($topmenu, 1500);
         $topmenu.css('top', 0);
+        animate($topmenu, 300);
 
     }
 })();
@@ -194,6 +198,11 @@
 $(function(){
     util.initTransitions();
     util.transitionTo("#frontpage", 'fadein');
+    $(window).bind('scroll', function() {
+        if($(window).scrollTop() == 0) {
+            scrollTo(0, 1);
+        }
+    });
 
     router.init();
     util.topmenu({items: {
@@ -210,11 +219,19 @@ $(function(){
         */
     }});
     
+    var scrollcallback;
     function bindScroll(fn) {
+        if(scrollcallback) {
+            unbindScroll();
+        }
         $(window).bind("scroll", fn);
+        scrollcallback = fn;;
     }
     function unbindScroll() {
-        $(window).unbind("scroll");
+        if(scrollcallback) {
+            $(window).unbind("scroll", scrollcallback);
+            scrollcallback = undefined;
+        }
     }
 
     function searchResults(material, query) {
@@ -222,13 +239,12 @@ $(function(){
         $("#searchresultquery").text(query);
         $('#numhits').text("");
         $("#searchresults").html("");
-        $(window).unbind("scroll");
-
+        unbindScroll();
 
         var pos = 0;
 
         function update() {
-            $(window).unbind("scroll");
+            unbindScroll();
 
             $("#searchResultsLoading").unbind("click", update);
             $("#searchResultsLoading").html("loading...");
@@ -274,7 +290,7 @@ $(function(){
                 pos += 6;
                 if(pos < result.hitCount) {
                     $("#searchResultsLoading").html("Klik her for flere resultater.");
-                    $(window).bind("scroll", onScreen);
+                    bindScroll(onScreen);
                     $("#searchResultsLoading").bind("click", update);
                     onScreen();
                 } else {
@@ -284,12 +300,13 @@ $(function(){
         }
 
         function onScreen() {
+            console.log('onScreen', $("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top, $(window).height()*2 +$(window).scrollTop());
             if($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
                     $(window).height()*2 +$(window).scrollTop()) {
                 update();
             }
         }
-        $(window).bind("scroll", onScreen);
+        bindScroll(onScreen);
         $("#searchResultsLoading").bind("click", update);
         onScreen();
     }
