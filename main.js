@@ -116,7 +116,7 @@
         $topmenu.css('top', -($topmenu).height() + 'px');
         animate($topmenu, 1500);
         $topmenu.css('top', 0);
-        animate($topmenu, 300);
+        setTimeout(function() { animate($topmenu, 300);}, 1500);
 
     }
 })();
@@ -279,7 +279,7 @@ $(function(){
                                     $prop.css('height', newheight+'px');
                                 } else {
                                     if ($(this).offset().top < $(window).scrollTop()) {
-                                        window.scrollTo(0, $(this).offset().top); 
+                                        window.scrollTo(0, $(this).offset().top - 60); 
                                     }
                                     $prop.css('height', '0px');
                                 }
