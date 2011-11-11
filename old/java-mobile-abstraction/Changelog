@@ -1,0 +1,4 @@
+2011-10-10 portable basic drawing capability on the 4 backends
+2011-10-07 4 backends running now, graphics window setup
+2011-10-06 midlet and android backend started, whitelist of supported java constructs
+2011-10-05 gwt and java backend started

@@ -1,0 +1,7 @@
+<module rename-to="webapp">
+	<inherits name="com.google.gwt.user.User"/>
+    <source path="jm" />
+    <source path="jmimpl" />
+    <super-source path='compat' />
+	<entry-point class="dk.dbc.jmimpl.JmImpl"/>
+</module>

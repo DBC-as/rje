@@ -1,0 +1,27 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dk.dbc</groupId>
+  <artifactId>JmApplet</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Jamode Applet/application</name>
+  <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>dk.dbc.jmimpl.JmImpl</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
