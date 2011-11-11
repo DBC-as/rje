@@ -1,1 +1,1 @@
-git pull && git svn rebase && git push && git svn dcommit
+git pull && git push && git svn rebase && git svn dcommit
