@@ -1,0 +1,3 @@
+# Experimental prototype of "mobilt bibliotek"-app
+
+...
