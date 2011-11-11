@@ -2,9 +2,9 @@
     var util = window.util = {};
 
     util.initTransitions = function() {
-        $('body').children().css('visibility', 'hidden')
+        $('body').children().css('visibility', 'hidden');
         $('body').append('<div class="currentVisible">');
-    }
+    };
 
     function noanimate(elem) {
         elem.css('-webkit-transition', 'none');
@@ -94,7 +94,7 @@
                 $current.css('top', '0px');
             }, transitions[transitionType].time);
         }, 0);
-    }
+    };
 
     util.topmenu = function(args) {
         var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
@@ -118,7 +118,7 @@
         $topmenu.css('top', 0);
         setTimeout(function() { animate($topmenu, 300);}, 1500);
 
-    }
+    };
 })();
 
 (function() {
@@ -182,7 +182,7 @@
                     $(window).trigger('forwardbutton');
                 },100);
                 router.forward();
-            };
+            }
         });
     }
 
@@ -199,12 +199,12 @@ $(function(){
     util.initTransitions();
     util.transitionTo("#frontpage", 'fadein');
     $(window).bind('scroll', function() {
-        if($(window).scrollTop() == 0) {
+        if($(window).scrollTop() === 0) {
             scrollTo(0, 1);
         }
     });
 
-    router.init();
+    //router.init(); // breaks on android
     util.topmenu({items: {
         "bibliotek.dk": function() { util.transitionTo("#frontpage", 'slideout'); },
         "søg": function() { alert("søg"); },
@@ -225,7 +225,7 @@ $(function(){
             unbindScroll();
         }
         $(window).bind("scroll", fn);
-        scrollcallback = fn;;
+        scrollcallback = fn;
     }
     function unbindScroll() {
         if(scrollcallback) {
