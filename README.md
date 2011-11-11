@@ -1,3 +1,3 @@
-# Prototype mobilt bibliotek... app med jquerymobile
+# Experimental prototype of "mobilt bibliotek"-app
 
-experiment/visual demo
+...
