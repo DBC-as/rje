@@ -1,5 +1,7 @@
-- back/forward-history
-- refactor - module oriented
+- go back to using position:fixed (but possible workaround for Android<2.2/iOS<5)
+- refactor - module oriented - use require.js
+- better detection of network/webservice error
+- remove history-navigation experiments, and implement ordinary history management.
 - grid based layout
 - jsdoc og docco-venlig dokumentation
 - more input from mobile boilerplate
