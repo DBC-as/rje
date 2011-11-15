@@ -307,10 +307,12 @@ $(function(){
         onScreen();
     }
 
-    $("#frontpageSearch").submit(function() {
+    function searchEventFunction() {
         var material = $('#frontpageSearch input:radio[name=material]:checked').val();
         var query = $('#frontpageSearch input[name=query]').val();
         searchResults(material, query);
         return false;
-    });
+    }
+    $("#frontpageSearch").bind("submit", searchEventFunction);
+    //$("#searchbutton").bind("touch", searchEventFunction);
 });
