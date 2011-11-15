@@ -104,7 +104,7 @@
             $topmenu.append(
                 $('<span class="menuitem"></span>')
                     .text(item)
-                    .bind('click', args.items[item])
+                    .bind('touch click', args.items[item])
                 );
 
         });
@@ -242,7 +242,7 @@ $(function(){
         function update() {
             unbindScroll();
 
-            $("#searchResultsLoading").unbind("click", update);
+            $("#searchResultsLoading").unbind("click touch", update);
             $("#searchResultsLoading").html("loading...");
             var moreHits = true;
             bibdk.search({cql: query, start: pos, count: 6, callback: function(result) {
@@ -267,7 +267,7 @@ $(function(){
                                     acc.push('</table></div>');
                                     return acc.join('');
                                 }).join('') + '</div>')
-                            .bind('click', function() {
+                            .bind('click touch', function() {
                                 var $prop = $(this).find(".bibentries");
                                 if($prop.css('height') === "0px") {
                                     $prop.css('height', 'auto');
@@ -287,7 +287,7 @@ $(function(){
                 if(pos < result.hitCount) {
                     $("#searchResultsLoading").html("Klik her for flere resultater.");
                     bindScroll(onScreen);
-                    $("#searchResultsLoading").bind("click", update);
+                    $("#searchResultsLoading").bind("click touch", update);
                     onScreen();
                 } else {
                     $("#searchResultsLoading").html("");
@@ -303,7 +303,7 @@ $(function(){
             }
         }
         bindScroll(onScreen);
-        $("#searchResultsLoading").bind("click", update);
+        $("#searchResultsLoading").bind("click touch", update);
         onScreen();
     }
 
