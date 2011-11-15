@@ -1,4 +1,4 @@
-- go back to using position:fixed (but possible workaround for Android<2.2/iOS<5)
+- use less on server to generate css
 - refactor - module oriented - use require.js
 - better detection of network/webservice error
 - remove history-navigation experiments, and implement ordinary history management.
@@ -7,4 +7,4 @@
 - more input from mobile boilerplate
 - unit testing, - jasmine/qunit and selenium
 - build-script
-- merge ../mobbib and this
+- iOS<5, Android<2.2 position workaround
