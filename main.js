@@ -99,10 +99,7 @@
     util.topmenu = function(args) {
         var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
         var menuKeys = Object.keys(args.items);
-        $(window).bind('scroll', function() {
-            $topmenu.css('top', $(window).scrollTop());
-        });
-
+        
         Object.keys(args.items).forEach(function(item) {
             $topmenu.append(
                 $('<span class="menuitem"></span>')
@@ -111,13 +108,12 @@
                 );
 
         });
-        noanimate($topmenu);
         $('body').append($topmenu);
-        $topmenu.css('top', -($topmenu).height() + 'px');
-        animate($topmenu, 1500);
-        $topmenu.css('top', 0);
-        setTimeout(function() { animate($topmenu, 300);}, 1500);
-
+        $topmenu
+            .css('position', 'fixed')
+            .css('top', 0)
+            .css('left', 0);
+        
     };
 })();
 
