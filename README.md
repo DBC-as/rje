@@ -1,3 +1,13 @@
 # Experimental prototype of "mobilt bibliotek"-app
 
-More info to come...
+# next
+
+- initial bibdk-api + unittest
+
+# Technology/libraries
+
+- requirejs for module system
+- jquery for browser abstraction
+- jasmine for testing
+- underscore for utility
+- nodejs for test/serverside running
