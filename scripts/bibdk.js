@@ -1,4 +1,8 @@
 define(['require', 'exports'], function(require, exports) {
+    exports.login = function login(args) {
+        return {error: "not implemented yet"};
+    };
+
     // # Transform JSON-encoded DKABM-xml to straight JSON
     function processDKABM(xml) {
         var results = [];
@@ -24,7 +28,7 @@ define(['require', 'exports'], function(require, exports) {
     }
 
     // # Call the webservice
-    function search(args) {
+    exports.search = function search(args) {
         // Parameter validation
         if(!args.callback) {
             throw "Callback parameter missing";
@@ -58,13 +62,4 @@ define(['require', 'exports'], function(require, exports) {
                 });
             }});
     }
-
-    // # Exports
-    var bibdk;
-    if (typeof exports !== 'undefined') {
-        bibdk = exports;
-    } else if (typeof window !== 'undefined') {
-        window.bibdk = bibdk;
-    }
-    bibdk.search = search;
 });

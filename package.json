@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "dependencies": {
       "express": "2.5.0",
-      "underscore": "1.2.2"
+      "requirejs": "1.0.1"
+  },
+  "directories": {
+    "lib": "scripts"
+  },
+  "scripts": {
+    "test": "jasmine-node --runWithRequireJs scripts" 
   }
 }
