@@ -14,46 +14,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <style>
-  <!--link rel="stylesheet" type="text/css" href="style.css"-->
-    body { background: url("bg.png"); }
-  </style>
+  <style>body { background: url("bg.png"); }</style>
+  <script src="lib/jquery-1.6.4.min.js"></script>
+  <script data-main="scripts/main" src="lib/require.js"></script>
 </head>
 <body>
 <noscript>Requires JavaScript enabled :(</noscript>
-<script type="text/javascript" language="javascript" src="lib/modernizr-2.0.6.js"></script>
-<script type="text/javascript" language="javascript" src="lib/yepnope.1.0.2-min.js"></script>
-<script>
-yepnope( [
-{ test: window.JSON && window.JSON.stringify, nope: 'lib/json2.js' }, 
-{ test: Object.keys && Array.prototype.forEach, nope: 'lib/es5-shim.min.js' }, 
-'lib/jquery-1.6.4.min.js', 
-'bibdk.js?' + Math.random(),
-'style.css?' + Math.random() + '.css',
-'main.js?' + Math.random(),
-])
-</script>
-<div style='visibility:hidden'>
-<div id="frontpage">
-            <h1>Søg i bibliotek.dk</h1>
-            <form id="frontpageSearch">
-                <input type="text" placeholder="søgning" name="query" value="" />
-                <input type="submit" value="Søg" id="searchbutton" />
-            </form>
-        <hr />
-        <form>
-            <h1>Log ind</h1>
-                <input type="email" placeholder="email" name="email" value=""  />
-                <input type="password" placeholder="kodeord" name="name" value=""  />
-                <input type="submit" value="Log ind"/>
-        </form>
-</div>
-<div id="searchresultpage">
-        <h1>Søgeresultater for <span id="searchresultquery"></span></h1>
-        <div id="numhits"></div>
-        <div id="searchresults"></div>
-        <div id="searchResultsLoading">Flere resultater...</div>
-</div>
-</div>
-
 </body>
