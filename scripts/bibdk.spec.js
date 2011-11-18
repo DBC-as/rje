@@ -3,7 +3,7 @@ describe("bibdk", function() {
     var token;
     beforeEach(function() {
       bibdk = require('bibdk');
-      token = bibdk.login({user: 'testuser', password: 'testpassword'}).access_token;
+      token = bibdk.login({user: 'bibdk-testuser@solsort.dk', password: 'bibdktest'}).access_token;
     });
 
     it('returns an error when login fails', function() {
@@ -12,7 +12,7 @@ describe("bibdk", function() {
     });
 
     it('returns a string token when loggin in', function() {
-        var token = bibdk.login({user: 'testuser', password: 'testpassword'});
+        var token = bibdk.login({user: 'bibdk-testuser@solsort.dk', password: 'bibdktest'});
         expect(token.error).toBeFalsy();
         expect(typeof token.access_token).toBe('string');
     });

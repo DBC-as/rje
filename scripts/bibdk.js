@@ -1,5 +1,14 @@
 define(['require', 'exports'], function(require, exports) {
     exports.login = function login(args) {
+        $.ajax({
+            url: "https://m.bibliotek.dk/custom/bibliotek_dk/access.jsp?go=25447841&cid=", 
+            data: { 
+                usr: 'bibdk-testuser@solsort.dk', 
+                psw:'bibdktest'
+            }, 
+            dataType: 'html',
+            type: 'POST',
+            success: function(a,b,c) { A = a; B = b; C = c; console.log(a,b,c); }});
         return {error: "not implemented yet"};
     };
 
