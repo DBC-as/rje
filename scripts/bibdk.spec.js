@@ -1,4 +1,5 @@
-describe("bibdk", function() {
+define(['require', 'exports', 'bibdk'], function(require, exports) {
+  describe('bibdk', function() {
     var bibdk;
     var token;
     beforeEach(function() {
@@ -16,4 +17,5 @@ describe("bibdk", function() {
         expect(token.error).toBeFalsy();
         expect(typeof token.access_token).toBe('string');
     });
+  });
 });
