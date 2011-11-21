@@ -18,21 +18,30 @@ define(['require', 'exports', 'bibdk'], function(require, exports) {
             }});
         });
     });
-    describe('search', function() {
-        it('finds results', function() {
-            async();
-            bibdk.search({query: 'fremtidskongressen', callback: function(results) {
-                expect(results.length).toBe(3);
-                done();
-            }});
+    describe('status', function() {
+        it('shows list of orders', function() {
+            var reservations = bibdk.reservations();
+            expect(reservations.error).toBeFalsy();
         });
-        it('also works when search yields no results', function() {
+    });
+    describe('search', function() {
+        it('works when search yields no results', function() {
             async();
             bibdk.search({query: 'huhjkabrbkjabwfjnljwanflfnra', callback: function(results) {
                 expect(results.length).toBe(0);
                 done();
             }});
-        });;
+        });
+        it('also finds results', function() {
+            async();
+            bibdk.search({query: 'fremtidskongressen', callback: function(results) {
+                expect(results.length).toBe(3);
+                expect(results[0].Forfatter).toBe('Stanislaw Lem');
+                expect(results[1].Forfatter).toBe('Stanislaw Lem');
+                expect(results[2].Forfatter).toBe('Stanislaw Lem');
+                done();
+            }});
+        });
     });
   });
 

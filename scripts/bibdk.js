@@ -4,6 +4,13 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
     // client id at scraped web service, used for validation
     var cid;
 
+    // Reservations, loaded at login-time
+    var reservations;
+
+    exports.reservations = function() {
+        return Array.isArray(reservations) ? reservations : {error: 'not logged in / reservations not initialised'};
+    };
+
     // # Login to webservice
     // Parameters are encoded in object and should contain the following properties: 
     // `user` bibliotek.dk username for login, 
@@ -22,6 +29,8 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
             type: 'POST',
             success: function(resultHtml) { 
                 cid = $(resultHtml).find('[name="cid"]').attr('value');
+                HTML = resultHtml;
+
                 if(!cid) {
                     args.callback({error: 'no cid'});
                     return;
@@ -29,9 +38,19 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
                 if(resultHtml.indexOf('Mine l&#229;n:') === -1) {
                     cid = undefined;
                     args.callback({error: 'not logged in'});
-                } else {
-                    args.callback({});
-                }
+                    return;
+                } 
+                reservations = [];
+                _($(resultHtml).find('.reservation')).each(function(elem) {
+                    var $elem = $(elem);
+                    reservations.push({
+                        title: $elem.find('.itemTitle').text(),
+                        id: $elem.find('[name="itemId"]').attr('value')
+                    });
+                });
+                args.callback({
+                    reservations: reservations
+                });
             },
             error: function(a) {
                 args.callback({error: 'could not connect to remote service'});
@@ -39,7 +58,6 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
         });
     };
 
-    X = [];
     exports.search = function search(args) {
         if(!cid) {
             setTimeout(args.callback({error: 'not logged in'}), 0);
@@ -55,9 +73,24 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
             dataType: 'html',
             type: 'GET',
             success: function(resultHTML) {
-                X.push(resultHTML);
-                var results = $('<div>'+resultHTML).find('.searchResultWrap');
-                args.callback(resultHTML);
+                var results = [];
+
+                _($('<div>'+resultHTML).find('.searchResultWrap')).each(function(elem) {
+                    var $elem = $(elem);
+                    var result = {};
+                    result.Titel = $elem.find('h2').text();
+                    result.Forfatter = $elem.find('.coolmenu').text().trim();
+                    result.Materiale = $elem.find('img').attr('alt');
+                    result.BestillingsId = $elem.find('[name="item"]').attr('value');
+                    result.Beskrivelse = $elem.find('.description').text();
+                    _($elem.find('li')).each(function(elem) {
+                        var text = $(elem).text();
+                        var pos = text.indexOf(': ');
+                        result[text.slice(0, pos)] = text.slice(pos+2, text.length);
+                    });
+                    results.push(result);
+                });
+                args.callback(results);
             },
             error: function() {
                 args.callback({error: 'could not connect to remote service'});
