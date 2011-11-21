@@ -1,15 +1,32 @@
 define(['require', 'exports'], function(require, exports) {
+    var cid;
     exports.login = function login(args) {
         $.ajax({
             url: "https://m.bibliotek.dk/custom/bibliotek_dk/access.jsp?go=25447841&cid=", 
             data: { 
-                usr: 'bibdk-testuser@solsort.dk', 
-                psw:'bibdktest'
+                usr: args.user,
+                psw: args.password
             }, 
             dataType: 'html',
             type: 'POST',
-            success: function(a,b,c) { A = a; B = b; C = c; console.log(a,b,c); }});
-        return {error: "not implemented yet"};
+            success: function(resultHtml) { 
+                X = resultHtml;
+                cid = $(resultHtml).find('[name="cid"]').attr('value');
+                if(!cid) {
+                    args.callback({error: 'no cid'});
+                    return;
+                } 
+                console.log("resultHtml.indexOf('Mine l&#229;n:')", resultHtml.indexOf('Mine l&#229;n:') );
+                if(resultHtml.indexOf('Mine l&#229;n:') === -1) {
+                    args.callback({error: 'not logged in'});
+                } else {
+                    args.callback({});
+                }
+            },
+            error: function(a) {
+                args.callback({error: 'could not connect to remote service'});
+            }
+        });
     };
 
     // # Transform JSON-encoded DKABM-xml to straight JSON
