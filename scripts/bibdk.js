@@ -1,8 +1,19 @@
-define(['require', 'exports'], function(require, exports) {
+define(['require', 'exports', 'underscore'], function(require, exports) {
+    var _ = require('underscore');
+
+    // client id at scraped web service, used for validation
     var cid;
+
+    // # Login to webservice
+    // Parameters are encoded in object and should contain the following properties: 
+    // `user` bibliotek.dk username for login, 
+    // `password` bibliotek.dk password for login,
+    // `callback` function to be called when logged in.
+    // If an error occur during login, then the parameter callback function will
+    // contain an `error` property.
     exports.login = function login(args) {
         $.ajax({
-            url: "https://m.bibliotek.dk/custom/bibliotek_dk/access.jsp?go=25447841&cid=", 
+            url: 'https://m.bibliotek.dk/custom/bibliotek_dk/access.jsp?go=25447841&cid=', 
             data: { 
                 usr: args.user,
                 psw: args.password
@@ -10,14 +21,13 @@ define(['require', 'exports'], function(require, exports) {
             dataType: 'html',
             type: 'POST',
             success: function(resultHtml) { 
-                X = resultHtml;
                 cid = $(resultHtml).find('[name="cid"]').attr('value');
                 if(!cid) {
                     args.callback({error: 'no cid'});
                     return;
                 } 
-                console.log("resultHtml.indexOf('Mine l&#229;n:')", resultHtml.indexOf('Mine l&#229;n:') );
                 if(resultHtml.indexOf('Mine l&#229;n:') === -1) {
+                    cid = undefined;
                     args.callback({error: 'not logged in'});
                 } else {
                     args.callback({});
@@ -29,6 +39,32 @@ define(['require', 'exports'], function(require, exports) {
         });
     };
 
+    X = [];
+    exports.search = function search(args) {
+        if(!cid) {
+            setTimeout(args.callback({error: 'not logged in'}), 0);
+            return;
+        }
+        $.ajax({
+            url: 'https://m.bibliotek.dk/c.jsp',
+            data: {
+                cid: cid,
+                q: args.query,
+                filter: args.filter || 'all'
+            },
+            dataType: 'html',
+            type: 'GET',
+            success: function(resultHTML) {
+                X.push(resultHTML);
+                var results = $('<div>'+resultHTML).find('.searchResultWrap');
+                args.callback(resultHTML);
+            },
+            error: function() {
+                args.callback({error: 'could not connect to remote service'});
+            }
+      });
+    }
+
     // # Transform JSON-encoded DKABM-xml to straight JSON
     function processDKABM(xml) {
         var results = [];
@@ -36,7 +72,7 @@ define(['require', 'exports'], function(require, exports) {
             dkabm = dkabm.record;
             var result = {};
             Object.keys(dkabm).forEach(function(key){
-                if(key.charAt(0) !== "@") 
+                if(key.charAt(0) !== '@') 
                 dkabm[key].forEach(function(value){
                     var newkey = key;
                     if(value["@type"]) {
@@ -54,7 +90,7 @@ define(['require', 'exports'], function(require, exports) {
     }
 
     // # Call the webservice
-    exports.search = function search(args) {
+    exports.oldsearch = function oldsearch(args) {
         // Parameter validation
         if(!args.callback) {
             throw "Callback parameter missing";
