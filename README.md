@@ -7,7 +7,7 @@
 # Technology/libraries
 
 - requirejs for module system
-- jquery for browser abstraction
 - jasmine for testing
+- (jquery for browser abstraction)
 - underscore for utility
 - nodejs for test/serverside running
