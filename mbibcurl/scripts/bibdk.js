@@ -11,6 +11,19 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
         return Array.isArray(reservations) ? reservations : {error: 'not logged in / reservations not initialised'};
     };
 
+    function parseStatus(html) {
+                reservations = [];
+                _($(html).find('.reservation')).each(function(elem) {
+                    var $elem = $(elem);
+                    reservations.push({
+                        title: $elem.find('.itemTitle').text(),
+                        id: $elem.find('[name="itemId"]').attr('value')
+                    });
+                    console.log(elem);
+                });
+    };
+
+
     // # Login to webservice
     // Parameters are encoded in object and should contain the following properties: 
     // `user` bibliotek.dk username for login, 
@@ -29,7 +42,6 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
             type: 'POST',
             success: function(resultHtml) { 
                 cid = $(resultHtml).find('[name="cid"]').attr('value');
-                HTML = resultHtml;
 
                 if(!cid) {
                     args.callback({error: 'no cid'});
@@ -40,14 +52,7 @@ define(['require', 'exports', 'underscore'], function(require, exports) {
                     args.callback({error: 'not logged in'});
                     return;
                 } 
-                reservations = [];
-                _($(resultHtml).find('.reservation')).each(function(elem) {
-                    var $elem = $(elem);
-                    reservations.push({
-                        title: $elem.find('.itemTitle').text(),
-                        id: $elem.find('[name="itemId"]').attr('value')
-                    });
-                });
+                parseStatus(resultHtml);
                 args.callback({
                     reservations: reservations
                 });

@@ -42,7 +42,7 @@
         // send the request using jquery
         // TODO: independence of jquery
         $.ajax({
-            url: 'http://opensearch.addi.dk/2.0/',
+            url: 'http://opensearch.addi.dk/1.1/',
             data: {
                 action: 'search',
                 query: args.cql,
@@ -51,11 +51,16 @@
                 outputType: 'json'},
             dataType: 'jsonp',
             success: function (result) {
-                callback({
-                    hitCount: result.searchResponse.result.hitCount.$,
-                    start: start-1, // workaround that the webservice uses 1-based indexing
-                    collections: result.searchResponse.result.hitCount.$ == 0 ? [] : result.searchResponse.result.searchResult.map(function(elem) { return processDKABM(elem.collection.object); })
-                });
+                console.log(result)
+                if(result.searchResponse.error) {
+                    callback({error: result.searchResponse.error.$});
+                } else {
+                    callback({
+                        hitCount: result.searchResponse.result.hitCount.$,
+                        start: start-1, // workaround that the webservice uses 1-based indexing
+                        collections: result.searchResponse.result.hitCount.$ === 0 ? [] : result.searchResponse.result.searchResult.map(function(elem) { return processDKABM(elem.collection.object); })
+                    });
+                }
             }});
     }
 

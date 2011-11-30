@@ -244,8 +244,10 @@ $(function(){
 
             $("#searchResultsLoading").unbind("click touch", update);
             $("#searchResultsLoading").html("loading...");
-            var moreHits = true;
             bibdk.search({cql: query, start: pos, count: 6, callback: function(result) {
+                if(result.error) {
+                    alert('Error: ' + result.error);
+                }
                 $('#numhits').text("Fundet " + result.hitCount + " poster:");
                 result.collections.map(function(entries) { 
                     $('#searchresults').append( 
@@ -296,7 +298,7 @@ $(function(){
         }
 
         function onScreen() {
-            console.log('onScreen', $("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top, $(window).height()*2 +$(window).scrollTop());
+            //console.log('onScreen', $("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top, $(window).height()*2 +$(window).scrollTop());
             if($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
                     $(window).height()*2 +$(window).scrollTop()) {
                 update();

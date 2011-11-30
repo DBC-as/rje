@@ -28,6 +28,7 @@ define(['require', 'exports', 'bibdk'], function(require, exports) {
         it('works when search yields no results', function() {
             async();
             bibdk.search({query: 'huhjkabrbkjabwfjnljwanflfnra', callback: function(results) {
+                expect(results.error).toBeFalsy();
                 expect(results.length).toBe(0);
                 done();
             }});
@@ -35,6 +36,7 @@ define(['require', 'exports', 'bibdk'], function(require, exports) {
         it('also finds results', function() {
             async();
             bibdk.search({query: 'fremtidskongressen', callback: function(results) {
+                expect(results.error).toBeFalsy();
                 expect(results.length).toBe(3);
                 expect(results[0].Forfatter).toBe('Stanislaw Lem');
                 expect(results[1].Forfatter).toBe('Stanislaw Lem');
