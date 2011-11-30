@@ -296,7 +296,7 @@ $(function(){
         }
 
         function onScreen() {
-            console.log('onScreen', $("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top, $(window).height()*2 +$(window).scrollTop());
+            //console.log('onScreen', $("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top, $(window).height()*2 +$(window).scrollTop());
             if($("#searchResultsLoading").offset() && $("#searchResultsLoading").offset().top <
                     $(window).height()*2 +$(window).scrollTop()) {
                 update();
