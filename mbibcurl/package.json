@@ -1,0 +1,14 @@
+{
+  "name": "mobib",
+  "version": "0.0.1",
+  "dependencies": {
+      "express": "2.5.0",
+      "requirejs": "1.0.1"
+  },
+  "directories": {
+    "lib": "scripts"
+  },
+  "scripts": {
+    "test": "jasmine-node --runWithRequireJs scripts" 
+  }
+}

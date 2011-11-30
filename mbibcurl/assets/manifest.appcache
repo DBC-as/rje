@@ -1,0 +1,11 @@
+CACHE MANIFEST
+
+NETWORK:
+
+config.xml
+icon.png
+splash.png
+index.html
+main.js
+
+FALLBACK:
