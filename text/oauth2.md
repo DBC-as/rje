@@ -1,6 +1,6 @@
 % Vidensdeling: OAuth 2.0
-% December 2011
 % rje@dbc.dk
+% December 2011
 
 
 # Indhold
