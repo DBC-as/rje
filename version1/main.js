@@ -244,8 +244,10 @@ $(function(){
 
             $("#searchResultsLoading").unbind("click touch", update);
             $("#searchResultsLoading").html("loading...");
-            var moreHits = true;
             bibdk.search({cql: query, start: pos, count: 6, callback: function(result) {
+                if(result.error) {
+                    alert('Error: ' + result.error);
+                }
                 $('#numhits').text("Fundet " + result.hitCount + " poster:");
                 result.collections.map(function(entries) { 
                     $('#searchresults').append( 
