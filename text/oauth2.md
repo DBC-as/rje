@@ -7,18 +7,17 @@
 
 1. Hvorfor denne præsentation / hvilket problem løser OAuth
 2. Hvordan virker det
-3. Praktisk info om OAuth 2.0
+3. Info om OAuth 2.0
 4. Hvad ville vi kunne bruge det til
 
 # Hvorfor / problem
 
-• Interessant tilgang til adgangskontrol på services
+- Interessant tilgang til adgangskontrol på services
 
 &nbsp;
 
-• IP-autentificering virker ikke med klient-applikationer
-
-• Login/password i klienten er usikkert og understøtter ikke begrænset adgang eller 'revoke'
+- IP-autentificering virker ikke med klient-applikationer
+- Login/password i klienten er usikkert og understøtter ikke begrænset adgang eller 'revoke'
 
 
 # Hvordan / implicit flow
@@ -33,18 +32,20 @@ Bemærk: klienten ser aldrig bruger-login, og brugeren kan vælge hvad klienten 
 
 # OAuth 2.0
 
-• IETF Working Draft (forfattet af Yahoo/Microsoft/Facebook)
-
-• SSL, og dermed enklere end OAuth 1.0
-
-• Flows: Authorization Code, Implicit, Bruger Password, Klient
-
-• Anvendes allerede af google, facebook, microsoft, twitter, github, ...
+- IETF Working Draft (forfattet af Yahoo/Microsoft/Facebook)
+- SSL, og dermed enklere end OAuth 1.0
+- Flows: Authorization Code, Implicit, Bruger Password, Klient
+- Anvendes allerede af google, facebook, microsoft, twitter, github, ...
     
-# Vores use-case
 
-- Klientapplikationer vil kunne bruge vores adgangsbegrænsede appliktationer, ie. mobil, indlejeret webapps, samt 3.parts-applikationer
-- Resourceadgangskontrol via bibliotek (implicit via bruger), applikation/`client_id` eller bruger
+# Hvad vi villle kunne bruge det til
+
+- Klientapplikationer ie. mobil+web-apps.
+- Testadgang til services (ie. begrænset antal api-kald/time)
+- Åbning op for 3.parts-applikationer.
+- Viden om hvem der bruger vores services.
+- Finkornet resourceadgang/billing: bibliotek/bruger/applikation vs. kun bibliotek. 
+
 
 # Opsamling
 
@@ -53,4 +54,6 @@ Bemærk: klienten ser aldrig bruger-login, og brugeren kan vælge hvad klienten 
 3. Praktisk info om OAuth 2.0
 4. Hvad ville vi kunne bruge det til
 
-## Spørgsmål?
+# Spørgsmål?
+
+?
