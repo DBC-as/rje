@@ -5,24 +5,32 @@
 
 # Indhold
 
-1. Hvorfor denne præsentation / hvilket problem løser OAuth
+1. Hvad/hvorfor
 2. Hvordan virker det
-3. Info om OAuth 2.0
+3. OAuth 2.0
 4. Hvad ville vi kunne bruge det til
 
-# Hvorfor / problem
+# Hvad/hvorfor
 
-- Interessant tilgang til adgangskontrol på services
+- OAuth 2.0 er en standard for adgangskontrol 
+    - Interessant tilgang
+    - Kan måske være et relevant bud for vores webservices
 
-&nbsp;
+Problem:
 
 - IP-autentificering virker ikke med klient-applikationer
 - Login/password i klienten er usikkert og understøtter ikke begrænset adgang eller 'revoke'
 
 
-# Hvordan / implicit flow
+# Hvordan 
 
-Indførsel af `access_token`
+- afkobling mellem bruger ("resource owner") og klient
+- indførsel af `access_token`
+- forskellige authentikationsflow
+
+------
+
+Eksempel - implicit flow:
 
 1. Klienten sender brugeren til service-login med liste af adgangsønsker
 2. Service-login returnerer brugeren til klienten sammen med `access_token`
@@ -34,7 +42,7 @@ Bemærk: klienten ser aldrig bruger-login, og brugeren kan vælge hvad klienten 
 
 - IETF Working Draft (forfattet af Yahoo/Microsoft/Facebook)
 - SSL, og dermed enklere end OAuth 1.0
-- Flows: Authorization Code, Implicit, Bruger Password, Klient
+- Flows: authorization code, implicit, bruger credentials, klient,
 - Anvendes allerede af google, facebook, microsoft, twitter, github, ...
     
 
@@ -43,16 +51,17 @@ Bemærk: klienten ser aldrig bruger-login, og brugeren kan vælge hvad klienten 
 - Klientapplikationer ie. mobil+web-apps.
 - Testadgang til services (ie. begrænset antal api-kald/time)
 - Åbning op for 3.parts-applikationer.
-- Viden om hvem der bruger vores services.
 - Finkornet resourceadgang/billing: bibliotek/bruger/applikation vs. kun bibliotek. 
+- Viden om hvem der bruger vores services.
 
 
 # Opsamling
 
-1. Hvorfor denne præsentation / hvilket problem løser OAuth
+1. Hvad/hvorfor
 2. Hvordan virker det
-3. Praktisk info om OAuth 2.0
+3. OAuth 2.0
 4. Hvad ville vi kunne bruge det til
+
 
 # Spørgsmål?
 

@@ -23,26 +23,37 @@ rje@dbc.dk
 <div class="slide">
 <h1 id="indhold">Indhold</h1>
 <ol style="list-style-type: decimal">
-<li>Hvorfor denne præsentation / hvilket problem løser OAuth</li>
+<li>Hvad/hvorfor</li>
 <li>Hvordan virker det</li>
-<li>Info om OAuth 2.0</li>
+<li>OAuth 2.0</li>
 <li>Hvad ville vi kunne bruge det til</li>
 </ol>
 </div>
 <div class="slide">
-<h1 id="hvorfor-problem">Hvorfor / problem</h1>
+<h1 id="hvadhvorfor">Hvad/hvorfor</h1>
 <ul>
-<li>Interessant tilgang til adgangskontrol på services</li>
+<li>OAuth 2.0 er en standard for adgangskontrol
+<ul>
+<li>Interessant tilgang</li>
+<li>Kan måske være et relevant bud for vores webservices</li>
+</ul></li>
 </ul>
-<p> </p>
+<p>Problem:</p>
 <ul>
 <li>IP-autentificering virker ikke med klient-applikationer</li>
 <li>Login/password i klienten er usikkert og understøtter ikke begrænset adgang eller 'revoke'</li>
 </ul>
 </div>
 <div class="slide">
-<h1 id="hvordan-implicit-flow">Hvordan / implicit flow</h1>
-<p>Indførsel af <code>access_token</code></p>
+<h1 id="hvordan">Hvordan</h1>
+<ul>
+<li>afkobling mellem bruger (&quot;resource owner&quot;) og klient</li>
+<li>indførsel af <code>access_token</code></li>
+<li>forskellige authentikationsflow</li>
+</ul>
+</div>
+<div class="slide">
+<p>Eksempel - implicit flow:</p>
 <ol style="list-style-type: decimal">
 <li>Klienten sender brugeren til service-login med liste af adgangsønsker</li>
 <li>Service-login returnerer brugeren til klienten sammen med <code>access_token</code></li>
@@ -55,7 +66,7 @@ rje@dbc.dk
 <ul>
 <li>IETF Working Draft (forfattet af Yahoo/Microsoft/Facebook)</li>
 <li>SSL, og dermed enklere end OAuth 1.0</li>
-<li>Flows: Authorization Code, Implicit, Bruger Password, Klient</li>
+<li>Flows: authorization code, implicit, bruger credentials, klient,</li>
 <li>Anvendes allerede af google, facebook, microsoft, twitter, github, ...</li>
 </ul>
 </div>
@@ -65,16 +76,16 @@ rje@dbc.dk
 <li>Klientapplikationer ie. mobil+web-apps.</li>
 <li>Testadgang til services (ie. begrænset antal api-kald/time)</li>
 <li>Åbning op for 3.parts-applikationer.</li>
-<li>Viden om hvem der bruger vores services.</li>
 <li>Finkornet resourceadgang/billing: bibliotek/bruger/applikation vs. kun bibliotek.</li>
+<li>Viden om hvem der bruger vores services.</li>
 </ul>
 </div>
 <div class="slide">
 <h1 id="opsamling">Opsamling</h1>
 <ol style="list-style-type: decimal">
-<li>Hvorfor denne præsentation / hvilket problem løser OAuth</li>
+<li>Hvad/hvorfor</li>
 <li>Hvordan virker det</li>
-<li>Praktisk info om OAuth 2.0</li>
+<li>OAuth 2.0</li>
 <li>Hvad ville vi kunne bruge det til</li>
 </ol>
 </div>
