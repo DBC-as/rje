@@ -1,5 +1,6 @@
 .ui-body-c,
 .ui-dialog.ui-overlay-c {
+
 	background: #fff;
     background-repeat:repeat-x;
 }
@@ -11,6 +12,12 @@
     padding: .3em;
     border: 1px solid #ccc;
     margin-bottom: 1em;
+}
+.mainitem ul li {
+    list-style-type: none;
+}
+.itemshort .title .description {
+    font-style: italic;
 }
 p {
     margin-top: 0.1em;
@@ -31,16 +38,6 @@ p {
     text-shadow: 1px 1px 4px #fff,
                  1px -1px 4px #fff,
                  -1px 1px 4px #fff;
-    /*
-    background-image: url('images/logo.png');
-    background-size: 100% 100%;
-    background-image: -webkit-gradient(linear, left top, left bottom, from( #fff ), to( #e4dcb6 )); 
-    background-image: -webkit-linear-gradient(#fff, #e4dcb6 ); 
-    background-image:    -moz-linear-gradient(#fff, #e4dcb6 ); 
-    background-image:     -ms-linear-gradient(#fff, #e4dcb6 ); 
-    background-image:      -o-linear-gradient(#fff, #e4dcb6 ); 
-    background-image:         linear-gradient(#fff, #e4dcb6 );
-    */
 }
 .bestilknap {
     float: right;
@@ -50,7 +47,4 @@ p {
 .bestilknap form div {
     margin: 0em;
     margin-left: .3em;
-}
-.itemshort .title .description {
-    font-style: italic;
 }
