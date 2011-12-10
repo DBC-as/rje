@@ -27,33 +27,35 @@
         <link rel="icon" href="http://takana1.dbc.dk/mbibdk/common/pics/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <div data-role="page" >
+        <div data-role="page" id="searchPage">
             <div data-role="header" data-position="fixed" data-id="bibheader">
                 <h1>bibliotek.dk</h1>
             </div><!-- /header -->
             <div data-role="content">
                 <!--form action="m_vis.php" method="post"-->
-                <form action="m_vis.html" method="get">
-                    <input name="page" value="1" type="hidden">
-                    <input type="search" name="search" value="jensen" type="text">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <select name="mat" id="mat">
-                                <option value="all" selected="selected"> Alle </option>
-                                <option value="books"> B&oslash;ger </option>
-                                <option value="music"> Musik </option> 
-                                <option value="film"> Film </option>
-                            </select>
-                        </div>
-                        <div class="ui-block-b">
-                            <input value="S&oslash;g" type="submit">
-                        </div>     
-                    </fieldset>
-                </form>
+                    <form action="m_vis.html" method="get">
+                        <input name="page" value="1" type="hidden">
+                        <input type="search" name="search" value="jensen" type="text">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <select name="mat" id="mat">
+                                    <option value="all" selected="selected"> Alle </option>
+                                    <option value="books"> B&oslash;ger </option>
+                                    <option value="music"> Musik </option> 
+                                    <option value="film"> Film </option>
+                                </select>
+                            </div>
+                            <div class="ui-block-b">
+                                <input value="S&oslash;g" type="submit">
+                            </div>     
+                        </fieldset>
+                    </form>
+
+                    <hr />
 
                 <div id="c-block">
                     <!-- Vis -->
-                    <h1>S&oslash;geresultat</h1>
+                    <h2>S&oslash;geresultat</h2>
                     <p>Her kan du se resultatet af din s&oslash;gning.</p>
                     <p class="infoheader">Antal s&oslash;geresultater:&nbsp;158520</p>
                     <!-- Vis -->
@@ -65,7 +67,7 @@
                                 </form>
                             </div>
                             <div class="title">
-                                <span id="linkSign-tabVis1">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Nordisk i tv og radio rapport om nordisk programsamarbejde samt adgang til nordiske nabolandskanaler<br>
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Nordisk i tv og radio rapport om nordisk programsamarbejde samt adgang til nordiske nabolandskanaler<br>
                                 <div class="description">
                                     Else Fabricius Jensen
                                 </div>
@@ -99,7 +101,7 @@
 
 
                             <div class="title">
-                                <span id="linkSign-tabVis2">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; P&aring; trapperne<br>
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; P&aring; trapperne<br>
                                 <div class="description">
                                     The Substitutes m. fl.
                                 </div>
@@ -131,7 +133,7 @@
                                 </form>
                             </div>
                             <div class="title">
-                                <span id="linkSign-tabVis3">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; Sommernattens magt<br>
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; Sommernattens magt<br>
                                 <div class="description">
                                     Martin Jakobsen sanger, Per M&oslash;ller Jensen
                                 </div>
@@ -162,7 +164,7 @@
                                 </form>
                             </div>
                             <div class="title">
-                                <span id="linkSign-tabVis4">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Det simple og det komplekse<br>
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Det simple og det komplekse<br>
                                 <div class="description">
                                     Per Aage Brandt
                                 </div>
@@ -195,7 +197,7 @@
                                 </form>
                             </div>
                             <div class="title">
-                                <span id="linkSign-tabVis5">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; The reality of budgetary reform in OECD nations trajectories and consequences<br>
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; The reality of budgetary reform in OECD nations trajectories and consequences<br>
                                 <div class="description">
                                     John Wanna m. fl.
                                 </div>
@@ -217,16 +219,9 @@
                         </div>
                     </div>
 
-
                     <p class="page_footer">(Side&nbsp;1&nbsp;af&nbsp;31704)&nbsp; forrige &nbsp;|&nbsp; <a class="page_browse" href="http://takana1.dbc.dk/mbibdk/m_vis.php?page=2">n&aelig;ste</a></p>
 
-
-                    <p>Dette var s&oslash;geresultatet.........</p>
-
-
-                    <p class="footer_logo"><img alt="" src="images/bottomlogo.jpg" height="30" width="320">
-                    </p>
-
+                    <p class="footer_logo"><img alt="" src="images/bottomlogo.jpg" height="30" width="320"></p>
 
                     <p class="footer_links"><span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=om">Om bibliotek.dk</a></span> &nbsp; <span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=hjaelp">Hj&aelig;lp</a></span> &nbsp; <span class="footer_link"><a href="http://www.bibliotek.dk/?override=web">www.bibliotek.dk</a></span></p>
                 </div>
@@ -243,29 +238,20 @@
                 </div><!-- /navbar -->
             </div>
         </div><!-- /page -->
-        <script language="javascript" type="text/javascript">
-            function openOrCloseBlock(id,replace) {
-                if ( arguments.length == 2 ) replace = false; else replace = true;
-                var element = id;
-                var linkSign = 'linkSign-' + id;
-                if ( document.getElementById(element).style.display != 'block' ) {
-                    document.getElementById(element).style.display = 'block';
-                    if ( replace ) {
-                        document.getElementById(linkSign).innerHTML = '[&divide;]';
-                    }
-                } else {
-                    document.getElementById(element).style.display = 'none';
-                    if ( replace ) {
-                        document.getElementById(linkSign).innerHTML = '[+]';
-                    }
-                }
-            }
-</script>
-<script language="javascript" type="text/javascript">
-    $(function() {
+    </script>
+    <script language="javascript" type="text/javascript">
+        $('#searchPage').live('pageinit',function(event){
+                $('.mainitem').bind('mousedown touchstart', function(event) {
+                    var hide = ($('.itemfull', event.currentTarget).css('display')  !== 'none');
+                    $('.itemfull', event.currentTarget).css('display', hide ? 'none' : 'block');
+                    $('.linkSign', event.currentTarget).html(hide ? '[+]' : '[&divide;]');
+                    $.mobile.fixedToolbars.show();
+                    });
+                $('.itemfull').css('display', 'none');
+                $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+                });
 
-            });
-</script>
-    </body>
-</html>
+            </script>
+        </body>
+    </html>
 
