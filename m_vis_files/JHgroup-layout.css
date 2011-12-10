@@ -1,0 +1,788 @@
+
+html {
+  padding-bottom: 0px;
+  margin: 0px;
+  padding-left: 0px;
+  /*width: 100%;*/ 
+  padding-right: 0px; 
+  height: 100%;
+  padding-top: 0px;
+}
+
+body {
+  padding-bottom: 0px; 
+  margin: 0px; 
+  padding-left: 0px; 
+  padding-right: 0px; 
+  height: 100%; 
+  padding-top: 0px;
+}
+
+
+.alternativ-nav {
+display:none;
+}
+
+
+#lh-col {
+  z-index: 3;
+  padding-bottom: 0px; 
+  width: 20%; 
+  float: left;
+  padding-top: 2.25em;
+  min-width: 15em;
+  max-width: 20em;
+}
+#logo {
+  margin: 0.5em 0em 0em 0.5em;
+  float: left; 
+}
+
+img.logo {  
+  width: 20.8em;
+  height: 5.1em;
+
+}
+#sheets {
+  background-image: url('../pics/transp/nosheetback.png');
+  z-index: 2;
+  position: absolute;
+  min-width: 77.6em;
+  width: 100%;
+  display: block;
+  background-repeat: repeat-x;
+  float: left;
+  height: 3.5em;
+  top: 10.2em;
+  left: 0px;
+  font-size: 1em;
+}
+
+/* følgende er for at cursor skifter til pointer i divtags der udgør en knap (biggerlink.js)*/  
+.hover {
+      border-color: #aaf;
+      cursor: pointer;
+      }
+
+#hdr {
+  border-bottom: #000000 0px solid;
+  min-width: 776px; 
+  margin: 0px; 
+  width: 100%; 
+  background-repeat: repeat-x; 
+  background-position: 0px 0px; 
+  height: 13.4em; 
+  color: #333333; 
+}
+
+.leftsheet {
+  background-image: url('../pics/transp/leftsheet.png');
+  margin-top: 0.5em;
+  width: 1em; 
+  float: left; 
+  height: 2.8em; 
+  margin-left: 1em;
+}
+.leftsheetsel {
+  background-image: url('../pics/transp/leftsheetsel.png');
+  margin-top: 0em;
+  width: 1em; 
+  float: left; 
+  height: 3.3em; 
+  margin-left: 1em;
+}
+
+.sheet {
+  background-image: url('../pics/transp/backsheet.png'); 
+  text-align: center; 
+  margin-top: 0.5em;
+  width: auto; 
+  display: inline; 
+  background-repeat: repeat-x; 
+  float: left; 
+  height: 2.8em;
+}
+.sheetspacer{
+  float: left; 
+  width: 2em; 
+  height: 100%;
+}
+
+.sheetsel {
+  background-image: url('../pics/transp/sheetbacksel.png');
+  text-align: center; 
+  margin-top: 0em;
+  width: auto;
+  display: inline;
+  background-repeat: repeat-x; 
+  float: left; 
+  height: 3.3em;
+  padding-top: .5em;
+}
+
+.sheeticon {
+  /* display: block; */
+  display: none;
+  float: left;
+  z-index: 10;
+  width: auto;
+  margin-right: 1em; 
+  padding-top: 0.2em;
+  margin-top: -1em;
+}
+.sheettext {
+  float: left;
+  width: auto;
+  padding-top: 0.7em;
+  font-size: 1.3em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  position: relative;
+  top: -0.3em;
+}
+
+.rightsheet {
+  background-image: url('../pics/transp/rightsheet.png'); 
+  margin-top: 0.5em;
+  width: 1em;
+  float: left; 
+  height: 2.8em;
+}
+
+.rightsheetsel {
+  background-image: url('../pics/transp/rightsheetsel.png');
+  margin-top: 0em;
+  width: 1.4em;
+  float: left;
+  height: 3.3em;
+}
+
+#c-col {
+  z-index: 5; 
+  padding-bottom: 0.8em; 
+  padding-left: 0.8em; 
+  width: 60%; 
+  padding-right: 0.8em; 
+  float: left; 
+  height: 100%;
+  padding-top: 2.25em;
+
+}
+
+
+
+#c-block {
+  z-index: 10; 
+  min-width: 77.6em;  
+  width: auto; 
+  background: #ffffff; 
+  height: 100%;
+  background: url('../pics/transp/contenttop.png') #ffffff repeat-x; 
+}
+
+IMG {
+  border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px
+}
+#rh-col {
+  width: 15%; 
+  float: left;
+  padding-top: 2.25em;
+}
+#topnavbar {
+  min-width: 46em; 
+  padding-bottom: 0.5em; 
+  background-color: white; 
+  margin-top: 0.5em; 
+  padding-left: 0.5em; 
+  padding-right: 0.5em; 
+  display: block; 
+  margin-bottom: 1.5em; 
+  float: right; 
+  padding-top: 0.5em;
+  /* filter: alpha(opacity=95); --> IE7styles.css */
+  /* opacity: .95; */
+  }
+  
+div#bestilbibliotek {
+  min-width: 14em; 
+  background-color: white; 
+  margin-top: 0.5em; 
+  padding: 0.5em; 
+  clear: right;
+  float: right; 
+  /* filter: alpha(opacity=95); --> IE7styles.css */
+  /* opacity: .95; */
+  position:relative;
+  top: -1em;
+  }
+  
+div#loggedInOut {
+  font-weight: bold;
+  min-width: 14em; 
+  background-color: white; 
+  margin-top: 0.5em; 
+  padding: 0.5em; 
+  clear: right;
+  float: right; 
+  /* filter: alpha(opacity=95); --> IE7styles.css */
+  /* opacity: .95; */
+  position:relative;
+  top: -1em;
+  }
+
+
+
+IMG.forcelinebreake {
+  display: block;
+}
+IMG.topmargin-control {
+  margin-top: 0.8em;
+}
+
+.newsbox {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 1em; 
+  padding-left: 1em; 
+  width: 100%; 
+  padding-right: 1em; 
+  background: #ffffff; 
+  padding-top: 1em;
+  border: 1px solid #eee;
+  background: url('../pics/design/boxback.jpg') #ffffff repeat-y; 
+ }
+
+.newsbox.obs {
+  border: 1px solid #000;
+ }
+
+.newsbox p, .newsbox h1,  .newsbox h2,  .newsbox h3 {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.servicelink {
+  float: left;
+  height: 1.25em;
+}
+
+.servicelink-text{
+font-weight: normal;
+
+}
+/*Standard søgeboxe*/
+#searchbox{
+float: left;
+min-width: 47em;
+width: 90%;
+margin-left: 1%;
+margin-right: 1%;
+}
+
+input{
+padding: 0em 0em 0em 0.5em;
+margin: 0em 0em 0em 0em;
+}
+
+form {  
+padding: 0em 0em 0em 1em;
+margin: 0em 0em 0em 0em;
+}
+
+/* label {
+clear: left;
+float: left;
+margin-left: .5em;
+margin-right: .5em;
+min-height: 2em;
+text-align: left;
+margin-top: .5em; 
+} */
+
+#mainboxes{
+float:left;
+width: 98%;
+}
+
+.mainsearch{
+margin-top: .5em;
+margin-bottom: 0em;
+}
+
+.maininput{
+margin-top: 0em;
+margin-bottom: .5em;
+}
+
+h4.label { margin: 0; padding: 0; font-size: 1em; font-weight: normal; }
+
+.laasintext { 
+  float: left;
+  display: block;
+  margin-top: .1em;
+  margin-left: .5em;
+}
+#ftr {
+  border-bottom: #000000 1px solid; 
+  border-left: #000000 0px solid; 
+  margin: 0px; width: 100%; 
+  background: #eeeeee; 
+  height: 4em; 
+  color: #333333; 
+  border-top: #000000 1px solid; 
+  border-right: #000000 0px solid
+}
+.boxborder-c-col {
+  padding-bottom: 1em; 
+  padding-left: 1em; 
+  width: 20em; 
+  padding-right: 1em; 
+  float: left; 
+  margin-right: 1.5em; 
+  padding-top: 1em
+}
+
+.orderbutton {
+  width: auto;
+  font-size: 1.2em;
+  min-height: 1.6em;
+  border: 2px #e4dcb6 outset;
+  margin-right: .5em;
+  margin-bottom: 0em;
+  padding-bottom: 0.0em;
+  background: url('../pics/design/btn-background-2.png') repeat-x bottom right;
+  text-align: center;
+}
+
+.orderbutton a {
+  display: block;
+  padding-top: 0.4em;
+  padding-left: 1.3em;
+  padding-right: 2em;
+  padding-bottom: 0.3em;
+  margin-right: 0;
+  min-height: 1.4em;
+  line-height: 1.2em;
+  /* background: url('../pics/design/btn-background-2.png') repeat-x bottom left; */
+  background: transparent;
+  border: 0px dotted red;
+  cursor: pointer;
+}
+
+.orderbutton input {
+  font-size: 1.1em;
+  font-weight: bold;
+  display: block;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-left: 1.5em;
+  margin-right: 10px;
+  height: 100%;
+  background: transparent;
+  border: 0px #ddd solid;
+  cursor: pointer;
+}
+
+.paneright .orderbutton {
+  margin-bottom: 0.5em;
+}
+
+.paneright .orderbutton a {
+  padding-top: 0.0em;
+  padding-left: 0.3em;
+  padding-right: 0em;
+  padding-bottom: 0.4em;
+  margin-right: 10px;
+  min-height: 1.2em;
+  line-height: 1.0em;
+  border: 0px dotted red;
+}
+
+.paneright .orderbutton img {
+  position:relative; top: 0.2em;
+}
+
+
+.submitbutton {
+  letter-spacing: 0.1em;
+  font-size: 2em;
+  margin-right: .5em;
+  margin-bottom: .5em;
+  width: 4.2em;
+  height: 1.8em;
+  min-height: 1.8em;
+  cursor: pointer;
+  border: 2px #e4dcb6 outset;
+  background: url('../pics/design/btn-background-2.png') repeat-x bottom right;
+  text-align: center;
+}
+
+.submitbutton input {
+  font-size: 1em;
+  display: block;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.2em;
+  padding-left: 1.0em;
+  margin-right: 10px;
+  height: 100%;
+  /* background: url('../pics/design/btn-background-2.png') repeat-x bottom left; */
+  background: transparent;
+  border: 0px #ddd solid;
+  cursor: pointer;
+}
+
+.skanbutton, .closebutton {
+  float: left;
+  width: auto;
+  font-size: 1.2em;
+  min-height: 1.5em;
+  margin-right: 0.3em;
+  margin-bottom: 0em;
+  background: url('../pics/design/btn-background-2.png') repeat-x bottom right;
+  border: 2px #e4dcb6 outset;
+  text-align: center;
+}
+
+.skanbutton a, .closebutton a {
+  display: block;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  margin-right: 0em;
+  min-height: 1.5em;
+  /* background: url('../pics/design/btn-background-2.png') repeat-x bottom left; */
+  background: transparent;
+  border: 0px dotted red;
+  color: #000;
+}
+
+.closebutton a {
+  padding-top: 0.2em;
+  padding-left: 1em;
+  padding-right: 0em;
+  margin-right: 1em;
+}
+
+.helpbutton {
+  float: left;
+  width: auto;
+  font-size: 1.2em;
+  min-height: 1.2em;
+  margin-top: .2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: .1em;
+  background: url('../pics/design/btn-background-2.png') repeat-x bottom right;
+  border: 1px #e4dcb6 solid;
+  text-align: center;
+}
+
+.helpbutton a {
+  display: block;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  padding-left: 3px;
+  padding-right: 0em;
+  margin-right: 3px;
+  min-height: 1.2em;
+  background: transparent;
+  border: 0px dotted red;
+}
+
+.button-highlight{
+  background: url('../pics/design/button-high.png') repeat-x;
+}
+
+input.orderbutton {
+  /* filter:chroma(color=#000000); --> IE7styles.css */
+  background-color: #ddd;
+  color: #010101;
+  padding: 0.1em;
+  cursor: pointer;
+}
+
+
+
+/*Topdescription*/
+
+#topdescription {
+margin-top: 0em;
+padding-bottom: 0em;
+}
+
+.topdescription-text{
+padding-top: 0.5em;
+padding-bottom: 0em;
+}
+
+
+/* Gense */
+
+div.genseList { 
+  background: url('../pics/design/itemtop.png') repeat-x;
+  border: 1px solid #eee;
+  margin-top: 0em;
+}
+
+div.genseList p { 
+  margin: 0.8em 0.5em;
+  border: 0px solid red;
+}
+
+.genseTH.col1 { float: left; width: 4%; font-weight: bold; }
+.genseTH.col2 { float: left; width: 10%; font-weight: bold; text-align: center; }
+.genseTH.col3 { float: left; width: 59%; font-weight: bold; }
+.genseTH.col4 { float: left; width: 15%; font-weight: bold; text-align: right; }
+.genseTH.col5 { float: left; width: 10%; font-weight: bold; }
+
+.genseTD.col1 { float: left; width: 4%; }
+.genseTD.col2 { float: left; width: 10%; text-align: center; }
+.genseTD.col3 { float: left; width: 59%; }
+.genseTD.col4 { float: left; width: 15%; text-align: right; }
+.genseTD.col5 { float: left; width: 10%; text-align: center; }
+
+
+/*Buttons used in topdescription placed inline in text*/
+.inlinebuttons{
+float: left;
+display: inline;
+width: 50%;
+}
+
+.inlinebutton{
+float: left;
+width: 44%;
+}
+
+.orderbutton.libfind{
+float: left;
+margin-right: .5em;
+width: 95%;
+min-height: 2em;
+padding-left: .5em;
+}
+
+.qmarkintext{
+font-size: 1.5em;
+font-weight: 700;
+color: #0e0e0e;
+float: left;
+display: inline;
+width: 2em;
+margin: 0.2em;
+}
+
+.itemfull{
+/*  float: left;*/
+  width: 99.5%;
+  margin-left: .25em;
+  margin-right: .25em;
+  background: url('../pics/design/gradient.png') #ffffff repeat-x; 
+  display: none;
+}
+
+.itemfull.sub{
+background: none;
+border-top: 1px dotted #dcdcdc;
+border-bottom: 1px dotted #dcdcdc;
+  font-size: 1.1em;
+}
+
+.itemfull .description .itemheader {
+  margin-left: 2.2em;
+  text-indent: -2.2em;
+}
+
+.itemfull .description .itemfull {
+  margin-left: 2.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: auto;
+  border: 0px solid blue;
+}
+
+.itemfull .description {
+  font-size: 1.1em;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  min-height: 1.3em;
+  border: 0px solid green;
+}
+
+/* Class used exclusively to change background color when hovering over element*/
+.hoverme:hover{
+background-color: #aea;
+}
+
+.tabel-like {
+/*For at tabel-lignende opstillinger ikke skal ombrydes uhensigtsmæassigt i ie7*/
+min-width: 58em;
+}
+.adress-label{
+clear:left;
+float:left;
+display:block;
+}
+
+.adress-item {
+float:left;
+display: block;
+}
+.no-fieldset-border{
+border: 0px solid #fff;
+}
+
+.bibl-soeg{
+padding-top: 6em;
+float: left;
+border: 0px;
+width: 90%;
+height: 21.3em;
+background: url('../pics/soeg-bib-bagr.png') #ffffff no-repeat;
+clear: right;
+}
+
+.soeg-bibl-left{
+background: url('../pics/soeg-bib-bagr-left.png') #ffffff no-repeat;
+float: left;
+height: 24.3em;
+width: .9em;
+}
+
+
+/* Vælg materiale pop-up */
+
+.materialList {
+  width:200px;
+}
+
+/* 4 kolonner */
+.materialListFilm, .materialListMusik {
+  width:23.5%; margin-right: 1%;
+}
+
+.materialList input, .materialListFilm input {
+  margin-right: 0.3em; margin-top: 0.3em;
+}
+
+.materialListMusik p {
+  margin: 0 0 0 1.5em; text-indent: -1.5em; padding:0;
+}
+
+.materialListFilm p {
+  margin: 0 1em 0 2em; text-indent: -2em; padding:0;
+}
+
+
+/* Following classes are used as variants with existing classes like orderbutton*/
+.w10{
+width: 10%;
+}
+
+.w15{
+width: 15%;
+}
+
+.w20{
+width: 20%;
+}
+
+.w25{
+width: 25%;
+}
+
+.w33{
+width: 33%;
+}
+
+.w37{
+width: 37%;
+}
+
+
+.w40{
+width: 40%;
+}
+
+.w50{
+width: 50%;
+}
+
+.w60{
+width: 60%;
+}
+
+.w66{
+width: 66%;
+}
+
+.w75{
+width: 75%;
+}
+
+.w85{
+width: 85%;
+}
+
+.w90{
+width: 90%;
+}
+
+.w99{
+width: 99%;
+}
+
+.verticalspacer{
+width:100%;
+} 
+
+.h5{
+height: 5em;
+}
+.h10{
+height: 10em;}
+
+.h20{
+height: 20em;
+}
+
+.left { float: left; }
+
+.right { float: right; }
+
+.borderUnder { border-bottom: 1px dotted #acacac; margin-bottom: 1em; padding-bottom: 1em; }
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix { 
+    display: inline-table;
+    min-width: 0;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+
+/* ******************* securImage form ****************************** */
+
+div#captchaForm { width: 30.5em; }
+div#captchaForm div#captchaImg { }
+div#captchaForm div#captchaImg img#siimage { padding-right: 5px; border: 0 }
+div#captchaForm div#captchaImg a { border-style: none }
+div#captchaForm div#captchaLabel { padding-top: 0.5em; padding-bottom: 0.5em; clear: both; }
+div#captchaForm div#captchaLabel label { display: block; float: left; margin-bottom: 0.5em; width: 15em; }
+div#captchaForm div#captchaLabel input { display: block; float: left; margin-bottom: 0.5em; width: 10em; }
+
+
