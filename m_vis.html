@@ -247,7 +247,7 @@
                     var hide = ($('.itemfull', event.currentTarget).css('display')  !== 'none');
                     $('.itemfull', event.currentTarget).css('display', hide ? 'none' : 'block');
                     $('.linkSign', event.currentTarget).html(hide ? '[+]' : '[&divide;]');
-                    $.mobile.fixedToolbars.show();
+                    setTimeout("$.mobile.fixedToolbars.show()", 10);
                     });
                 $('.itemfull').css('display', 'none');
                 $.mobile.fixedToolbars.setTouchToggleEnabled(false);
