@@ -241,7 +241,7 @@
     </script>
     <script language="javascript" type="text/javascript">
         $('#searchPage').live('pageinit',function(event){
-                $('.mainitem').bind('mousedown touchstart', function(event) {
+                $('.mainitem').bind('click', function(event) {
                     var hide = ($('.itemfull', event.currentTarget).css('display')  !== 'none');
                     $('.itemfull', event.currentTarget).css('display', hide ? 'none' : 'block');
                     $('.linkSign', event.currentTarget).html(hide ? '[+]' : '[&divide;]');
