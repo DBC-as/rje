@@ -12,8 +12,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" type="text/css">
         <link rel="stylesheet" href="bibdk.css" type="text/css">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-        <!-- Hvorfor ikke utf-8? - Hvad med non-latin-1 titler/navne/...?  -->
+        <!--script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="apple-touch-icon" href="assets/icon.png">
         <link rel="apple-touch-icon-precomposed" href="assets/icon.png">
@@ -28,9 +27,21 @@
                 <img src="images/logo.png" class="toplogo" alt="bibliotek.dk">
                 <a href="#infoPopup" data-rel="dialog" class="ui-btn-right" data-iconpos="notext" data-icon="info" data-theme="c">info</a>
             </div>
+            
+            <div data-role="footer" data-id="foo1" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="m_start.html">Start</a></li>
+                        <li><a href="m_status.html">Status</a></li>
+                        <li><a href="index.html" class="ui-btn-active ui-state-persist">S&oslash;gning</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            
             <div data-role="content">
                 <!--form action="m_vis.php" method="post"-->
-                <form action="m_vis.html" method="get">
+                <form action="index.html" method="get">
                     <input name="page" value="1" type="hidden">
                     <input type="search" name="search" value="jensen">
                     <fieldset class="ui-grid-a">
@@ -221,16 +232,6 @@
                 </div>
             </div><!-- /content -->
 
-            <div data-role="footer" data-id="foo1" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="m_start.html">Start</a></li>
-                        <li><a href="m_status.html">Status</a></li>
-                        <li><a href="m_vis.html" class="ui-btn-active ui-state-persist">S&oslash;gning</a></li>
-                    </ul>
-
-                </div><!-- /navbar -->
-            </div>
         </div>
         <div data-role="page" data-overlay-theme="e" id="infoPopup"> 
             <div data-role="header" data-theme="c"><h1>Info</h1></div> 
