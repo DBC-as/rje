@@ -31,6 +31,7 @@
         <div data-role="page" id="searchPage">
             <div data-role="header" data-position="fixed" data-id="bibheader">
                 <img src="images/logo.png" class="toplogo">
+                <a href="#infoPopup" data-rel="dialog" class="ui-btn-right" data-iconpos="notext" data-icon="info" data-theme="c">info</a>
             </div>
             <div data-role="content">
                 <!--form action="m_vis.php" method="post"-->
@@ -222,9 +223,6 @@
 
                     <p class="page_footer">(Side&nbsp;1&nbsp;af&nbsp;31704)&nbsp; forrige &nbsp;|&nbsp; <a class="page_browse" href="http://takana1.dbc.dk/mbibdk/m_vis.php?page=2">n&aelig;ste</a></p>
 
-                    <p class="footer_logo"><img alt="" src="images/bottomlogo.jpg" height="30" width="320"></p>
-
-                    <p class="footer_links"><span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=om">Om bibliotek.dk</a></span> &nbsp; <span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=hjaelp">Hj&aelig;lp</a></span> &nbsp; <span class="footer_link"><a href="http://www.bibliotek.dk/?override=web">www.bibliotek.dk</a></span></p>
                 </div>
             </div><!-- /content -->
 
@@ -238,7 +236,16 @@
 
                 </div><!-- /navbar -->
             </div>
-        </div><!-- /page -->
+        </div>
+        <div data-role="page" data-overlay-theme="e" id="infoPopup"> 
+            <div data-role="header" data-theme="c"><h1>Info</h1></div> 
+	        <div data-role="content">
+                 
+                                <p class="footer_logo"><img alt="" src="images/bottomlogo.jpg" height="30" width="320"></p>
+                    <p class="footer_links"><span class="footer_link">
+                    <ul><li><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=om">Om bibliotek.dk</a></span> &nbsp;</li><li> <span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=hjaelp">Hj&aelig;lp</a></span> &nbsp; </li><li><span class="footer_link"><a href="http://www.bibliotek.dk/?override=web">www.bibliotek.dk</a></span></li></ul></p>
+</div> 
+        </div> 
     </script>
     <script language="javascript" type="text/javascript">
         $('#searchPage').live('pageinit',function(event){
