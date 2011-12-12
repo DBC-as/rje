@@ -1,0 +1,50 @@
+.ui-body-c,
+.ui-dialog.ui-overlay-c {
+
+	background: #fff;
+    background-repeat:repeat-x;
+}
+.mainitem {
+    border: 1px black;
+	background: #fff;
+    background-repeat:repeat-x;
+    background-image: url('images/contenttop.png');
+    padding: .3em;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+}
+.mainitem ul li {
+    list-style-type: none;
+}
+.itemshort .title .description {
+    font-style: italic;
+}
+p {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+.toplogo {
+    float: left;
+    clear: none;
+    height: 2.5em;
+}
+.ui-bar-a {
+    border: 0px;
+	background: #e4dcb6;
+    color: #000;
+    -webkit-box-shadow: 0px 1px 5px #000;
+    box-shadow: 0px 1px 5px #000;
+    background-image: url('images/toplogo.png');
+    text-shadow: 1px 1px 4px #fff,
+                 1px -1px 4px #fff,
+                 -1px 1px 4px #fff;
+}
+.bestilknap {
+    float: right;
+    margin: 0em;
+    padding: 0em;
+}
+.bestilknap form div {
+    margin: 0em;
+    margin-left: .3em;
+}

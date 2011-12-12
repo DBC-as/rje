@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>S&oslash;geresultater - bibliotek.dk</title>
+        <meta name="description" content="S&oslash;g og bestil danske bibliotekers b&oslash;ger, musik, film mm. p&aring; m.bibliotek.dk. Adgang til alt hvad der findes p&aring; danske biblioteker p&aring; &eacute;t site.">
+        <meta name="author" content="DBC as">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" type="text/css">
+        <link rel="stylesheet" href="bibdk.css" type="text/css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+        <!-- Hvorfor ikke utf-8? - Hvad med non-latin-1 titler/navne/...?  -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- iphoneikon.png -> icon.png, da det ikke er iphone-specifikt. billedet ser ud til at være en midleretidig placeholder, og skal nok opdateres. Bemærk, bør også være precomposed, ie. med spejl/skygger/blød-kant. -->
+        <link rel="apple-touch-icon" href="assets/icon.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/icon.png">
+        <link rel="icon" type="image/png" href="assets/icon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- bibdklogo.png ser ikke ud til at eksisterer. Splash-screen der kun bruges hvis der oprettes bogmærke til sitet, evt. slet dette tag hvis vi ikke bruger det, skal være 320x480 (vistnok, størrelsen er efter hukommelsen, men korrekt størrelse er et krav hvis det skal fungere -->
+        <link rel="apple-touch-startup-image" href="images/bibdklogo.png">
+        <!-- kan evt. være det samme som icon herover. -->
+        <link rel="shortcut icon" href="http://takana1.dbc.dk/mbibdk/common/pics/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="http://takana1.dbc.dk/mbibdk/common/pics/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div data-role="page" id="searchPage">
+            <div data-role="header" data-position="fixed" data-id="bibheader">
+                <img src="images/logo.png" class="toplogo">
+            </div>
+            <div data-role="content">
+                <!--form action="m_vis.php" method="post"-->
+                    <form action="m_vis.html" method="get">
+                        <input name="page" value="1" type="hidden">
+                        <input type="search" name="search" value="jensen" type="text">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <select name="mat" id="mat">
+                                    <option value="all" selected="selected"> Alle </option>
+                                    <option value="books"> B&oslash;ger </option>
+                                    <option value="music"> Musik </option> 
+                                    <option value="film"> Film </option>
+                                </select>
+                            </div>
+                            <div class="ui-block-b">
+                                <input value="S&oslash;g" type="submit">
+                            </div>     
+                        </fieldset>
+                    </form>
+
+                    <hr />
+
+                <div id="c-block">
+                    <!-- Vis -->
+                    <h2>S&oslash;geresultat</h2>
+                    <p>Her kan du se resultatet af din s&oslash;gning.</p>
+                    <p class="infoheader">Antal s&oslash;geresultater:&nbsp;158520</p>
+                    <!-- Vis -->
+                    <div class="mainitem">
+                        <div class="itemshort">
+                            <div class="bestilknap">
+                                <form action="m_bestil.php" method="post">
+                                    <input name="id" value="850290:000044053" type="hidden"> <input name="titel" value="Nordisk i tv og radio rapport om nordisk programsamarbejde samt adgang til nordiske nabolandskanaler" type="hidden"> <input value="Bestil" type="submit">
+                                </form>
+                            </div>
+                            <div class="title">
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Nordisk i tv og radio rapport om nordisk programsamarbejde samt adgang til nordiske nabolandskanaler<br>
+                                <div class="description">
+                                    Else Fabricius Jensen
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="tabVis1" class="itemfull">
+                            <div class="titledesc">
+                                <div class="description">
+                                    <ul>
+                                        <li>&Aring;r: 1992</li>
+                                        <li>Omfang: 36 s.</li>
+                                        <li>ISBN: 8773036293</li>
+                                        <li>Forlag: K&oslash;benhavn Nordisk Ministerr&aring;d</li>
+                                        <li>Sprog: Dansk</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mainitem">
+                        <div class="itemshort">
+                            <div class="bestilknap">
+                                <form action="m_bestil.php" method="post">
+                                    <input name="id" value="820010:5231427" type="hidden"> <input name="titel" value="P&aring; trapperne" type="hidden"> <input value="Bestil" type="submit">
+                                </form>
+                            </div>
+
+
+                            <div class="title">
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; P&aring; trapperne<br>
+                                <div class="description">
+                                    The Substitutes m. fl.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="tabVis2" class="itemfull">
+                            <div class="titledesc">
+                                <div class="description">
+                                    Indspillet 2008-2009
+                                    <ul>
+                                        <li>&Aring;r: 2009</li>
+                                        <li>Omfang: 1 cd ep 1 bilag</li>
+                                        <li>Forlag: The Substitutes</li>
+                                        <li>Sprog: eng</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mainitem">
+                        <div class="itemshort">
+                            <div class="bestilknap">
+                                <form action="m_bestil.php" method="post">
+                                    <input name="id" value="820010:5231364" type="hidden"> <input name="titel" value="Sommernattens magt" type="hidden"> <input value="Bestil" type="submit">
+                                </form>
+                            </div>
+                            <div class="title">
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_cd-rom.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;CD"> &nbsp; Sommernattens magt<br>
+                                <div class="description">
+                                    Martin Jakobsen sanger, Per M&oslash;ller Jensen
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="tabVis3" class="itemfull">
+                            <div class="titledesc">
+                                <div class="description">
+                                    <ul>
+                                        <li>&Aring;r: 2009</li>
+                                        <li>Omfang: 1 cd 1 bilag</li>
+                                        <li>Forlag: Martin Jakobsen</li>
+                                        <li>Sprog: Dansk</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mainitem">
+                        <div class="itemshort">
+                            <div class="bestilknap">
+                                <form action="m_bestil.php" method="post">
+                                    <input name="id" value="820010:5230486" type="hidden"> <input name="titel" value="Det simple og det komplekse" type="hidden"> <input value="Bestil" type="submit">
+                                </form>
+                            </div>
+                            <div class="title">
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; Det simple og det komplekse<br>
+                                <div class="description">
+                                    Per Aage Brandt
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="tabVis4" class="itemfull">
+                            <div class="titledesc">
+                                <div class="description">
+                                    Indhold: Diogenes Laertius: Om den stoiske dialektik. Gilles Deleuze: Hvad kender man strukturalismen p&aring;?. Peer F. Bundgaard: Det transcendentale kompromis. Bent Rosenbaum: Semiotiske noter om selvmordsadf&aelig;rd - "I'll kill myself - who's self and who's I?". Per Aage Brandt: K&oslash;n og beg&aelig;r, et psykosemiotisk problem. Per H&oslash;jholt/Annette Abrahamsson: Digte og tegninger. Morten S&oslash;ndergaard: "Nu er jeg en malerspand". Anne Marie Dinesen: Et par komputersemiotiske overvejelser - og en kommentar til Jens F. Jensen. Per Aage Brandt: Diagrammer - mental grafik, en kogni-semiotisk grundkategori
+                                    <ul>
+                                        <li>&Aring;r: 1993</li>
+                                        <li>Omfang: 166 sider</li>
+                                        <li>ISBN: 8772883367</li>
+                                        <li>Forlag: &Aring;rhus Aarhus Universitetsforlag</li>
+                                        <li>Sprog: Dansk</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mainitem">
+                        <div class="itemshort">
+                            <div class="bestilknap">
+                                <form action="m_bestil.php" method="post">
+                                    <input name="id" value="820010:5229835" type="hidden"> <input name="titel" value="The reality of budgetary reform in OECD nations trajectories and consequences" type="hidden"> <input value="Bestil" type="submit">
+                                </form>
+                            </div>
+                            <div class="title">
+                                <span class="linkSign">[+]</span> &nbsp; <img src="images/ikon_bog.gif" alt="Materialetype:&nbsp;" title="Materialetype:&nbsp;Bog"> &nbsp; The reality of budgetary reform in OECD nations trajectories and consequences<br>
+                                <div class="description">
+                                    John Wanna m. fl.
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabVis5" class="itemfull">
+                            <div class="titledesc">
+                                <div class="description">
+                                    Investigating the reality of reform in modern budgeting / John Wanna. Budget reforms in the United States : a "perfect storm" for a new wave of deficit-reduction reforms / Alfred Tat-Kei Ho. Budget reform in the United Kingdom : the rocky road to "controlled discretion" / Colin Thain. Australia after budgetary reform : a lapsed pioneer or decorative architect? / Lewis Hawke and John Wanna. Discerning the consequences and integrity of Canada's budget reforms : a story of remnants and resilience / David A. Good and Evert A. Lindquist. Budgeting in New Zealand after the reforms : from radical revolutionary to cautious consolidator / Richard Norman and Derek Gill. Budget reform in Japan : continuous efforts but still a long way to go / Masahiro Horie. Korea's four major budgetary reforms : catching up with a big bang / John M. Kim. Budget reforms in Denmark : unheralded but nevertheless effective / Lotte Jensen and David Fjord. Budget reform in the Netherlands : sadder but much wiser now / Jouke de Vries and Ton Bestebreur. Budget reforms in Spain : anything else beyond budget discipline? / Xavier Ballart and Eduardo Zapico. Budget reform in Italy : importing "enlightened" ideas in a difficult context / Francesco Stolfi, Chiara Goretti and Luca Rizzuto. The work in progress of budgetary reform / John Wanna
+                                    <ul>
+                                        <li>&Aring;r: 2010</li>
+                                        <li>Omfang: xiii, 313 s.</li>
+                                        <li>ISBN: 9781840646894</li>
+                                        <li>Forlag: Cheltenham, UK Northampton, MA Edward Elgar</li>
+                                        <li>Sprog: eng</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="page_footer">(Side&nbsp;1&nbsp;af&nbsp;31704)&nbsp; forrige &nbsp;|&nbsp; <a class="page_browse" href="http://takana1.dbc.dk/mbibdk/m_vis.php?page=2">n&aelig;ste</a></p>
+
+                    <p class="footer_logo"><img alt="" src="images/bottomlogo.jpg" height="30" width="320"></p>
+
+                    <p class="footer_links"><span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=om">Om bibliotek.dk</a></span> &nbsp; <span class="footer_link"><a href="http://takana1.dbc.dk/mbibdk/m_info.php?info=hjaelp">Hj&aelig;lp</a></span> &nbsp; <span class="footer_link"><a href="http://www.bibliotek.dk/?override=web">www.bibliotek.dk</a></span></p>
+                </div>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-id="foo1" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="m_start.html">Start</a></li>
+                        <li><a href="m_status.html">Status</a></li>
+                        <li><a href="m_vis.html" class="ui-btn-active ui-state-persist">S&oslash;gning</a></li>
+                    </ul>
+
+                </div><!-- /navbar -->
+            </div>
+        </div><!-- /page -->
+    </script>
+    <script language="javascript" type="text/javascript">
+        $('#searchPage').live('pageinit',function(event){
+                $('.mainitem').bind('mousedown', function(event) {
+                    var hide = ($('.itemfull', event.currentTarget).css('display')  !== 'none');
+                    $('.itemfull', event.currentTarget).css('display', hide ? 'none' : 'block');
+                    $('.linkSign', event.currentTarget).html(hide ? '[+]' : '[&divide;]');
+                    setTimeout("$.mobile.fixedToolbars.show()", 10);
+                    });
+                $('.itemfull').css('display', 'none');
+                $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+                return true;
+                });
+
+            </script>
+        </body>
+    </html>
+
