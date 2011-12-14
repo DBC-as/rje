@@ -1,0 +1,10 @@
+- use less on server to generate css
+- refactor - module oriented - use require.js
+- better detection of network/webservice error
+- remove history-navigation experiments, and implement ordinary history management.
+- grid based layout
+- jsdoc og docco-venlig dokumentation
+- more input from mobile boilerplate
+- unit testing, - jasmine/qunit and selenium
+- build-script
+- iOS<5, Android<2.2 position workaround
