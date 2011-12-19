@@ -70,25 +70,19 @@ DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkt
 
 `jquery` plugins var også nævnt som mulighed ved udviklermødet. Fordelen ved dette er at det (måske?) har mindshare hos udviklere i biblitekerne? Forbeholdet her er at det indføre en afhængighed på jquery, også i moduler der er ren JavaScript og ellers ville kunne genbruges andre steder.
 
-### Framework
+## JavaScript og DOM-abstraktion
+
+For at normalisere JavaScript-miljøet anvendes `es5-shim.js` og `json2.js` på de platforme hvor der er behov for det. Disse moduler backporter de features fra EcmaScript 5 som kan implementeres oven på EcmaScript 3 (EcmaScript er JavaScript-standardiseringen).
+
+Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbredte DOM-abstraktion, har betydelig mindshare og anvendes allerede en del i bibliotekssammehæng, så det er oplagt at benytte dette API. Zeptojs er en letvægtsimplementation af dele af jquerys API, men understøtter ikke internet explorer, og fylder betydeligt mindre. Strategien er at anvende zeptojs på webkit+firefox, og jquery på øvrige platforme og holde sig til delmængden af deres api.
 
 ## Funktionsbiblioteker
 
-
-### DOM-abstraktion
-
-
+`underscore.js` samt `backbone.js` anvendes for at undgå at genopfinde den dybe tallerken. Disse indeholde diverse utilities, samt framework og konventioner for MVC-design i JavaScript. Indenfor den type biblioteker virker det som om at disse er dem der har størst mindshare, kildekoden ser meget fornuftig ud, og det integrerer let med jquery/zepto.
 
 ## Dokumentation
 docco 
 dokumentation i markdown
-
-## Normalisering af platform
-### ES5
-json2.js, es5-shim
-
-### DOM-abstraktion
-jquery 
 
 ## Test
 ### Intern test
@@ -100,3 +94,8 @@ selenium
 
 ### Integrationsservice
  travis-ci vs. jenkins
+ 
+## Best practices
+github åben process
+code review
+
