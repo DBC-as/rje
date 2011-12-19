@@ -8,6 +8,7 @@ Dokumentet her er et udkast / oplæg til diskussion, - kom gerne med kommentarer
 Emnet her er i første omgang afgrænset til applikationer/widgets hvor logikken kører på klienten og som også kan bringes til delvis at fungere offline, i modsætning til (mobile) websites.
 
 Kriterierne for de tekniske valg skal understøtte deling/genbrug af udvikling, og er derfor:
+
 - Open Source
 - Konsensus om valg
 - Portabilitet (herunder også serverside)
@@ -37,6 +38,9 @@ Offline applikationer implementeres via en manifest-fil, der er en del af (html5
 
 Widget indpakning er en anden måde at lave distribuerbare pakker. W3 har (standard)[http://www.w3.org/TR/widgets/] på området, som forøjeblikket er
 implementeret i PhoneGaps byggeservice, Opera browsers, samt Apache Wookie.
+Dette foregår som et zip-arkiv med applikationen, og en `config.xml` der indeholde metadata.
+
+JavaScript applikationer og biblioteker har derudover ofte metadata i form af en `package.json` som defineret i (commonjs)[http://wiki.commonjs.org/wiki/Packages/1.0]
 
 ## Programmeringssprog
 
@@ -48,7 +52,23 @@ Udover JavaScript er særligt Java undersøgt, da dette sprog bruges en del på 
 
 ## Modulsystem
 
-requirejs vs. commonjs,yepnope,labjs,jquerymoduler
+JavaScript mangler et decideret modulsystem.
+
+`Requirejs` ser umiddelbart ud til at være det bedste bud. Det er designet så moduler kan genbruges både i browsere og på server. Det understøtter afhængigheder mellem moduler, og sikre også at modulerne ikke konflikter/forurener det globale scope.
+Det er også udviklet med et øje på commonjs moduler, som er ved at være standard serverside.
+Understøtter både at de enkelte scripts bliver resolved og loadet i selve browseren, og også at script-filer bliver kompileret/minimeret til en enkel fil til deployment.
+
+`Commonjs` har en begyndende standardiseringen af JavaScript moduler, men er  rettet mod servere og understøtter endnu ikke asynkrone moduler, hvilket er en nødvendighed hvis det skal kunne køre i browser. Requirejs er det client-side modulsystem der lægger sig tættest i retning af den kommende standard her.
+
+DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkte anvendes på browsere. Det vil desuden give mening at rette `use`-systemet sålede at det også understøtter requirejs-moduler (eller hvad vi vælger til client-side applikationer), så kode også kan deles/genbruges mellem DBC server side og client-side applikationer.
+
+`enderjs` er en browser-JavaScript pakkemanager der kompilere moduler til en enkel fil. Fordelen her er at modulerne laves i commonjs-format, og det gør styring af afhængigheder langt lettere. Ulempen er at modulerne skal kompileres hvilket tilføjer et trin i forhold til udvikling.
+
+`yepnope` er en mere letvægts script-loader. De enkelte script har her selv ansvaret for eventuelt at oprette variable de kan blive tilgået via i det globale scope. Til gengæld har det god understøttelse af betinget load af scripts, så til små projekter med forskellig kode afhængig af platform giver dette god mening. 
+
+`labjs` ligger i samme kategori som `yepnope`, dog ikke med samme conditional support.
+
+`jquery` plugins var også nævnt som mulighed ved udviklermødet. Fordelen ved dette er at det (måske?) har mindshare hos udviklere i biblitekerne? Forbeholdet her er at det indføre en afhængighed på jquery, også i moduler der er ren JavaScript og ellers ville kunne genbruges andre steder.
 
 ### Framework
 
