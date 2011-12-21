@@ -2,7 +2,16 @@
   "name": "skuffe-rje",
   "version": "0.0.1",
   "dependencies": {
-      "express": "*",
-      "requirejs": "*"
+    "express": "*",
+    "requirejs": "*",
+    "jquery": "*",
+    "xmlhttprequest": "*",
+    "underscore": "*",
+    "less": "*",
+    "jasmine-node": "*"
+  },
+  "scripts": {
+    "test": "cd m/bibapp && npm update && npm test"
   }
+
 }
