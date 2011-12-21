@@ -81,11 +81,16 @@ Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbre
 `underscore.js` samt `backbone.js` anvendes for at undgå at genopfinde den dybe tallerken. Disse indeholde diverse utilities, samt framework og konventioner for MVC-design i JavaScript. Indenfor den type biblioteker virker det som om at disse er dem der har størst mindshare, kildekoden ser meget fornuftig ud, og det integrerer let med jquery/zepto.
 
 ## Best practices
+
+Koden er open source. For at støtte en åben process lægges koden ud løbende.
+Github anvendes, da dette er det primære kodedelingsværktøj for TING-bibliotekerne i mellem.
+
+
 TODO
 github åben process
 code review
 
-## Dokumentation
+### Dokumentation
 
 Kode forventes at have tre typer dokumentation: intern dokumentation, api dokumentation og projektdokumentation.
 
@@ -101,8 +106,6 @@ Projektdokumentationen ligger i `README.md` forventes at indeholde:
 - Roadmap, hvad er det planen at implementere
 - Credits, hvem har bidraget til projektet, og hvilke andre projekter bygger det på
 
-## Test
-
 ### Intern test
 Der skal være intern test af koden.
 
@@ -114,7 +117,7 @@ Et muligt alternativ kunne være mocha, som ser ud til at have samme syntaks til
 Automatiske grænseflade test er velsete. 
 Selenium anvendes her.
 
-### Platforme til (manual) test
+### Platforme til (manual) test af mobilapplikationer
 
 Ved applikationer til smartphones testes de at virke på:
 
@@ -124,16 +127,20 @@ Ved applikationer til smartphones testes de at virke på:
 - iOS 5 high dpi device
 
 Bemærk: Android 2.1 har en del bugs på `canvas` samt lav market share, så hvis det er en canvas-tung applikation kan det afgrænses til 2.2+. iOS 4 understøtter ikke `position: fixed` ved css, så der kan være quirks her.
-Afgrænsningen til Android og Safari skyldes at dette dækker 95+% af brugerne.
 
-Derudover testes på de forskellige browser engines:
+Afgrænsningen til Android og Safari skyldes at dette dækker 95+% af mobil-brugerne.
+Derudover skal koden testes på de forskellige browser-engines:
 
 - Webkit (Chrome)
 - Gecko (Firefox)
 - Trident (Internet Explorer (8+))
 - Presto (Opera Mini (tester også for featurephones))
 
-### Integrationsservice
- travis-ci vs. jenkins
- 
+Dette sikre både at applikationen virker på desktopplatformen indlejret i en webside, og giver også en fremtidssikring når/hvis nye platforme begynder at spille en større rolle (Windows Phone, mobilbrowser fra Mozilla eller Opera, etc.).
 
+### Integrationsserver
+
+Til at køre automatiske test anvendes en integrationsserver.
+Valget står her imellem jenkins som vi allerede bruger internt til Java/C++ projekter på DBC, og travis som har god github-integration. (Travis er et distribueret bygge/test miljø).
+
+Fordelen ved travis er at det letter adgang for samarbejdspartnere. Integrationen med open source infrastrukturen gør at automatisk test køres på branches udover blot DBCs (eksempelvis bibliotekernes og eksterne udvikleres branches på github). En sådan automatiseret kørsel af test kan være med til at sikre kodekvaliteten og derved også gøre det lettere at dele koden. 
