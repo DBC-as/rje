@@ -51,7 +51,7 @@ define(['exports'], function(exports){
                 outputType: 'json'},
             dataType: 'jsonp',
             success: function (result) {
-                console.log(result)
+                console.log(result);
                 if(result.searchResponse.error) {
                     callback({error: result.searchResponse.error.$});
                 } else {

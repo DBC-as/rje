@@ -23,7 +23,7 @@ define(['exports'], function(exports) {
             return;
         }
 
-        $bottomfiller = $($('#bottomfiller')[0] || $('<div id="bottomfiller">'));
+        var $bottomfiller = $($('#bottomfiller')[0] || $('<div id="bottomfiller">'));
         var bottomheight = Math.max(0, $(window).height() + 61 - $current.height());
         $bottomfiller.css('height', bottomheight);
         $current.append($bottomfiller);
@@ -96,7 +96,6 @@ define(['exports'], function(exports) {
 
     exports.topmenu = function(args) {
         var $topmenu = $($('#topmenu')[0] || '<div id="topmenu">');
-        var menuKeys = Object.keys(args.items);
         
         Object.keys(args.items).forEach(function(item) {
             $topmenu.append(
@@ -110,7 +109,6 @@ define(['exports'], function(exports) {
         $topmenu
             .css('position', 'fixed')
             .css('top', 0)
-            .css('left', 0);
-        
+            .css('left', 0);       
     };
 });
