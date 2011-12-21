@@ -8,7 +8,7 @@ define(['jquery'], function($) {
 
         // if on node, `$(fn)` will not execute fn, but we can expect it to be 
         // initialised now, and just schedule the callback to be executed.
-        if(typeof process !== "undefined" && process.versions && process.versoins.node) {
+        if(typeof process !== "undefined" && process.versions && process.versions.node) {
             process.nextTick(fn);
             return;
         } 
