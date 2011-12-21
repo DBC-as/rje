@@ -24,36 +24,14 @@
         <script type="text/javascript" src="lib/underscore-min.js"></script>
         <script type="text/javascript" src="lib/backbone-min.js"></script>
         <script type="text/javascript" src="bibdk.js"></script>
-        <script type="text/javascript" data-main="scripts/main" src="lib/require.js"></script>
+        <script type="text/javascript" data-main="scripts/dev" src="lib/require.js"></script>
         <script type="text/javascript">
             define('jquery', function() { return $; });
             define('underscore', function() { return _; });
-            define('backbone', function() { return backbone; });
+            define('backbone', function() { return Backbone; });
         </script>
     </head>
     <body>
         <noscript>Requires JavaScript enabled :(</noscript>
-        <div style='visibility:hidden'>
-            <div id="frontpage">
-                <h1>Søg i bibliotek.dk</h1>
-                <form id="frontpageSearch">
-                    <input type="text" placeholder="søgning" name="query" value="" />
-                    <input type="submit" value="Søg" id="searchbutton" />
-                </form>
-                <hr />
-                <form>
-                    <h1>Log ind</h1>
-                    <input type="email" placeholder="email" name="email" value=""  />
-                    <input type="password" placeholder="kodeord" name="name" value=""  />
-                    <input type="submit" value="Log ind"/>
-                </form>
-            </div>
-            <div id="searchresultpage">
-                <h1>Søgeresultater for <span id="searchresultquery"></span></h1>
-                <div id="numhits"></div>
-                <div id="searchresults"></div>
-                <div id="searchResultsLoading">Flere resultater...</div>
-            </div>
-        </div>
     </body>
 </html>
