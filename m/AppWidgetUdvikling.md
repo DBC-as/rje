@@ -80,13 +80,28 @@ Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbre
 
 `underscore.js` samt `backbone.js` anvendes for at undgå at genopfinde den dybe tallerken. Disse indeholde diverse utilities, samt framework og konventioner for MVC-design i JavaScript. Indenfor den type biblioteker virker det som om at disse er dem der har størst mindshare, kildekoden ser meget fornuftig ud, og det integrerer let med jquery/zepto.
 
+## Best practices
+github åben process
+code review
+
 ## Dokumentation
-docco 
-dokumentation i markdown
+
+Kode forventes at have tre typer dokumentation: intern dokumentation, api dokumentation og projektdokumentation.
+
+Til intern dokumentation anvendes `docco`, og til API- og projekt-dokumentation anvendes markdown. 
+
+Motivation for valg af markdown: 1) samme dokumentationsformat for al dokumentation(docco bruger også markdown internt), 2) tekstbaseret format bedre til versionshistorik, 3) integration med github, 4) da JavaScript er dynamisk har api-dokumentationsværktøj ikke samme fordele som med statiske sprog, så almindelig tekst kan være et fornuftigt valg 5) det er let at konvertere dokumentation til andre formater (html, pdf, ...)
+
+Projektdokumentationen ligger i `README.md` forventes at indeholde
+- Beskrivelse af projektet: hvad og hvorfor
+- Overblik over filstruktur / moduler
+- Features, hvad er implementeret
+- Roadmap, hvad er det planen at implementere
+- Credits, hvem har bidraget til projektet, og hvilke andre projekter bygger det på
 
 ## Test
 ### Intern test
-jasmine or mocca
+jasmine or mocha
 ### Automatisk grænsefladetest
 selenium
 ### Manuel test
@@ -95,7 +110,4 @@ selenium
 ### Integrationsservice
  travis-ci vs. jenkins
  
-## Best practices
-github åben process
-code review
 
