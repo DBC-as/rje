@@ -26,11 +26,17 @@ Prototype biblioteksapp. Forøjeblikket blot et eksperiment/skuffeprojekt, men d
 # API
 [ved at blive overført til requirejs]
 
+## `onReady`
+
+    onReady(function() { ... })
+
+calls the function when the browser/phonegap-device/node is ready. (`onReady = require('onReady')`)
+
 ## `jasmine_async`
 
 Syntactic sugar for asynchronous test with jasmine, ie.
 
-    async = require('jasmine_async');
+    var async = require('jasmine_async');
 
     describe('something', function() {
         it('does something', function() {
