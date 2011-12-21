@@ -1,4 +1,4 @@
-define(['jquery'], function() {
+define(['bibdk'], function(bibdk) {
 
 (function() {
     var util = window.util = {};

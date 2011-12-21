@@ -1,4 +1,4 @@
-(function(){
+define(['exports'], function(exports){
     // # Transform JSON-encoded DKABM-xml to straight JSON
     function processDKABM(xml) {
         var results = [];
@@ -64,16 +64,5 @@
             }});
     }
 
-    // # Exports
-    var bibdk;
-    if (typeof exports !== 'undefined') {
-        bibdk = exports;
-    } else {
-        bibdk = {};
-    }
-    if(typeof window !== 'undefined') {
-        window.bibdk = bibdk;
-    }
-
-    bibdk.search = search;
-})();
+    exports.search = search;
+});
