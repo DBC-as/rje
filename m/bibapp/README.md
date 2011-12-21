@@ -20,6 +20,7 @@ Prototype biblioteksapp. Forøjeblikket blot et eksperiment/skuffeprojekt, men d
 - lånerstatus
 - bogbestilling
 - visuel søgning
+- packaging, - generate optimised index.html+ minified js+css and webapp-packaging. NB: currently in devmode.
 
 
 # API

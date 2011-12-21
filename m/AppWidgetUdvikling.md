@@ -148,6 +148,8 @@ Dette sikre både at applikationen virker på desktopplatformen indlejret i en w
 
 ### Integrationsserver
 
+TODO: både og: jenkins(internt byg på DBC) + travis(open source test running)
+
 Til at køre automatiske test anvendes en integrationsserver.
 Valget står her imellem jenkins som vi allerede bruger internt til Java/C++ projekter på DBC, og travis som har god github-integration. (Travis er et distribueret bygge/test miljø).
 
