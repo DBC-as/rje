@@ -15,15 +15,26 @@ Kriterierne for de tekniske valg skal understøtte deling/genbrug af udvikling, 
 
 Dette dokument vil senere blive taget op på tekniske arkitektur-forum hos DBC, og vil sandsynligvis blive interne guidelines her, så feedback nu er en måde at påvirke retningen her.
 
+## Opsummering/checkliste
+
+Herunder en checkliste, primært skrevet til eget(rje@DBC) brug ved nye app/widget-projekter. Det opsummere også teknologivalgene diskuteret herunder:
+
+- Packaging: `package.json`, `config.xml` (-> phonegap-build), `cache-manifest`, evt. Apache Callback m. plugins.
+- Libraries: `requirejs`, `es5-shim`, `json2`, `zepto`/`jquery`, `underscore`, `backbone`, `jasmine`
+- README.md: hvad/hvorfor, features, roadmap, api, filstruktur, credits
+- Infrastruktur: docco, travis, 
+- Mobiltest: Android 2.1/4, iOS 4/5
+- Browsertest: Webkit(Chrome), Gecko(Firefox), Trident(IE8), Presto(Opera Mini)
+
+Ovenstående er konklusionen af diverse eksperimenter/analyse, og skal til at tages i brug - _in progress, not done yet_.
+
 ## Platform
 
 Widgets/apps implementeres med webteknologi så de både kan publiceres som mobile applikationer via market/appstore med adgang til mobilspecifikke features såsom stregkodeskanning, og også kan køre direkte i webbrowseren. Dette giver desuden mulighed for, udover mobile apps, også at køre dem som widgets på pc'er, tablets og storskærme.
 
-Herunder diskuteres forskellige måder at indpakke applikationen, udover blot at lægge den på en webserver.
-
 ### Apache Callback / PhoneGap
 
-Mobilapps laves via Apache Callback(aka. PhoneGap). Dette gør at applikationen i market/appstore kan få adgang til mobil-specifikke features der ikke er i browseren, såsom skanning af stregkoder, samtidigt med at kodebasen også kan bruges til webapps hvor disse features er disabled.
+Deciderede mobilapplikationer bygges via Apache Callback(aka. PhoneGap). Dette gør at applikationen i market/appstore kan få adgang til mobil-specifikke features der ikke er i browseren, såsom skanning af stregkoder, samtidigt med at kodebasen også kan bruges til webapps hvor disse features er disabled.
 
 PhoneGap skiftede navn til Callback i forbindelse med at det blev overdraget til Apache Foundation. Dette kan ses som en sikkerhed for at den forbliver helt open source, også efter at Adobe har opkøbt Nitobi(udviklerne af PhoneGap).
 
@@ -42,7 +53,7 @@ Dette foregår som et zip-arkiv med applikationen, og en `config.xml` der indeho
 
 JavaScript applikationer og biblioteker har derudover ofte metadata i form af en `package.json` som defineret i (commonjs)[http://wiki.commonjs.org/wiki/Packages/1.0]
 
-## Programmeringssprog
+### Programmeringssprog
 
 JavaScript anvendes til udvikling af apps.
 
@@ -50,7 +61,7 @@ Udover JavaScript er særligt Java undersøgt, da dette sprog bruges en del på 
 
 Øvrige alternativer: CoffeScript (Syntactic sugar med tæt integration af JavaScript), Dart(Googles foreslag til JavaScripts efterfølger) og HaXe(crossplatform JavaScript-lignende sprog der oversættes til JavaScript) er også potentielle sprog, men ikke vurderet som værende tilstrækkeligt mainstream. 
 
-## Modulsystem
+### Modulsystem
 
 JavaScript mangler et decideret modulsystem.
 
@@ -70,13 +81,13 @@ DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkt
 
 `jquery` plugins var også nævnt som mulighed ved udviklermødet. Fordelen ved dette er at det (måske?) har mindshare hos udviklere i biblitekerne? Forbeholdet her er at det indføre en afhængighed på jquery, også i moduler der er ren JavaScript og ellers ville kunne genbruges andre steder.
 
-## JavaScript og DOM-abstraktion
+### JavaScript og DOM-abstraktion
 
 For at normalisere JavaScript-miljøet anvendes `es5-shim.js` og `json2.js` på de platforme hvor der er behov for det. Disse moduler backporter de features fra EcmaScript 5 som kan implementeres oven på EcmaScript 3 (EcmaScript er JavaScript-standardiseringen).
 
 Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbredte DOM-abstraktion, har betydelig mindshare og anvendes allerede en del i bibliotekssammehæng, så det er oplagt at benytte dette API. Zeptojs er en letvægtsimplementation af dele af jquerys API, men understøtter ikke internet explorer, og fylder betydeligt mindre. Strategien er at anvende zeptojs på webkit+firefox, og jquery på øvrige platforme og holde sig til delmængden af deres api.
 
-## Funktionsbiblioteker
+### Funktionsbiblioteker
 
 `underscore.js` samt `backbone.js` anvendes for at undgå at genopfinde den dybe tallerken. Disse indeholde diverse utilities, samt framework og konventioner for MVC-design i JavaScript. Indenfor den type biblioteker virker det som om at disse er dem der har størst mindshare, kildekoden ser meget fornuftig ud, og det integrerer let med jquery/zepto.
 
@@ -85,10 +96,7 @@ Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbre
 Koden er open source. For at støtte en åben process lægges koden ud løbende.
 Github anvendes, da dette er det primære kodedelingsværktøj for TING-bibliotekerne i mellem.
 
-
-TODO
-github åben process
-code review
+Koden skal gennem mindst to sæt øjne før den er _done_. DBC bruger reviewboard internt til code review. Derudover er der en form for code review når patches accepteres genne pull-requests i github. 
 
 ### Dokumentation
 
