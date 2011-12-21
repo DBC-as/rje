@@ -13,7 +13,7 @@ Kriterierne for de tekniske valg skal understøtte deling/genbrug af udvikling, 
 - Konsensus om valg
 - Portabilitet (herunder også serverside)
 
-Dette dokument vil senere blive taget op på tekniske arkitektur-forum hos DBC, og vil sandsynligvis blive interne guidelines her, så feedback nu er en måde at påvirke retningen her.
+Dette dokument er tænkt til senere at blive taget op på tekniske arkitektur-forum hos DBC, og vil sandsynligvis blive interne guidelines her, så feedback nu er en måde at påvirke retningen her.
 
 ## Opsummering/checkliste
 
