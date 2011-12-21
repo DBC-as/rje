@@ -1,0 +1,18 @@
+{
+  "name": "bibapp",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "*",
+    "jquery": "*",
+    "xmlhttprequest": "*",
+    "underscore": "*",
+    "less": "*",
+    "jasmine-node": "*"
+  },
+  "directories": {
+    "lib": "scripts"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/jasmine-node -i scripts --runWithRequireJs scripts" 
+  }
+}
