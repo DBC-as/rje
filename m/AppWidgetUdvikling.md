@@ -81,6 +81,7 @@ Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbre
 `underscore.js` samt `backbone.js` anvendes for at undgå at genopfinde den dybe tallerken. Disse indeholde diverse utilities, samt framework og konventioner for MVC-design i JavaScript. Indenfor den type biblioteker virker det som om at disse er dem der har størst mindshare, kildekoden ser meget fornuftig ud, og det integrerer let med jquery/zepto.
 
 ## Best practices
+TODO
 github åben process
 code review
 
@@ -92,7 +93,8 @@ Til intern dokumentation anvendes `docco`, og til API- og projekt-dokumentation 
 
 Motivation for valg af markdown: 1) samme dokumentationsformat for al dokumentation(docco bruger også markdown internt), 2) tekstbaseret format bedre til versionshistorik, 3) integration med github, 4) da JavaScript er dynamisk har api-dokumentationsværktøj ikke samme fordele som med statiske sprog, så almindelig tekst kan være et fornuftigt valg 5) det er let at konvertere dokumentation til andre formater (html, pdf, ...)
 
-Projektdokumentationen ligger i `README.md` forventes at indeholde
+Projektdokumentationen ligger i `README.md` forventes at indeholde:
+
 - Beskrivelse af projektet: hvad og hvorfor
 - Overblik over filstruktur / moduler
 - Features, hvad er implementeret
@@ -100,12 +102,36 @@ Projektdokumentationen ligger i `README.md` forventes at indeholde
 - Credits, hvem har bidraget til projektet, og hvilke andre projekter bygger det på
 
 ## Test
-### Intern test
-jasmine or mocha
-### Automatisk grænsefladetest
-selenium
-### Manuel test
 
+### Intern test
+Der skal være intern test af koden.
+
+Til intern test ser jasmine ud til at være det mest mature testframework, og virker på tværs af platforme, så dette er umiddelbart det bedste bud.
+
+Et muligt alternativ kunne være mocha, som ser ud til at have samme syntaks til definition af tests som jasmine, men er mere asynkront og overlade test-sammenligninger til andre biblioteker elelr manuelle throws.
+
+### Automatisk grænsefladetest
+Automatiske grænseflade test er velsete. 
+Selenium anvendes her.
+
+### Platforme til (manual) test
+
+Ved applikationer til smartphones testes de at virke på:
+
+- Android 2.1 low dpi device
+- Android 4 high dpi device
+- iOS 4 low dpi device
+- iOS 5 high dpi device
+
+Bemærk: Android 2.1 har en del bugs på `canvas` samt lav market share, så hvis det er en canvas-tung applikation kan det afgrænses til 2.2+. iOS 4 understøtter ikke `position: fixed` ved css, så der kan være quirks her.
+Afgrænsningen til Android og Safari skyldes at dette dækker 95+% af brugerne.
+
+Derudover testes på de forskellige browser engines:
+
+- Webkit (Chrome)
+- Gecko (Firefox)
+- Trident (Internet Explorer (8+))
+- Presto (Opera Mini (tester også for featurephones))
 
 ### Integrationsservice
  travis-ci vs. jenkins
