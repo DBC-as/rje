@@ -45,13 +45,13 @@ men de er alle mere lukkede og/eller understøtter ikke at applikationen samtidi
 
 Udover indpakningen som mobilapp, kan webapplikationerne også bygges som offline apps og widgets.
 
-Offline applikationer implementeres via en manifest-fil, der er en del af (html5)[http://www.w3.org/TR/html5/offline.html], og som definerer hvad der skal downloades for at applikationen kan køre offline.
+Offline applikationer implementeres via en manifest-fil, der er en del af [html5](http://www.w3.org/TR/html5/offline.html), og som definerer hvad der skal downloades for at applikationen kan køre offline.
 
-Widget indpakning er en anden måde at lave distribuerbare pakker. W3 har (standard)[http://www.w3.org/TR/widgets/] på området, som forøjeblikket er
+Widget indpakning er en anden måde at lave distribuerbare pakker. W3 har [standard](http://www.w3.org/TR/widgets/) på området, som forøjeblikket er
 implementeret i PhoneGaps byggeservice, Opera browsers, samt Apache Wookie.
 Dette foregår som et zip-arkiv med applikationen, og en `config.xml` der indeholde metadata.
 
-JavaScript applikationer og biblioteker har derudover ofte metadata i form af en `package.json` som defineret i (commonjs)[http://wiki.commonjs.org/wiki/Packages/1.0]
+JavaScript applikationer og biblioteker har derudover ofte metadata i form af en `package.json` som defineret i [commonjs](http://wiki.commonjs.org/wiki/Packages/1.0)
 
 ### Programmeringssprog
 
