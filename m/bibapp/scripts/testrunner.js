@@ -1,4 +1,4 @@
-define(['onReady.spec' /* add test specs here */], function() {
+define(['transition.spec', 'onReady.spec' /* add test specs here */], function() {
     jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
     jasmine.getEnv().execute();
 });
