@@ -20,7 +20,7 @@ Dette dokument er tænkt til senere at blive taget op på tekniske arkitektur-fo
 Herunder en checkliste, primært skrevet til eget(rje@DBC) brug ved nye app/widget-projekter. Det opsummere også teknologivalgene diskuteret herunder:
 
 - Packaging: `package.json`, `config.xml` (-> phonegap-build), `cache-manifest`, evt. Apache Callback m. plugins.
-- Libraries: `requirejs`, `es5-shim`, `json2`, `zepto`/`jquery`, `underscore`, `backbone`, `jasmine`
+- Libraries: `requirejs`, `es5-shim`, `json2`, `jquery`, `underscore`, `backbone`, `jasmine`
 - README.md: hvad/hvorfor, features, roadmap, api, filstruktur, credits
 - Infrastruktur: docco, travis, 
 - Mobiltest: Android 2.1/4, iOS 4/5
@@ -85,7 +85,7 @@ DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkt
 
 For at normalisere JavaScript-miljøet anvendes `es5-shim.js` og `json2.js` på de platforme hvor der er behov for det. Disse moduler backporter de features fra EcmaScript 5 som kan implementeres oven på EcmaScript 3 (EcmaScript er JavaScript-standardiseringen).
 
-Til DOM-manipulation anvendes `zeptojs` eller `jquery`. JQuery er den mest udbredte DOM-abstraktion, har betydelig mindshare og anvendes allerede en del i bibliotekssammehæng, så det er oplagt at benytte dette API. Zeptojs er en letvægtsimplementation af dele af jquerys API, men understøtter ikke internet explorer, og fylder betydeligt mindre. Strategien er at anvende zeptojs på webkit+firefox, og jquery på øvrige platforme og holde sig til delmængden af deres api.
+Til DOM-manipulation anvendes JQuery, da det er det mest udbredte DOM-abstraktion, har betydelig mindshare og anvendes allerede en del i bibliotekssammehæng.
 
 ### Funktionsbiblioteker
 
