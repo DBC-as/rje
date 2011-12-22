@@ -148,9 +148,12 @@ Dette sikre både at applikationen virker på desktopplatformen indlejret i en w
 
 ### Integrationsserver
 
-TODO: både og: jenkins(internt byg på DBC) + travis(open source test running)
 
-Til at køre automatiske test anvendes en integrationsserver.
-Valget står her imellem jenkins som vi allerede bruger internt til Java/C++ projekter på DBC, og travis som har god github-integration. (Travis er et distribueret bygge/test miljø).
+Umiddelbart er det to integrationsservere: Jenkins og travis.
 
-Fordelen ved travis er at det letter adgang for samarbejdspartnere. Integrationen med open source infrastrukturen gør at automatisk test køres på branches udover blot DBCs (eksempelvis bibliotekernes og eksterne udvikleres branches på github). En sådan automatiseret kørsel af test kan være med til at sikre kodekvaliteten og derved også gøre det lettere at dele koden. 
+Jenkins anvendes på DBC, og der er vist også planer om at eksponere den udadtil. 
+Vi bruger den allerede til det meste byg og test, så det er oplagt at anvende denne internt til apps/widgets også.
+
+Da travis er triviel at sætte op anvender vi begge integrationsservere. 
+Testproceduren er i forvejen beskrevet i `package.json`, så travis kræver blot tilføjelse af en 4-linjers `.travis.yml` konfigurationsfil til repositoriet for at fungere.
+Fordelen ved at have travis som supplement til jenkins er, at integrationen med github gør det trivielt for eksterne udviklere at have integrationsserver for deres kloner af repositoriet.
