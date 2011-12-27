@@ -14,5 +14,4 @@
   "scripts": {
     "test": "node_modules/.bin/jasmine-node -i m/bibapp/scripts --runWithRequireJs m/bibapp/scripts" 
   }
-
 }
