@@ -4,6 +4,7 @@
   "dependencies": {
     "express": "*",
     "requirejs": "*",
+    "backbone": "*",
     "jquery": "*",
     "xmlhttprequest": "*",
     "underscore": "*",
@@ -11,7 +12,7 @@
     "jasmine-node": "*"
   },
   "scripts": {
-    "test": "cd m/bibapp && npm update && npm test"
+    "test": "node_modules/.bin/jasmine-node -i m/bibapp/scripts --runWithRequireJs m/bibapp/scripts" 
   }
 
 }
