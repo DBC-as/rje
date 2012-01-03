@@ -1,0 +1,11 @@
+{
+  "name": "skuffe-rje",
+  "version": "0.0.1",
+  "dependencies": {
+    "webdriverjs": "*",
+    "jasmine-node": "*"
+  },
+  "scripts": {
+    "test": "./start-selenium.sh; node_modules/.bin/jasmine-node test" 
+  }
+}
