@@ -11,11 +11,13 @@ var async = (function() {
 describe('helloworld', function() {
     var webdriverjs = require("webdriverjs");
     var client = webdriverjs.remote({desiredCapabilities:{browserName:"firefox"}});
+    client.addCommand('beginTest', function() { this.init(); });
+    client.addCommand('endTest', function() { this.end(); });
 
     it('checks that wikipedia search for hello world returns the page with heading "Hello world program"', function() {
         async.begin();
         client
-            .init()
+            .beginTest()
             .url('http://www.wikipedia.org/')
             .setValue("#searchInput", "hello world")
             .submitForm("#searchform")
@@ -23,6 +25,6 @@ describe('helloworld', function() {
                 expect(result.value).toBe("Hello world program");
                 async.end();
             })
-            .end();
+            .endTest();
     });
 });
