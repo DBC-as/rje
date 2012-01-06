@@ -1,0 +1,22 @@
+# Tasks
+
+- selenese -> webdriver
+    - test traversal
+        - hierachy/structure: suites, before/beforeEach/afterEach/after
+    - selenese->webdriver
+        - selenese parser
+        - webdriverjs
+            - -> npm
+        - implementation of selenese commands
+    - reporting
+- production selenium-setup: 
+    - hub + nodes 
+    - platforms (ie. linux, windows, mac)
+    - browsers (ie. firefox, internet-explorer, chrome, webdriver))
+    - browser versions (...)
+- integration server
+    - job setup of running artesis/ding/bibdk-instances
+    - testaccounts/services
+- testwriting
+    - hierachy/structure
+    - training
