@@ -1,0 +1,28 @@
+# Tasks
+
+- selenese -> webdriver
+    - unit tests
+    - test traversal
+        - hierachy/structure: suites, before/beforeEach/afterEach/after
+        - ding/artesis/bibdk
+        - user credentials
+        - platforms
+    - selenese->webdriver
+        - selenese parser
+        - wire protocol
+            - talking with plain server
+            - cross-selenium-impl
+        - implementation of selenese commands
+        - chaining
+    - reporting
+- production selenium-setup: 
+    - hub + nodes 
+    - platforms (ie. linux, windows, mac)
+    - browsers (ie. firefox, internet-explorer, chrome, webdriver, iphone, android))
+    - browser versions (...)
+- integration server
+    - job setup of running artesis/ding/bibdk-instances
+    - testaccounts/services
+- testwriting
+    - hierachy/structure
+    - training
