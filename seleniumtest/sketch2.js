@@ -13,6 +13,10 @@ function parseSelenese(html) {
 
 var soda = require('soda');
 
+var browser = soda.createClient({
+    'url': 'http://bibliotek.dk/'
+});
+/*
 var browser = soda.createSauceClient({
     'url': 'http://bibliotek.dk/'
   , 'browser': 'iexplore'
@@ -21,9 +25,9 @@ var browser = soda.createSauceClient({
 , 'os': 'Windows 2003'
 , 'browser-version': '7'
 , 'name': 'This is an example test'
+});
   /*
 */
-});
 
 browser.on('command', function(cmd, args){
   console.log(' \x1b[33m%s\x1b[0m: %s', cmd, args.join(', '));
