@@ -20,6 +20,7 @@
     - platforms (ie. linux, windows, mac)
     - browsers (ie. firefox, internet-explorer, chrome, webdriver, iphone, android))
     - browser versions (...)
+    - ALTERNATIVELY: saucelabs.com or testingbot.com or ...?
 - integration server
     - job setup of running artesis/ding/bibdk-instances
     - testaccounts/services

@@ -2,7 +2,7 @@
   "name": "skuffe-rje",
   "version": "0.0.1",
   "dependencies": {
-    "webdriverjs": "*",
+    "soda": "*",
     "jasmine-node": "*"
   },
   "scripts": {

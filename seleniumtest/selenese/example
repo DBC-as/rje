@@ -28,6 +28,11 @@
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
+	<td>for stort søgesæt - du kan kun se søgesæt på under 100.000 poster. Prøv at begrænse søgningen - se tips nedenfor:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
 	<td>For stort søgesæt - du kan kun se søgesæt på under 100.000 poster. Prøv at begrænse søgningen - se tips nedenfor:</td>
 	<td></td>
 </tr>
