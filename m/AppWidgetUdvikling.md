@@ -19,7 +19,7 @@ Dette dokument er tænkt til senere at blive taget op på tekniske arkitektur-fo
 
 Herunder en checkliste, primært skrevet til eget(rje@DBC) brug ved nye app/widget-projekter. Det opsummere også teknologivalgene diskuteret herunder:
 
-- Packaging: `package.json`, `config.xml` (-> phonegap-build), `cache-manifest`, evt. Apache Callback m. plugins.
+- Packaging: `package.json`, `config.xml` (-> phonegap-build), `cache-manifest`, evt. Apache Cordova m. plugins.
 - Libraries: `requirejs`, `es5-shim`, `json2`, `jquery`, `underscore`, `backbone`, `jasmine`
 - README.md: hvad/hvorfor, features, roadmap, api, filstruktur, credits
 - Infrastruktur: docco, travis, 
@@ -32,13 +32,13 @@ Ovenstående er konklusionen af diverse eksperimenter/analyse, og skal til at ta
 
 Widgets/apps implementeres med webteknologi så de både kan publiceres som mobile applikationer via market/appstore med adgang til mobilspecifikke features såsom stregkodeskanning, og også kan køre direkte i webbrowseren. Dette giver desuden mulighed for, udover mobile apps, også at køre dem som widgets på pc'er, tablets og storskærme.
 
-### Apache Callback / PhoneGap
+### Apache Cordova / PhoneGap
 
-Deciderede mobilapplikationer bygges via Apache Callback(aka. PhoneGap). Dette gør at applikationen i market/appstore kan få adgang til mobil-specifikke features der ikke er i browseren, såsom skanning af stregkoder, samtidigt med at kodebasen også kan bruges til webapps hvor disse features er disabled.
+Deciderede mobilapplikationer bygges via Apache Cordova (aka. Callback aka. PhoneGap). Dette gør at applikationen i market/appstore kan få adgang til mobil-specifikke features der ikke er i browseren, såsom skanning af stregkoder, samtidigt med at kodebasen også kan bruges til webapps hvor disse features er disabled.
 
-PhoneGap skiftede navn til Callback i forbindelse med at det blev overdraget til Apache Foundation. Dette kan ses som en sikkerhed for at den forbliver helt open source, også efter at Adobe har opkøbt Nitobi(udviklerne af PhoneGap).
+PhoneGap skiftede navn til Callback og derefter Cordova i forbindelse med at det blev overdraget til Apache Foundation. Dette kan ses som en sikkerhed for at den forbliver helt open source, også efter at Adobe har opkøbt Nitobi(udviklerne af PhoneGap).
 
-Udover Apache Callback, er særligt titanium, rhomobile, mosync undersøgt unity,
+Udover Apache Cordova, er særligt titanium, rhomobile, mosync undersøgt unity,
 men de er alle mere lukkede og/eller understøtter ikke at applikationen samtidigt er en webapp. Bemærk at en del af dem har properitær bygning af mobilapps selvom de er open source.
 
 ### Widgets og offline apps
@@ -47,8 +47,7 @@ Udover indpakningen som mobilapp, kan webapplikationerne også bygges som offlin
 
 Offline applikationer implementeres via en manifest-fil, der er en del af [html5](http://www.w3.org/TR/html5/offline.html), og som definerer hvad der skal downloades for at applikationen kan køre offline.
 
-Widget indpakning er en anden måde at lave distribuerbare pakker. W3 har [standard](http://www.w3.org/TR/widgets/) på området, som forøjeblikket er
-implementeret i PhoneGaps byggeservice, Opera browsers, samt Apache Wookie.
+Widget indpakning er en anden måde at lave distribuerbare pakker. W3 har [standard](http://www.w3.org/TR/widgets/) på området, som forøjeblikket er implementeret i PhoneGaps byggeservice, Opera browsers, samt Apache Wookie.
 Dette foregår som et zip-arkiv med applikationen, og en `config.xml` der indeholde metadata.
 
 JavaScript applikationer og biblioteker har derudover ofte metadata i form af en `package.json` som defineret i [commonjs](http://wiki.commonjs.org/wiki/Packages/1.0)
@@ -63,13 +62,15 @@ Udover JavaScript er særligt Java undersøgt, da dette sprog bruges en del på 
 
 ### Modulsystem
 
-JavaScript mangler et decideret modulsystem.
+Moduler skrives som `Commonjs`-kompatible moduler, og indlejres i applikationen med `Requirejs`.
+
+Overblik over undesøgte modulsystemer:
 
 `Requirejs` ser umiddelbart ud til at være det bedste bud. Det er designet så moduler kan genbruges både i browsere og på server. Det understøtter afhængigheder mellem moduler, og sikre også at modulerne ikke konflikter/forurener det globale scope.
 Det er også udviklet med et øje på commonjs moduler, som er ved at være standard serverside.
 Understøtter både at de enkelte scripts bliver resolved og loadet i selve browseren, og også at script-filer bliver kompileret/minimeret til en enkel fil til deployment.
 
-`Commonjs` har en begyndende standardiseringen af JavaScript moduler, men er  rettet mod servere og understøtter endnu ikke asynkrone moduler, hvilket er en nødvendighed hvis det skal kunne køre i browser. Requirejs er det client-side modulsystem der lægger sig tættest i retning af den kommende standard her.
+`Commonjs` har en begyndende standardiseringen af JavaScript moduler, men er  rettet mod servere og understøtter endnu ikke asynkrone moduler, hvilket er en nødvendighed hvis det skal kunne køre i browser. Requirejs og enderjs er de client-side modulsystem der lægger sig tættest i retning af den kommende standard her. `Commonjs`-moduler anvender `require`, `exports`, og `module` til at hente og definere moduler.
 
 DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkte anvendes på browsere. Det vil desuden give mening at rette `use`-systemet sålede at det også understøtter requirejs-moduler (eller hvad vi vælger til client-side applikationer), så kode også kan deles/genbruges mellem DBC server side og client-side applikationer.
 
@@ -79,7 +80,7 @@ DBCs `jscommon`-`use`-system er ligesom Commonjs server-side, og kan ikke direkt
 
 `labjs` ligger i samme kategori som `yepnope`, dog ikke med samme conditional support.
 
-`jquery` plugins var også nævnt som mulighed ved udviklermødet. Fordelen ved dette er at det (måske?) har mindshare hos udviklere i biblitekerne? Forbeholdet her er at det indføre en afhængighed på jquery, også i moduler der er ren JavaScript og ellers ville kunne genbruges andre steder.
+`jquery`-plugins var også nævnt som mulighed ved udviklermødet. Fordelen ved dette er at det (måske?) har mindshare hos udviklere i biblitekerne? Forbeholdet her er at det indføre en afhængighed på jquery på serverside, også i moduler der er ren JavaScript og ellers ville kunne genbruges andre steder.
 
 ### JavaScript og DOM-abstraktion
 
@@ -122,22 +123,21 @@ Til intern test ser jasmine ud til at være det mest mature testframework, og vi
 Et muligt alternativ kunne være mocha, som ser ud til at have samme syntaks til definition af tests som jasmine, men er mere asynkront og overlade test-sammenligninger til andre biblioteker elelr manuelle throws.
 
 ### Automatisk grænsefladetest
-Automatiske grænseflade test er velsete. 
-Selenium anvendes her.
+Der bør være automatiske grænsefladetest, og Selenium anvendes her.
 
 ### Platforme til (manual) test af mobilapplikationer
 
 Ved applikationer til smartphones testes de at virke på:
 
-- Android 2.1 low dpi device
+- Android 2.? low dpi device
 - Android 4 high dpi device
 - iOS 4 low dpi device
 - iOS 5 high dpi device
 
-Bemærk: Android 2.1 har en del bugs på `canvas` samt lav market share, så hvis det er en canvas-tung applikation kan det afgrænses til 2.2+. iOS 4 understøtter ikke `position: fixed` ved css, så der kan være quirks her.
+Bemærk: Android 2.1 har en del bugs på `canvas` samt lav market share (estimeret ca. 3%), så hvis det er en canvas-tung applikation kan det afgrænses til 2.2+. iOS 4 understøtter ikke `position: fixed` ved css, så der kan være quirks her.
 
-Afgrænsningen til Android og Safari skyldes at dette dækker 95+% af mobil-brugerne.
-Derudover skal koden testes på de forskellige browser-engines:
+Afgrænsningen til Android og Safari skyldes at dette dækker 95+% af mobil-web-forbruget i danmark.
+Derudover bør koden testes på de forskellige browser-engines:
 
 - Webkit (Chrome)
 - Gecko (Firefox)
@@ -147,7 +147,6 @@ Derudover skal koden testes på de forskellige browser-engines:
 Dette sikre både at applikationen virker på desktopplatformen indlejret i en webside, og giver også en fremtidssikring når/hvis nye platforme begynder at spille en større rolle (Windows Phone, mobilbrowser fra Mozilla eller Opera, etc.).
 
 ### Integrationsserver
-
 
 Umiddelbart er det to integrationsservere: Jenkins og travis.
 
