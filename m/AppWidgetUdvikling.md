@@ -114,6 +114,7 @@ Projektdokumentationen ligger i `README.md` forventes at indeholde:
 - Features, hvad er implementeret
 - Roadmap, hvad er det planen at implementere
 - Credits, hvem har bidraget til projektet, og hvilke andre projekter bygger det på
+- Copyright (GPLv3 or later)
 
 ### Intern test
 Der skal være intern test af koden.
