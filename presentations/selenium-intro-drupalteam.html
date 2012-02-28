@@ -1,11 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Vidensdeling: OAuth 2.0</title>
+  <title></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="rje@dbc.dk" />
-  <meta name="date" content="December 2011" />
+  <meta name="date" content="" />
   <!-- configuration parameters -->
   <meta name="defaultView" content="slideshow" />
   <meta name="controlVis" content="hidden" />
@@ -269,144 +268,128 @@
   </script>
 </head>
 <body>
-<h1 class="title">Vidensdeling: OAuth 2.0</h1>
 <div class="layout">
 <div id="controls"></div>
 <div id="currentSlide"></div>
 <div id="header"></div>
 <div id="footer">
 <h1
->December 2011</h1
+></h1
 ><h2
->Vidensdeling: OAuth 2.0</h2
+></h2
 ></div>
 </div>
 <div class="presentation">
 
 <div class="slide">
 <h1
->Vidensdeling: OAuth 2.0</h1
-><h3
->rje@dbc.dk</h3
-><h4
->December 2011</h4
-></div>
-<div class="slide">
-<h1
->Indhold</h1
-><ol style="list-style-type: decimal;"
-><li
-  >Hvad/hvorfor</li
-  ><li
-  >Hvordan virker det</li
-  ><li
-  >OAuth 2.0</li
-  ><li
-  >Hvad ville vi kunne bruge det til</li
-  ></ol
-></div>
-<div class="slide">
-<h1
->Hvad/hvorfor</h1
+>Intro/noter</h1
 ><ul
 ><li
-  >OAuth 2.0 er en standard for adgangskontrol<ul
+  >Git opsætning<ul
     ><li
-      >Interessant tilgang</li
+      >Download from http://code.google.com/p/msysgit/</li
       ><li
-      >Kan måske være et relevant bud for vores webservices</li
+      >Install</li
+      ><li
+      >start &quot;Git GUI&quot; from start menu</li
+      ><li
+      ><code
+	>Help</code
+	> -&gt; <code
+	>Show SSH Key</code
+	> -&gt; <code
+	>Generate Key</code
+	> og <code
+	>Copy to Clipboard</code
+	></li
+      ><li
+      >Åbn github.com i webbrowser, opret bruger og log ind</li
+      ><li
+      ><code
+	>Edit Your Profile</code
+	> -&gt; <code
+	>SSH Public Keys</code
+	> -&gt; <code
+	>Add another public key</code
+	> -&gt; paste / sæt nøglen ind, der blev kopieret fra Git GUI</li
+      ><li
+      >Bliv tilføjet med skriverettigheder til organisationen DBC-as på github - hiv fat i Rasmus, eller en af de andre på listen over organisation members.</li
+      ><li
+      >Find repositoriet <code
+	>DBC-as/selenese-tests</code
+	>, og klik på &quot;HTTP&quot;, og kopier urlen (<code
+	>https://</code
+	> dit_bruger_navn <code
+	>@github.com/DBC-as/selenese-tests.git</code
+	>) til clipboard med knap til højre for urlen.</li
+      ><li
+      >Vend tilbage til &quot;Git GUI&quot;, og <code
+	>Clone Existing Repository</code
+	>, med den kopierede url som source repository, og target directory som stedet hvor det skal placeres</li
+      ></ul
+    ></li
+  ><li
+  >Selenium-IDE<ul
+    ><li
+      >Installer/åbn <em
+	>Firefox</em
+	></li
+      ><li
+      >Åben http://release.seleniumhq.org/selenium-ide/1.5.0/selenium-ide-1.5.0.xpi i browseren, og sig ja til at installation. Dette installere Selenium-IDE i browseren.</li
+      ><li
+      >Selenium-IDE kan herefter startes fra Tools-menuen i firefox.</li
+      ><li
+      >Eksperimenter med at optage grænsefladeinteraktioner, husk at gem hver enkelt test</li
+      ><li
+      >Gem til sidst hele suiten</li
+      ></ul
+    ></li
+  ><li
+  >Commit af ændringer<ul
+    ><li
+      >Åbn stifinderen og find kataloget med selenium testene.</li
+      ><li
+      >Hent seneste ændringer fra github:<ul
+	><li
+	  >højreklik i kataloget og vælg <code
+	    >git bash</code
+	    > fra menuen</li
+	  ><li
+	  >skriv <code
+	    >git pull origin master</code
+	    > og tryk enter i terminalen der popper op (dette beder git om at hente seneste ændringer fra origin(repositoriet fra github) i master-branchen)</li
+	  ><li
+	  >luk terminalen når kommandoen er færdig.</li
+	  ></ul
+	></li
+      ><li
+      >Eventuelt rediger og opdater bibliotekdk.lst eller anden liste af selenium-suites.</li
+      ><li
+      >Start &quot;Git GUI&quot; og åbn repositoriet</li
+      ><li
+      >Klik <code
+	>Rescan</code
+	> og herefter <code
+	>Stage Changed</code
+	> for at finde og forberede ændringerne</li
+      ><li
+      >Gennemse ændringer under <code
+	>Staged Changes (Will Commit)</code
+	></li
+      ><li
+      >Lav beskrivelse af ændringerne under <code
+	>Commit message</code
+	></li
+      ><li
+      >Klik <code
+	>Commit</code
+	> og herefter <code
+	>Push</code
+	> for at gemme og uploade ændringerne</li
       ></ul
     ></li
   ></ul
-><p
->Problem:</p
-><ul
-><li
-  >IP-autentificering virker ikke med klient-applikationer</li
-  ><li
-  >Login/password i klienten er usikkert og understøtter ikke begrænset adgang eller 'revoke'</li
-  ></ul
-></div>
-<div class="slide">
-<h1
->Hvordan</h1
-><ul
-><li
-  >afkobling mellem bruger (&quot;resource owner&quot;) og klient</li
-  ><li
-  >indførsel af <code
-    >access_token</code
-    ></li
-  ><li
-  >forskellige authentikationsflow</li
-  ></ul
-><hr
- /><p
->Eksempel - implicit flow:</p
-><ol style="list-style-type: decimal;"
-><li
-  >Klienten sender brugeren til service-login med liste af adgangsønsker</li
-  ><li
-  >Service-login returnerer brugeren til klienten sammen med <code
-    >access_token</code
-    ></li
-  ><li
-  >Klienten kan herefter kalde webservicen med <code
-    >access_token</code
-    ></li
-  ></ol
-><p
->Bemærk: klienten ser aldrig bruger-login, og brugeren kan vælge hvad klienten har adgang til.</p
-></div>
-<div class="slide">
-<h1
->OAuth 2.0</h1
-><ul
-><li
-  >IETF Working Draft (forfattet af Yahoo/Microsoft/Facebook)</li
-  ><li
-  >SSL, og dermed enklere end OAuth 1.0</li
-  ><li
-  >Flows: authorization code, implicit, bruger credentials, klient,</li
-  ><li
-  >Anvendes allerede af google, facebook, microsoft, twitter, github, ...</li
-  ></ul
-></div>
-<div class="slide">
-<h1
->Hvad vi villle kunne bruge det til</h1
-><ul
-><li
-  >Klientapplikationer ie. mobil+web-apps.</li
-  ><li
-  >Testadgang til services (ie. begrænset antal api-kald/time)</li
-  ><li
-  >Åbning op for 3.parts-applikationer.</li
-  ><li
-  >Finkornet resourceadgang/billing: bibliotek/bruger/applikation vs. kun bibliotek.</li
-  ><li
-  >Viden om hvem der bruger vores services.</li
-  ></ul
-></div>
-<div class="slide">
-<h1
->Opsamling</h1
-><ol style="list-style-type: decimal;"
-><li
-  >Hvad/hvorfor</li
-  ><li
-  >Hvordan virker det</li
-  ><li
-  >OAuth 2.0</li
-  ><li
-  >Hvad ville vi kunne bruge det til</li
-  ></ol
-></div>
-<div class="slide">
-<h1
->Spørgsmål?</h1
-><p
->?</p
 ></div>
 </div>
 </body>
