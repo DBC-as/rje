@@ -36,55 +36,119 @@
 <div class="slide">
 <h1>Indhold</h1>
 <ul>
-<li><p>Automatiserede grænsefladetests i browser</p></li>
+<li>Overblik
+<ul>
+<li>Hvorfor/hvad</li>
+<li>Selenium setup intro</li>
+<li>IntegrationsServer intro</li>
+</ul></li>
+<li>Selenium-IDE demo</li>
+<li>IntegrationsServer demo</li>
+<li>Praktiske detaljer
+<ul>
+<li>Om eksekvering af automatiske tests</li>
+<li>Catchyas</li>
+<li>Overførsel fra Selenium-IDE til IntegrationsServer</li>
+</ul></li>
+<li>Next</li>
+</ul>
+</div>
+<div class="slide">
+<h1>Hvorfor / hvad</h1>
+<ul>
+<li>Hvorfor
+<ul>
+<li>Regressionstest</li>
+<li>Eliminere kedeligt arbejde :)</li>
+</ul></li>
+<li>Hvad
+<ul>
+<li>Automatisk fjernstyret browsing</li>
+</ul></li>
+</ul>
+</div>
+<div class="slide">
+<h1>Selenium setup • Intro</h1>
+<ul>
+<li>Selenium
+<ul>
+<li>Værktøj til fjernstyring af browsere</li>
+</ul></li>
 <li>Selenium-IDE
-<ul>
-<li>firefox-plugin</li>
-</ul></li>
-<li>Integrationsserver, testscripts og git
-<ul>
-<li>is.dbc.dk</li>
-<li>testscript</li>
-<li>git</li>
-</ul></li>
-<li><h2>Filer</h2>
-<ul>
-<li>suite</li>
-<li>suitelist</li>
-<li>integrationsserver-setup</li>
-</ul></li>
-<li>Catchyas
-<ul>
-<li>nye vinduer, restart-browser</li>
-<li>samarbejde omkring filer (ie. versionering)</li>
-</ul></li>
-<li>Værktøj
-<ul>
-<li>selenium-ide</li>
-<li>integrationsserver</li>
-<li>overførsel til integrationsserver (git)</li>
-</ul></li>
-</ul>
-</div>
-<div class="slide">
-<h1>Indledning</h1>
-<ul>
-<li>Overblik - hvad dækker det over, og hvorfor
-<ul>
-<li>Selenium-IDE</li>
-</ul></li>
-</ul>
-</div>
-<div class="slide">
-<h1>Selenium-IDE Intro</h1>
 <ul>
 <li>Værktøj til at optage browserinteraktion</li>
 <li>Firefox-plugin</li>
+<li>Kan <em>også</em> bruges til at sende reproducerbare bugs, etc.</li>
+</ul></li>
+<li>Filtyper
+<ul>
+<li>Testcases</li>
+<li>Suites</li>
+<li>Suitelists</li>
+</ul></li>
 </ul>
-<p>- - <em>Selenese</em> triplets - domænespecifikt sprog - Kan <em>også</em> bruges til at sende reproducerbare bugs, etc.</p>
 </div>
 <div class="slide">
-<h1>IntegrationsServer</h1>
+<h1>IntegrationsServer setup • Intro</h1>
+<ul>
+<li>Hvad er en integrationsserver, ie. is.dbc.dk
+<ul>
+<li>Regelmæssig kørsel af tests: periodisk, manuelt, eller per ændring</li>
+<li>Rapport med fejl: web, mail, ...</li>
+</ul></li>
+<li>Selenese-runner script
+<ul>
+<li>Hente suitelist, dispatch på tværs af browsere og testsites</li>
+<li>Understøttelse af nye kommandoer, <code>restartBrowser</code></li>
+<li>Substitutioner af eksempelvis brugernavn/kodeord</li>
+<li>Parallel udførsel</li>
+</ul></li>
+<li>Selenium-servere
+<ul>
+<li>Status for setup</li>
+</ul></li>
+</ul>
+</div>
+<div class="slide">
+<h1>Spørgsmål?</h1>
+<ul>
+<li>Overblik
+<ul>
+<li>Hvorfor/hvad</li>
+<li>Selenium setup intro</li>
+<li>IntegrationsServer intro</li>
+</ul></li>
+<li>Selenium-IDE demo</li>
+<li>IntegrationsServer demo</li>
+<li>Praktiske detaljer
+<ul>
+<li>Om eksekvering af automatiske tests</li>
+<li>Overførsel fra Selenium-IDE til IntegrationsServer</li>
+<li>Catchyas</li>
+</ul></li>
+<li>Next</li>
+</ul>
+</div>
+<div class="slide">
+<h1>Selenium-IDE • Demo</h1>
+<ul>
+<li>Installation: firefox og http://seleniumhq.org/projects/ide/</li>
+<li>Kort gennemgang af grænseflade
+<ul>
+<li>Menupunkter, og grænseflade generelt</li>
+<li>Eksempel optag + afspil</li>
+<li>Højreklik for tests</li>
+<li>Gem og åbn testsuite
+<ul>
+<li>Tilføj test</li>
+</ul></li>
+</ul></li>
+<li><em>Selenese</em> triplets - domænespecifikt sprog</li>
+<li>Spørgsmål</li>
+</ul>
+</div>
+<div class="slide">
+<h1>IntegrationsServer • Demo</h1>
 <ul>
 <li>http://is.dbc.dk/ → Web sites → selenium-tests</li>
 <li>Build Now</li>
@@ -93,32 +157,50 @@
 <li>Console Output</li>
 <li>Test Result og detaljer herunde</li>
 </ul></li>
-<li>Kører regelmæssigt</li>
+<li>Læse fejlmeddelelser</li>
+<li>Configure: email-setup, regelmæssig kørsel, selenese-runner-konfiguration</li>
+</ul>
+</div>
+<div class="slide">
+<h1>Spørgsmål?</h1>
+<ul>
+<li>Overblik
+<ul>
+<li>Hvorfor/hvad</li>
+<li>Selenium setup intro</li>
+<li>IntegrationsServer intro</li>
+</ul></li>
+<li>Selenium-IDE demo</li>
+<li>IntegrationsServer demo</li>
+<li>Praktiske detaljer
+<ul>
+<li>Om eksekvering af automatiske tests</li>
+<li>Overførsel fra Selenium-IDE til IntegrationsServer</li>
+<li>Catchyas</li>
+</ul></li>
+<li>Next</li>
 </ul>
 </div>
 <div class="slide">
 <h1>Automatiske test - udførsel</h1>
+<p>Flow for test:</p>
 <ul>
-<li>Test-flow
-<ul>
-<li>læs suitelist</li>
-<li>læs suites</li>
-<li>læs testcases</li>
-<li>udfør kommandoer</li>
-</ul></li>
-<li>Udføres parallelt på tværs af browsere</li>
-<li>Konfigurerbar url</li>
-<li>Substitution af eksempelvis brugernavne</li>
-<li>Mulighed for nye kommandoer, eksempelvis: <code>restartBrowser</code></li>
+<li>Læs suitelist</li>
+<li>Læs suites</li>
+<li>Læs testcases</li>
+<li>Udfør kommandoer</li>
 </ul>
+<p>Udføres parallelt.</p>
 </div>
 <div class="slide">
 <h1>Catchyas</h1>
 <ul>
-<li>nye vinduer</li>
-<li>samarbejde omkring filer, ie. versionering.</li>
-<li>håndtering af filer i selenium-ide, husk både suites og testcases skal gemmes</li>
-<li>struktur af test-træ</li>
+<li>Nye vinduer, browserstate</li>
+<li>Samarbejde omkring filer, ie. versionering.</li>
+<li>Håndtering af filer i selenium-ide, husk både suites og testcases skal gemmes</li>
+<li>Struktur af test-træ</li>
+<li>Udførsel på tværs af browsere(ie. parallelle brugere), samt forskellige testsites(ie. relative urls).</li>
+<li>Specialtegn</li>
 </ul>
 </div>
 <div class="slide">
@@ -135,6 +217,17 @@
 <li>kræver noget opsætning</li>
 </ul></li>
 <li>Andet versionsstyringssystem?</li>
+</ul>
+</div>
+<div class="slide">
+<h1>Next</h1>
+<ul>
+<li>Spørgsmål?</li>
+<li>Vælg overførselsmetode til Selenium-IDE</li>
+<li>Installer selenium-ide</li>
+<li>Eksperimenter med selenium-ide</li>
+<li>Find mappestruktur i forhold til test</li>
+<li>Lav selenium tests</li>
 </ul>
 </div>
 </div>
