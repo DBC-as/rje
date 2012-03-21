@@ -5,9 +5,10 @@
 # file reading and console.log)
 node -e "`cat DocExtract.js`
 
+var util = require('util');
 require('fs').readFile('DocExtract.js', 'utf8', function(err, data) {
     if(err) throw err; 
     DocExtract.assignDocProperty(DocExtract.extractDocStrings(data), global); 
-    console.log(DocExtract);
+    util.log(util.inspect(DocExtract, false, 4));
 });"
 
