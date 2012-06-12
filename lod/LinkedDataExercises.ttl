@@ -14,6 +14,7 @@ space:CSM
     space:mission space:Apollo11.
 
 space:SaturnV
+    owl:sameAs <http://live.dbpedia.org/resource/Saturn_V>;
     space:mission space:Apollo11.
 
 space:LunarModule
