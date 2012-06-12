@@ -1,4 +1,4 @@
-@prefix space: <http://rdf.dbc.dk/space> .
+@prefix space: <http://training.datahub.talis-systems.com/datasets/training12/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
