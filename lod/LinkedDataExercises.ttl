@@ -5,6 +5,7 @@
 space:CSM
     a space:SpaceCraft;
     space:launchVehicle space:SaturnV;
+    foaf:depiction <http://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_11_cm.jpg>;
     foaf:name 
         "Apollo 11 Command and Service Module (CSM)",
         "Apollo 11 CSM",
