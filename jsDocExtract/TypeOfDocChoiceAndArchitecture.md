@@ -39,6 +39,7 @@
     - bygges oven på vores parser
         - fanger fejl i parsning lettere, da det ses i dokumentationen og ikke blot i den interne hjælp
 - conversion
+    - confirm conversion-list in repos+files
     - regex-hack vs. real parsing
     - heuristic memberof-tagging + name for that
 

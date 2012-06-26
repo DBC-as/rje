@@ -1,0 +1,27 @@
+> grep __doc__ `find . -name "*.js"` | sed -e s/..// | sed -e 's/\([^/]*\).*/\1/' | sort | uniq
+addi-service
+datadock
+dbc-jslib
+dbc-jsshell
+drift
+hive
+holdings-dih
+holdingsprocessor
+jscommon
+jsconvert
+jsdoc
+jslib
+jssql
+jstools
+openformat
+openformat-ws
+opensearch
+ors
+os-demo
+os-js
+rhinowrestler
+skuffe
+solr-dbc
+solr-dbc-dm1
+solr-dbc-dm2
+solr-oo
