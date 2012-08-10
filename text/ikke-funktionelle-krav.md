@@ -19,12 +19,14 @@ NB: afbryd med spørgsmål undervejs
 
 ## Indledning
 
-- hvorfor: 
+- hvorfor oplæg: 
     - vi snakkede om det på sidste mobile.ting møde, og der lød til at være et behov
-    - DBC(hvorfor jeg kan få tid til dette): mere åbne løsninger (friere konkurrence) vil være en fordel for os (særligt i kunderolle med evt. mobil bibliotek.dk-app og genbrug af kode i bibliotek.dk).
+    - DBC(hvorfor jeg kan få tid til dette): involvering i community, mere åbne løsninger (friere konkurrence) vil være en fordel for os (eksempelvis evt. mobil bibliotek.dk-app, samt bibliotek.dk).
 - hvad: 
-    - katalog over krav til udbud/kravspecifikation
-    - redskab til at sikre at løsninger kan deles frit, samt undgå vendor-lockin
+    - start på katalog over krav til udbud/kravspecifikation
+    - redskab til at sikre
+        - at løsninger kan deles, og andres løsninger kan genbruges
+        - fri konkurrence / undgå vendor-lockin
 - indhold i kravkatalog
     - krav
     - motivation
