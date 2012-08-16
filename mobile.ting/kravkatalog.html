@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>Kravkatalog</title><link rel="stylesheet" href="kravkatalog.css"/><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/></head><body><h1>Kravkatalog</h1>
+<!-- Wrapped in html for easier presentation -->
+
+<section>Beskrivelse af indgangene
+    <requirement>Titel på kravet
+        <description>ikke-teknisk beskrivelse af kravet</description>
+        <motivation>motivation/baggrund for kravet</motivation>
+        <note>ikke-tekniske noter, eksempelvis undtagelser eller moderationer af kravet</note>
+        <technical>teknisk beskrivelse, samt noter om hvordan det kan opfyldes</technical>
+        <validation>operationalisering af kravet, ie. hvordan vil man (typisk en teknisk konsulent) kunne validere at kravet er opfyldt i løsningen</validation>
+    </requirement>
+</section>
+
+<section>Åbenhed
+
+    <section>Open source / fri software
+        <requirement>Licens på kildekode
+        </requirement>
+        <requirement>Fri software
+            <description>Softwaren skal kunne bygge og køre uden proprietære afhængigheder</description>
+            <motivation>Undgå vendorlockin</motivation>
+            <note>Hvis dette ikke er muligt bør man sikre at afhængighederne mindst er: 
+                <ul>
+                    <li>udviklet af større tredjepart</li>
+                    <li>har lave/moderate entry-omkstninger for udviklere</li>
+                    <li>tillader ubegrænset distribution/anvendelse af slutprodukt</li>
+                </ul>
+                for at undgå vendor-lockin hos leverandør</note>
+        </requirement>
+    </section>
+
+    <section>Åben Process
+        <requirement>Patches upstream
+        </requirement>
+        <requirement>Læseadgang til udviklingsrepositorie
+        </requirement>
+    </section>
+</section>
+
+<section>Best Practices
+
+    <section>Dokumentation
+        <requirement>Byggevejledning
+            <description>Projektet skal indeholde en byggevejledning.<description>
+            <motivation>Vidensdeling der gør det lettere selv at deploye nye udgaver</motivation>
+            <technical>Indeholder beskrivelse af dependencies og byggemiljø, samt trinvis guide til at bygge og starte en kørende udgave af produktet.</technical>
+            <validation>Følg byggevejledningen trin for trin på en clean maskine, og tjek at det resulterer i et kørende produkt.</validation>
+        </requirement>
+        <requirement>API-dokumentation
+            <description></description>
+            <motivation></motivation>
+            <technical></technical>
+            <validation></validation>
+        </requirement>
+        <requirement>Arkitekturdokumentation
+        </requirement>
+    </section>
+  </section>
+
+  <section>Test
+    <requirement>Unit tests
+    </requirement>
+    <requirement>Automatisk grænsefladetest
+        <technical>For webgrænseflader kan dette eksempelvis automatiseres ved Selenium, watir, zombie-js, eller lignende</technical>
+    </requirement>
+    <requirement>Code coverage
+    </requirement>
+  </section>
+
+<section>Teknisk Arkitektur
+</section>
+
+<!-- Wrapped in html for easier presentation -->
+</body></html>

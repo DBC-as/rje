@@ -1,0 +1,24 @@
+section,requirements,note,requirement,motivation,technical,validation,description {
+    display: block;
+    font-size: 10pt;
+    margin-top: 5pt;
+} 
+
+section {
+    font: 18pt sans-serif;
+    padding: 0;
+    padding-left: 10pt;
+    margin: 0;
+    margin-top: 10pt;
+    border-left: 2pt solid black;
+}
+requirement {
+    font-size: 14pt;
+    padding: 10pt;
+    border: 1px dotted black;
+    margin-top: 10pt;
+}
+technical:before { content: 'Tekniske noter: '; font-weight: bold; }
+motivation:before { content: 'Motivation: '; font-weight: bold; }
+note:before { content: 'Note: '; font-weight: bold; }
+validation:before { content: 'Validering af krav: '; font-weight: bold; }
