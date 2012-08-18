@@ -14,25 +14,30 @@
 <section>Åbenhed
 
     <section>Open source / fri software
-        <requirement>Licens på kildekode
+        <motivation> Rettighed til at dele udviklingsarbejdet, og genbruge andres udvikling. Samt fri konkurrence / undgå vendor-lockin.
+        <requirement>Kildekoden frigivet under en åben licens
+            <description></description>
         </requirement>
         <requirement>Fri software
             <description>Softwaren skal kunne bygge og køre uden proprietære afhængigheder</description>
-            <motivation>Undgå vendorlockin</motivation>
             <note>Hvis dette ikke er muligt bør man sikre at afhængighederne mindst er: 
                 <ul>
                     <li>udviklet af større tredjepart</li>
-                    <li>har lave/moderate entry-omkstninger for udviklere</li>
+                    <li>har lave/moderate entry-omkostninger for udviklere</li>
                     <li>tillader ubegrænset distribution/anvendelse af slutprodukt</li>
                 </ul>
                 for at undgå vendor-lockin hos leverandør</note>
         </requirement>
+        <requirement>Patches upstream
+        </requirement>
     </section>
 
     <section>Åben Process
-        <requirement>Patches upstream
-        </requirement>
+        <motivation>Undgå parallelt dobbeltarbejde på tværs af organisationer, samt gennemsigtighed i udviklingsprocessen</motivation>
         <requirement>Læseadgang til udviklingsrepositorie
+            <technical>note: regelmæssigt synkroniseret</technical>
+        </requirement>
+        <requirement>Løbende adgang til projektstatus
         </requirement>
     </section>
 </section>
@@ -66,8 +71,22 @@
     <requirement>Code coverage
     </requirement>
   </section>
+  <section>Kvalitetssikring
+    <requirement>Kodekonventioner
+    </requirement>
+    <requirement>Integrations/bygge-server
+    </requirement>
+    <requirement>Code review
+    </requirement>
+    <requirement>Issue tracking
+    </requirement>
+    <requirement>Agil udvikling
+    </requirement>
+  </section>
 
 <section>Teknisk Arkitektur
+    <requirement>Løsningen skal anvende og bygge videre på eksisterende platform (ding, ¿BApps?)
+    </requirement>
 </section>
 
 <!-- Wrapped in html for easier presentation -->
