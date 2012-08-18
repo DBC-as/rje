@@ -1,6 +1,6 @@
 # Retningslinjer for udvikling af applikationer til mobile platforme
 
-[uddrag af dokument fra april 2012, med enkelte rettelser for at reflektere nyere beslutninger, herunder dokumentationsformat for javascript, samt mobilstrategi]
+[Uddrag af dokument fra april 2012, med enkelte kommentarer/rettelser]
 
 # 1 Baggrund
 
@@ -125,13 +125,11 @@ forhold til at kunne udnytte mobilplatformens muligheder.
 
 ## 5.3 Mobile apps
 
-Mobilapps oven på brøndteknologi er med som en del af høringsforslaget til
-udvikling af bibliotek.dk i 2012, og vi er begyndt i denne retning, både med
-grænseflade for spørgetjenesten, og forskellige eksperimentelle prototyper.
+[Note: DBCs mobilstrategi er blevet opdateret efter nedenstående var skrevet, og fokus forøjeblikket er primært drupal-mobilsitet samt nogle bogmærke-apps. Derudover afventer vi resultatet af BApps-projektet.
+Har dog også lavet nogle prototyper med nedenstående.]
 
 ### 5.3.1 Udviklingsplatform
 
-[TODO: note om opdateret mobilstrategi]
 
 Som platform bygges applikationen ved hjælp af webteknologi, og derefter bundles
 den som en native app.
@@ -186,8 +184,7 @@ Nedenstående tre afsnit oplister en række tekniske valg omkring JavaScript.
 
 #### 5.3.3.1 Modulsystem til JavaScript
 
-Moduler skrives som Commonjs-kompatible moduler, og indlejres i applikationen
-med Requirejs.
+Moduler skrives som Commonjs-kompatible moduler, [eventuelt som "Asynchronous Module Definition" og eksempelvis loaded med requirejs].
  
 #### 5.3.3.2 JavaScript og DOM-abstraktion
 
@@ -272,21 +269,8 @@ accepteres gennem pull-requests i github.
 
 ### 7.1.1 Dokumentation
 
-[TODO: revise with latest doc-standard]
-
-Kode forventes at have tre typer dokumentation: intern dokumentation, api
-dokumentation og projektdokumentation.
-
-Til intern dokumentation anvendes docco12, og til API- og projekt-dokumentation
-anvendes markdown13.
-
-Motivation for valg af markdown: 1) samme dokumentationsformat for al
-dokumentation(docco bruger også markdown internt), 2) tekstbaseret format bedre
-til versionshistorik, 3) integration med github, 4) da JavaScript er dynamisk har api-
-dokumentationsværktøj ikke samme fordele som med statiske sprog, så almindelig
-tekst kan være et fornuftigt valg 5) det er let at konvertere dokumentation til andre
-formater (html, pdf, ...)
-
+Koden forventes både at have intern kodedokumentation, api-dokumentation og projektdokumentation.
+API-dokumentationen skrives i ScriptDoc/JsDoc.]
 Projektdokumentationen ligger i README.md forventes at indeholde:
 
 - Beskrivelse af projektet: hvad og hvorfor
@@ -297,7 +281,8 @@ Projektdokumentationen ligger i README.md forventes at indeholde:
 - Copyright (GPLv3 or later)
 
 ### 7.1.2 Intern test
-[TODO: note om dette]
+
+Koden bør have unit-tests.
 
 ### 7.1.3 Automatisk grænsefladetest
 Der bør være automatiske grænsefladetest, og Selenium anvendes her.
@@ -336,7 +321,7 @@ JavaScript), Dart (Googles foreslag til JavaScripts efterfølger) og HaXe
 potentielle sprog, men ikke vurderet som værende tilstrækkeligt mainstream.
 
 ## 8.3 Modulsystem til mobile apps
-[TODO]
+
 Requirejs ser umiddelbart ud til at være det bedste bud. Det er designet så
 moduler kan genbruges både i browsere og på server. Det understøtter
 afhængigheder mellem moduler, og sikre også at modulerne ikke
@@ -378,67 +363,11 @@ JavaScript og ellers ville kunne genbruges andre steder.
 
 ## 8.4 Kodeguidelines for javascript, intern test
 
-[TODO]
+[Et godt bud på kodeguidelines er "Google JavaScript Style Guide"]
 
 Til intern test ser jasmine ud til at være det mest mature testframework, og virker
 på tværs af platforme, så dette er umiddelbart det bedste bud.
 Et muligt alternativ kunne være mocha, som ser ud til at have samme syntaks til
 definition af tests som jasmine, men er mere asynkront og overlade test-
 sammenligninger til andre biblioteker eller manuelle throws.
-
-## 8.5 Dokumentation af JavaScript
-
-[TODO] 
-I DBCs nuværende, ret omfattende, JavaScript kodebase, er der dokumentation i
-XML, der tildeles til en __doc__ variabel. Det har den fordel, at vi kan tilgå
-dokumentation interaktivt, med vores ”help” funktion. Ulempen er at
-dokumentation er XML, det vil vi gerne bort fra.
-Til et nyt/andet system, er det forsat et krav at der ud fra dokumentationen kan
-udtrækkes via help systemet (__doc__ eller tilsvarende) og at der kan udtrækkes API
-dokumentation. Vi har aldrig implementeret noget baseret på det sidste, men det
-ville ikke være specielt vanskeligt, men formentlig et omfattende arbejde, hvis man
-ville have noget der var ”pænt”. Desuden indeholder vores system ikke muligheder
-for f.eks. at forstå relationer imellem klasser eller lignende.
-
-Der er fremadrettet to grundlæggende alternativer for dokumentation.
-Dokumentation i kommentarer, i form af strukturerede strenge, eller tildeling til
-variable i form af strukturerede strenge, objektnotation eller andet (f.eks. JSON).
-
-Eksempel på det første:
-
-        /**
-         * \brief Add two numbers
-         * \param a First number to be added
-         * \param b Second number to be added
-         * \return The result of the addition
-         */
-        function add( a, b ) {
-            return a + b;
-        }
-
-Eksempel på det andet:
-
-        function add( a, b ) {
-            return a + b;
-        }
-        add.__doc__ = { 
-            brief: ”Add two numbers”, 
-            params: [ 
-                { name: ”a”, brief: ”First number to be added” }, 
-                { name: ”b”, ”Second number to be added” } ],
-            returns: ”The result of the addition” };
-
-Man ville naturligvis kunne lave noget med at konstruere en docstring, eller
-lignende, i stedet for at bruge objektnotation, ligesom man ville kunne anvende
-struktureret tekst.
-
-Hvis vi går vejen med strukturerede kommentarer – som er en meget standard ting
-at gøre – er den bedste løsning formentlig JsDoc Toolkit 29. Det er dog lidt usikkert om
-den kan parse vores moduler og E4X ting. I denne situation skal vi desuden have
-løst problemet omkring udtrækning af dokumentation til hjælpesystemet.
-
-Hvis vi går objektvejen, skal vi have lavet noget, der kan udtrække informationen til
-API dokumentation. En måde kunne være at danne en mellemkode i javascript, som
-man kørte JsDoc Toolkit på. Evt. kunne man fjerne E4X konstruktioner når man
-gjorde det.
 
