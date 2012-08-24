@@ -14,9 +14,31 @@
 <section>Åbenhed
 
     <section>Open source / fri software
-        <motivation> Rettighed til at dele udviklingsarbejdet, og genbruge andres udvikling. Samt fri konkurrence / undgå vendor-lockin.
-        <requirement>Kildekoden frigivet under en åben licens
-            <description></description>
+        <motivation> Rettighed til at dele udviklingsarbejdet, og genbruge andres udvikling. Samt fri konkurrence / undgå vendor-lockin. </motivation>
+        <requirement>Løsningen er frigivet under en åben licens.
+            <description>Kravet bør angive hvilken licens løsningen frigives under, og eventuelt også at ejerskabet ligger hos kunden/organisationen. Licensen bør være GPL-kompatibel, ie. kunne bruges sammen med GPL-belagt software. Husk atddet både er kildekode, og også wireframes, design, indhold, dokumentation etc.</description>
+            <note>
+                Kort overblik over de forskellige typer af open source licenser:
+                <ul>
+                    <li>Public Domain / CC0 Licens / Ny BSD-licens / Apache Licens version 2 / ...: man må gøre hvad man vil med kildekode/indhold/etc., herunder også bruge den til proprietære løsninger.
+                    </li>
+                    <li>"Copyleft"-licenser: man må gøre hvad man vil med kildekode etc. så længe de løsninger man laver også er opensource/copyleft. Bemærk at Apple Appstore regler er inkompatibel med copyleft-licenser, så sikr yderligere rettigheder hvis iOS-app distribution ønskes. Forskellen på de mest almindelige copyleftlicenser herunder:
+                        <ul>
+                            <li>GPL Licens: sædvanlige copyleft softwarelicens</li>
+                            <li>LGPL Licens: copyleft softwarelicens, hvor løsningen desuden må bruges som funktionsbibliotek for proprietære løsninger</li>
+                            <li>AGPL Licens: copyleft softwarelicens til websites, så man også har ret til kildekoden selvom man kun har adgang til at bruge sitet og ikke selv har installeret det</li>
+                            <li>CC BY-SA Licens: Copyleft licens til indhold, design etc.</li>
+                        </ul>
+                    </li>
+                </ul>
+                For licenser på data, se også: http://opendatacommons.org/
+            </note>
+            <technical>
+                Guide til sætte licens på kode: http://www.gnu.org/licenses/gpl-howto.html
+            </technical>
+            <validation>
+                Tjek at repositoriet indeholder en fil der beskriver hvilken licens løsningen er frigiver under, og at der ikke er undtagelser.
+            </validation>
         </requirement>
         <requirement>Fri software
             <description>Softwaren skal kunne bygge og køre uden proprietære afhængigheder</description>
@@ -27,80 +49,127 @@
                     <li>tillader ubegrænset distribution/anvendelse af slutprodukt</li>
                 </ul>
                 for at undgå vendor-lockin hos leverandør</note>
+            <validation>Se hvilke afhængigheder løsningen har (typisk i byggevejledningen), og tjek at de er open source</validation>
         </requirement>
         <requirement>Patches upstream
-        </requirement>
-        <requirement>Ejerskab på design
-            <note>Jan</note>
+            <description>
+                Når løsningen bygger videre på eksisterende løsninger, skal ændringer der er gjort i de eksisterende løsninger leveres tilbage til disse. Herunder at ændringerne i de eksisterende løsninger overholder de kvalitetskrav der gælder disse løsninger.
+            </description>
+            <validation>
+                Tjek at projektet ikke har/er/afhænger-af lokale forks af andre projekter, og hvis det gør, se efter at der er lavet pull-requests eller sendt patches tilbage til de oprindelige projekter.
+            </validation>
         </requirement>
     </section>
 
     <section>Åben Process
         <motivation>Undgå parallelt dobbeltarbejde på tværs af organisationer, samt gennemsigtighed i udviklingsprocessen</motivation>
-        <requirement>Læseadgang til udviklingsrepositorie
-            <technical>note: regelmæssigt synkroniseret</technical>
+        <requirement>Fælles platform
+            <description>Løsningen bør anvende samme projektredskaber som lignende projekter. I TING-regi er dette (vel?) github til versionsstyrings-repositorie-publicering, lighthouse til issue-tracking, ting.dk til status om projektet.</description>
+            <motivation>Bedre overblik, og lettere kommunikation mellem projekter</motivation>
+            <validation>Tjek at projektet anvender ovenstående, samt at disse linker til hinanden.</validation>
+        </requirement>
+        <requirement>Åbenhed om løbende udvikling.
+            <description>Ændringer/udvikling i koden skal lægges op løbende, og være åbent tilgængelige</description>
+            <motivation>Gør det muligt for folk med teknisk expertise at få indblik i hvad der foregår, herunder undgå kolliderende arbejde hvis flere samtidige projekter bygger på samme kode</motivation>
+            <technical>Sikr at der er åben læseadgang til udviklingsrepositoriet, ie. åbent repos på github som der regelmæssigt pushes til</techincal>
+            <validation>Tjek at den in-progress kildekode er tilgængelig under udviklingen. Tjek også at repositoriet er offentligt læsbart</validation>
         </requirement>
         <requirement>Løbende adgang til projektstatus
+            <description>
+                Der bør være åben adgang til issue-tracking og status-dokumenter for projektet, under hele projektforløbet. (Bortset fra kompromiterende, såsom endnu åbne sikkerhedshuller etc.)
+            </description>
+            <motivation>
+                Gør det lettere at have overblik over igangværende projekter.
+            </motivation>
         </requirement>
-        <requirement>GitHub
-        </requirement>
-        <requirement>kooordinering af repositorer
-        </requirement>
-        <requirement>Dokumentation af niveau: alpha/...
-        </requirement>
+        <!--requirement>Agil udvikling
+        </requirement-->
     </section>
 </section>
 
 <section>Best Practices
 
     <section>Dokumentation
+        <requirement>Status / projektbeskrivelse
+            <description>I projektets rodkatalog skal ligge en tekstfil med
+                <ul>
+                    <li>Beskrivelse af projektet: hvad/hvorfor</li>
+                    <li>Status: hvilke features er implementeret, og er det produktionsegenet, beta-kvalitet, eller ?</li>
+                    <li>Roadmap: hvilke planer er der for videre udvikling</li>
+                    <li>Credits: hvem har bidraget til projektet, og hvilke andre projekter bygger det på</li>
+                </ul>
+            </description>
+            <technical>Hvis den kaldes README.md (skrevet i markdown), vil github automatisk vise denne for projektet</technical>
+            <validation>Check/læs den pågældende fil</validation>
+        </requirement>
         <requirement>Byggevejledning
-            <description>Projektet skal indeholde en byggevejledning.<description>
+            <description>Projektet skal indeholde en byggevejledning.</description>
             <motivation>Vidensdeling der gør det lettere selv at deploye nye udgaver</motivation>
-            <technical>Indeholder beskrivelse af dependencies og byggemiljø, samt trinvis guide til at bygge og starte en kørende udgave af produktet.</technical>
+            <technical>Indeholder beskrivelse af dependencies og byggemiljø, samt trinvis guide til at bygge og starte en kørende udgave af produktet. Og også kørsel af test, generering af API-dokumentation etc. Kan anbefales at være en del af README.md</technical>
             <validation>Følg byggevejledningen trin for trin på en clean maskine, og tjek at det resulterer i et kørende produkt.</validation>
         </requirement>
         <requirement>API-dokumentation
-            <description></description>
-            <motivation></motivation>
-            <technical></technical>
-            <validation></validation>
+            <description>Alle offentlige API'er skal være dokumenterede i koden, og der skal automatisk kunne genereres api-dokumentation ud fra dette</description>
+            <motivation>Dokumentation gør det lettere at arbejde med koden</motivation>
+            <validation>Stikprøve-tjek i et par af kildefilerne, - se at offentlige API'er er dokumenteret</validation>
         </requirement>
         <requirement>Arkitekturdokumentation
+            <description>Beskrivelse af det tekniske design af løsning, og også overblik over fil/mappe-struktur</description>
+            <motivation>Dokumentation gør det lettere at arbejde med koden</motivation>
+            <technical>Kan inkluderes i README.md</techincal>
+            <validation>Læs dokumentet igennem, og tjek at det giver overblik over løsningen. Tjek også at fil/mappe-struktur stemmer overens med den nuværende</validation>
         </requirement>
     </section>
-  </section>
 
-  <section>Test
-    <requirement>Unit tests
-    </requirement>
-    <requirement>Automatisk grænsefladetest
-        <technical>For webgrænseflader kan dette eksempelvis automatiseres ved Selenium, watir, zombie-js, eller lignende</technical>
-    </requirement>
-    <requirement>Code coverage
-    </requirement>
-  </section>
-  <section>Kvalitetssikring
-    <requirement>Kodekonventioner
-    </requirement>
-    <requirement>Integrations/bygge-server
-    </requirement>
-    <requirement>Code review
-    </requirement>
-    <requirement>Issue tracking
-       <note>evt. koordinering af samme bugtracking</note>
-    </requirement>
-    <requirement>Agil udvikling
-    </requirement>
-  </section>
+    <section>Test
+        <requirement>Unittests
+            <description>Når der løses en bug eller implementeres en feature, skal der også være test der tjekker den</description>
+            <motivation>Test kan medvirke til bedre kodekvalitet ved at fange fejl tidligere, hvor de er lettere at løse / fejl ikke bliver genintroduceret</motivation>
+            <validation>Tag stikprøver i nogle af de bugs der er blevet løst / features der er blevet implementeret, at der nu er eksisterer test for dem</validation>
+        </requirement>
+        <requirement>Automatisk grænsefladetest
+            <technical>For webgrænseflader kan dette eksempelvis automatiseres ved Selenium, watir, zombie-js, eller lignende</technical>
+        </requirement>
+        <requirement>Code coverage
+            <description>Code coverage er typisk automatiske værktøj der undersøger hvor stor en del af kildekoden der bliver rørt under de automatiske test på. Et typisk krav kunne være at der skal være test coverage på eksempelvis 80% af koden.</description>
+        </requirement>
+    </section>
+    <section>Kvalitetssikring
+        <requirement>Kodekonventioner
+            <description>Der skal være et klart defineret valg af kodekonventioner, og disse skal overholdes i al ny kode. Kodekonventionen skal være den samme som i andre projekter i samme programmeringssprog i samme regi. Eksempelvis skal kode i ding.TING-regi overholde ding.ting kode-guidelines.</description>
+            <motivation>Kodekonventioner er med til at gøre kildekoden mere konsistent og derved mere overskuelig og bedre at arbejde i</motivation>
+            <validation>Tjek at det fremgår tydeligt af hvilke konventioner der anvende, og lav et par stikprøve tjek af commit'ene at de overholde konventionerne</validation>
+        </requirement>
+        <requirement>Integrationsserver
+            <description>Integrationsserver er et redskab til automatisk at bygge softwaren og køre tests.</description>
+            <motivation>Dette sikre at testkørsel foregår automatiseret, og fejl opdages tidligere og rettes lettere</motivation>
+        </requirement>
+        <requirement>Code review
+            <description>Koden skal komme igennem flere par øjne, inden den bliver en del af produktionskoden</description>
+            <motivation>Code review forbedre kodekvaliteten</motivation>
+            <validation>Hvis codereviews foregår skriftligt (reviewboard, eller pull-requests på github etc.), kan der vælges nogle commits som stikprøve, og derefter tjekke om der findes artifakter fra codereviewet.</validation>
+        </requirement>
+        <requirement>Versionsstyring
+            <description>Kildekoden skal være under versionsstyring</description>
+        </requirement>
+        <requirement>Issue tracking
+            <description>Bug/issue-tracking skal styres på struktureret vis</description>
+            <validation>Tjek at der bruges bug/issue-tracker i projektet</validation>
+        </requirement>
+        <requirement>Agil udvikling
+            <description>Agil softwareudvikling kendetegnes blandt andet ved korte releasecykler og mere feedback mellem kunde og leverandør. Eksempler på agile tilgange XP og Scrum.
+            </description>
+            <motivation>Kan tidligere fange og rette hvis løsningen bevæger sig i en anden retning end kunden ønsker.</motivation>
+        </requirement>
+    </section>
+</section>
 
 <section>Teknisk Arkitektur
     <requirement>Løsningen skal anvende og bygge videre på eksisterende platform (ding, ¿BApps?)
     </requirement>
     <requirement>Koordinering af redskaber
     </requirement>
-    <requirement>Krav om abstraktionslag, modulær arkitektur
-        <note>lagdeling/mvc/...</note>
+    <requirement>Krav om abstraktionslag, modulær arkitektur, lagdeling/mvc/...
     </requirement>
 </section>
 
