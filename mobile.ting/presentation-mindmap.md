@@ -55,6 +55,9 @@ NB: afbryd med spørgsmål undervejs
     - kodekonventioner
     - dokumentation
     - agil / løbende indragelse af interessenter
+        - NB: på leverandørsiden interesse?
+        - kørende prototype/demo
+        - nb krav, eksempel scrum
 - tekniske krav / fælles arkitektur og teknologivalg på tværs af projekter
     - ?: BApps
     - Hybrid web/mobil-apps
