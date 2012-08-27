@@ -2,6 +2,8 @@
 
 NB: afbryd med spørgsmål undervejs
 
+http://dbc-as.github.com/rje/mobile.ting/kravkatalog.html
+
 - introduktion 
 - non-funktionelle krav for åbenhed, kodekvalitet og teknisk arkitektur
 - diskussion: kan det bruges? hvorledes/hvorfor ikke/hvorfor? Er der noget vi skal have uddybet? Næste skridt?
@@ -24,6 +26,7 @@ NB: afbryd med spørgsmål undervejs
     - DBC(hvorfor jeg kan få tid til dette): involvering i community, mere åbne løsninger (friere konkurrence) vil være en fordel for os (eksempelvis evt. mobil bibliotek.dk-app, samt bibliotek.dk).
 - hvad: 
     - start på katalog over krav til udbud/kravspecifikation
+        http://dbc-as.github.com/rje/mobile.ting/kravkatalog.html
     - redskab til at sikre
         - at løsninger kan deles, og andres løsninger kan genbruges
         - fri konkurrence / undgå vendor-lockin
