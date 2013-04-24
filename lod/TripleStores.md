@@ -32,10 +32,12 @@ Seneste berlin-benchmark (2011) sammenligner Virtuoso, Jena TDB, 4store, BigData
 
 *Mulgara*(/Kowari) - dele af koden er under "Open Software License" som ikke er GPL-kompatibel. Ej heller så mainstream og nok ikke oppe på 4store/virtuoso/owlim-performance-niveau.
 
-Hvis der skal være en konklusion, må det nok være at Jena ser ud til at være det bedste bud i brøndperspektiv.
+
+Konklusion: Jena ser ud til at være det bedste bud.
 
 # Kilder
 
+blandt andet:
 - Europeana RDF Store Report http://eprints.cs.univie.ac.at/2833/
 - Virtuoso license: https://github.com/openlink/virtuoso-opensource/blob/master/LICENSE
 - http://www.w3.org/wiki/RdfStoreBenchmarking
