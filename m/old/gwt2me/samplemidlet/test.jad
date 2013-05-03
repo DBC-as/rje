@@ -1,6 +1,0 @@
-MIDlet-Name: Demo
-MIDlet-Version: 1.0
-MIDlet-Vendor: DBC
-MIDlet-Description: Demo
-MIDlet-1: Demo, ../resources/icon.png, dk.dbc.samplemidlet.GwtSampleMidlet
-MIDlet-Jar-URL: target/JmMidlet-0.0.1-SNAPSHOT.jar

@@ -1,1 +1,0 @@
-# Mobil biblioteksapp prototype
